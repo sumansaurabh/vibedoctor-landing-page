@@ -9,6 +9,9 @@ declare module "@remix-run/node" {
 }
 
 export default defineConfig({
+  server: {
+    port: 3795,
+  },
   plugins: [
     remix({
       serverModuleFormat: "esm",
