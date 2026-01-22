@@ -1,21 +1,24 @@
+import { vitePlugin as remix } from "@remix-run/dev";
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
-import path from "path";
-import { componentTagger } from "lovable-tagger";
+import tsconfigPaths from "vite-tsconfig-paths";
 
-// https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
-  server: {
-    host: "::",
-    port: 8080,
-    hmr: {
-      overlay: false,
-    },
-  },
-  plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
-  },
-}));
+declare module "@remix-run/node" {
+  interface Future {
+    v3_singleFetch: true;
+  }
+}
+
+export default defineConfig({
+  plugins: [
+    remix({
+      future: {
+        v3_fetcherPersist: true,
+        v3_relativeSplatPath: true,
+        v3_throwAbortReason: true,
+        v3_singleFetch: true,
+        v3_lazyRouteDiscovery: true,
+      },
+    }),
+    tsconfigPaths(),
+  ],
+});

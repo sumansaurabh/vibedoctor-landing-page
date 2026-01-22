@@ -1,73 +1,97 @@
-# Welcome to your Anek.codes project
+# Remix Full-Stack Application
 
-## Project info
+A full-stack web application built with Remix, React, TypeScript, and shadcn/ui.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Getting Started
 
-## How can I edit this code?
+### Prerequisites
+- Node.js >= 20.0.0
+- npm
 
-There are several ways of editing your application.
-
-**Use Anek.codes**
-
-Simply visit the [Anek.codes Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Anek.codes will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Anek.codes.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+### Installation
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Install dependencies
+npm install
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Available Scripts
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```sh
+npm run dev       # Start development server
+npm run build     # Build for production
+npm run start     # Run production server
+npm run lint      # Run ESLint
+npm run typecheck # Run TypeScript type checking
+npm run test      # Run tests
+```
 
-**Use GitHub Codespaces**
+## Project Structure
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```
+app/
+├── routes/           # Remix routes (pages + API endpoints)
+│   ├── _index.tsx    # Home page (/)
+│   ├── $.tsx         # 404 catch-all page
+│   └── api.health.tsx # Example API endpoint (/api/health)
+├── components/       # React components
+│   ├── ui/           # shadcn/ui components
+│   └── ...           # Custom components
+├── lib/              # Utility functions
+├── hooks/            # Custom React hooks
+├── root.tsx          # Root layout component
+└── tailwind.css      # Global styles
+```
 
-## What technologies are used for this project?
+## Technologies
 
-This project is built with:
+- **Framework**: [Remix](https://remix.run/) - Full-stack React framework
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: [shadcn/ui](https://ui.shadcn.dev/)
+- **Build Tool**: Vite
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Backend API Routes
 
-## How can I deploy this project?
+Create API routes by adding files to `app/routes/` with the `api.` prefix:
 
-Simply open [Anek.codes](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+```tsx
+// app/routes/api.example.tsx
+import type { LoaderFunctionArgs, ActionFunctionArgs } from "@remix-run/node";
+import { json } from "@remix-run/node";
 
-## Can I connect a custom domain to my Anek.codes project?
+// GET /api/example
+export async function loader({ request }: LoaderFunctionArgs) {
+  return json({ message: "Hello from API" });
+}
 
-Yes, you can!
+// POST /api/example
+export async function action({ request }: ActionFunctionArgs) {
+  const data = await request.json();
+  return json({ received: data });
+}
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Adding UI Components
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Use shadcn/ui CLI to add components:
+
+```sh
+npx shadcn-ui@latest add button
+npx shadcn-ui@latest add card
+# etc.
+```
+
+## Deployment
+
+Build and run the production server:
+
+```sh
+npm run build
+npm run start
+```
+
+The app runs on `http://localhost:3000` in production mode.
