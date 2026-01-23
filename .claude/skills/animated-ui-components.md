@@ -5,7 +5,78 @@ This project includes advanced animated UI components from the 21st.dev and Acet
 
 ## Available Components
 
-### 1. GridBackground Component
+### 1. HeroGeometric Component
+**Location**: `~/components/ui/shape-landing-hero.tsx`
+
+**Purpose**: Elegant full-screen hero section with floating geometric shapes and animated text reveal.
+
+**Features**:
+- Full-screen dark theme hero with gradient overlay
+- 5 animated floating geometric shapes with different colors
+- Smooth fade-up text animations with staggered delays
+- Customizable badge, title, and subtitle
+- Responsive design with mobile breakpoints
+- Glassmorphic shapes with backdrop blur
+
+**Visual Effect**: Dark, elegant landing page with floating translucent shapes that slowly drift vertically, creating depth and visual interest.
+
+**Usage**:
+```tsx
+import { HeroGeometric } from "~/components/ui/shape-landing-hero";
+
+export default function Index() {
+  return (
+    <HeroGeometric
+      badge="Your Brand"
+      title1="Your Main Title"
+      title2="Your Subtitle"
+    />
+  );
+}
+```
+
+**Props**:
+```typescript
+interface HeroGeometricProps {
+  badge?: string;   // Small badge text (default: "Design Collective")
+  title1?: string;  // First line of title (default: "Elevate Your Digital Vision")
+  title2?: string;  // Second line with gradient (default: "Crafting Exceptional Websites")
+}
+```
+
+**Customization**:
+The component includes an internal `ElegantShape` component that can be modified:
+- `delay`: Animation start delay
+- `width/height`: Shape dimensions
+- `rotate`: Initial rotation angle
+- `gradient`: Tailwind gradient class (e.g., "from-indigo-500/[0.15]")
+- `className`: Positioning classes
+
+**Shape Colors Available**:
+- Indigo: `from-indigo-500/[0.15]`
+- Rose: `from-rose-500/[0.15]`
+- Violet: `from-violet-500/[0.15]`
+- Amber: `from-amber-500/[0.15]`
+- Cyan: `from-cyan-500/[0.15]`
+
+**Use Cases**:
+- Landing page hero sections
+- Portfolio homepages
+- Agency websites
+- Product launch pages
+- Creative studio sites
+
+**Performance**: Uses framer-motion for smooth animations, shapes have slow infinite float animation (12s duration).
+
+**Important TypeScript Note**: When using custom easing arrays with framer-motion, always add `as const`:
+```tsx
+ease: [0.25, 0.4, 0.25, 1] as const  // ✅ Correct
+ease: [0.25, 0.4, 0.25, 1]           // ❌ TypeScript error
+```
+
+---
+
+### 2. GridBackground Component
 **Location**: `~/components/ui/grid-background.tsx`
 
 **Purpose**: Creates a fixed animated grid background with radial gradient, perfect for hero sections and landing pages.
@@ -70,7 +141,7 @@ export default function Index() {
 
 ---
 
-### 2. GlowingEffect Component
+### 3. GlowingEffect Component
 **Location**: `~/components/ui/glowing-effect.tsx`
 
 **Purpose**: Creates an interactive, mouse-following gradient border glow effect that activates when the cursor is near.
@@ -183,7 +254,7 @@ export function GlowButton() {
 
 ---
 
-### 3. ContainerScroll Component
+### 4. ContainerScroll Component
 **Location**: `~/components/ui/container-scroll-animation.tsx`
 
 **Purpose**: Creates a scroll-triggered 3D perspective animation where content transforms from angled to flat as you scroll.
@@ -919,6 +990,40 @@ grep -E "framer-motion|motion" package.json
 ---
 
 ## Troubleshooting
+
+### Framer Motion TypeScript Issues
+
+**Problem**: Error with ease arrays - "Type 'number[]' is not assignable to type 'Easing'"
+```
+Type 'number[]' is not assignable to type 'Easing | Easing[]'
+```
+
+**Solution**: Add `as const` to ease arrays
+```tsx
+// ❌ Wrong
+ease: [0.25, 0.4, 0.25, 1]
+
+// ✅ Correct
+ease: [0.25, 0.4, 0.25, 1] as const
+```
+
+**Why**: Framer-motion expects easing arrays to be tuples (fixed-length arrays) for cubic-bezier easing, not generic `number[]` arrays.
+
+**Alternative**: Use predefined easing strings
+```tsx
+ease: "easeInOut"  // or "easeIn", "easeOut", "linear"
+```
+
+### HeroGeometric Issues
+
+**Problem**: Shapes not animating
+- **Solution**: Ensure framer-motion is installed, check browser supports transforms
+
+**Problem**: Text not staggering
+- **Solution**: Verify `custom` prop is passed and different for each animated element
+
+**Problem**: Performance lag with many shapes
+- **Solution**: Reduce number of shapes, increase animation duration, disable on mobile
 
 ### GridBackground Issues
 
