@@ -5,7 +5,68 @@ This project includes 3D interactive components powered by Spline for creating i
 
 ## Available Components
 
-### 1. SplineScene Component
+### 1. Globe Component (Cobe)
+**Location**: `~/components/blocks/feature-section-with-bento-grid.tsx`
+
+**Purpose**: Animated 3D globe using the Cobe library, perfect for showcasing global reach or international presence.
+
+**Features**:
+- Auto-rotating 3D Earth globe
+- Customizable markers for locations
+- Adjustable colors (base, marker, glow)
+- Smooth canvas-based animation
+- Lightweight and performant
+
+**Usage**:
+```tsx
+import { Globe } from "~/components/blocks/feature-section-with-bento-grid";
+
+export function GlobalPresence() {
+  return (
+    <div className="h-[400px] flex items-center justify-center">
+      <Globe className="mx-auto" />
+    </div>
+  );
+}
+```
+
+**Customization**:
+The Globe component in the file can be customized by modifying these `createGlobe` options:
+- `width/height`: Canvas dimensions
+- `phi/theta`: Initial rotation angles
+- `dark`: 0-1, controls dark mode intensity
+- `baseColor`: RGB array for globe base color
+- `markerColor`: RGB array for location markers
+- `glowColor`: RGB array for the glow effect
+- `markers`: Array of `{ location: [lat, lng], size: number }`
+
+**Complete Bento Grid Example**:
+```tsx
+import { FeaturesSectionWithBentoGrid } from "~/components/blocks/feature-section-with-bento-grid";
+
+export default function Features() {
+  return <FeaturesSectionWithBentoGrid />;
+}
+```
+
+**Dependencies**: Requires `cobe` package
+
+**Bento Grid Layout**:
+The component also includes a complete features section with a Bento Grid layout (6-column grid) featuring four skeleton components:
+- **SkeletonOne**: Image showcase with gradient overlays
+- **SkeletonTwo**: Interactive image gallery with hover animations
+- **SkeletonThree**: YouTube video link with play button overlay
+- **SkeletonFour**: 3D Globe component
+
+**Use Cases**:
+- Global reach sections
+- International locations showcase
+- World map alternatives
+- SaaS product with worldwide presence
+- Agency location displays
+- Feature sections with visual interest
+
+### 2. SplineScene Component
 **Location**: `~/components/ui/splite.tsx`
 
 **Purpose**: Core component for embedding interactive 3D scenes from Spline into the application.
@@ -386,6 +447,9 @@ export function SplineWithMonitoring({ scene, ...props }) {
 ```json
 {
   "@splinetool/react-spline": "latest",
+  "cobe": "^0.6.5",
+  "@tabler/icons-react": "^3.36.1",
+  "framer-motion": "^11.x",
   "react": "^18.3.1",
   "tailwindcss": "^3.4"
 }
@@ -394,8 +458,15 @@ export function SplineWithMonitoring({ scene, ...props }) {
 ### Installation
 ```bash
 # If not already installed
-bun add @splinetool/react-spline
+bun add @splinetool/react-spline cobe @tabler/icons-react
 ```
+
+### Important: Remix vs Next.js
+This project uses **Remix**, not Next.js. When using components from external libraries:
+- ❌ Don't use `import Image from "next/image"` → Use `<img>` tag
+- ❌ Don't use `import Link from "next/link"` → Use `import { Link } from "@remix-run/react"`
+- ✅ Change `href` to `to` in Link components
+- ✅ Use standard HTML img tags with className for styling
 
 ### Tailwind Configuration
 The spotlight animation is defined in `tailwind.config.ts`:
