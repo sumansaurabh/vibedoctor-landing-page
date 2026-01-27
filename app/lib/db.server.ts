@@ -1,4 +1,7 @@
 import type { PostgresJsDatabase } from "drizzle-orm/postgres-js";
+import { drizzle } from "drizzle-orm/postgres-js";
+import postgres from "postgres";
+import * as dbSchema from "../../db/schema";
 
 // Get DATABASE_URL from environment
 const connectionString = process.env.DATABASE_URL;
@@ -16,16 +19,9 @@ async function initializeDb() {
   }
 
   try {
-    const { drizzle } = await import("drizzle-orm/postgres-js");
-    const postgres = (await import("postgres")).default;
-
-    // Try to import schema, use empty object if it doesn't exist
-    let schema = {};
-    try {
-      schema = await import("../../db/schema/index.js");
-    } catch (schemaError) {
-      console.warn("⚠ Database schema not found - using empty schema");
-    }
+    // Use static imports to ensure bundlers include the schema and driver
+    // `dbSchema` may be an empty object if no tables are defined
+    const schema = dbSchema && Object.keys(dbSchema).length ? dbSchema : {};
 
     // Create postgres client
     const client = postgres(connectionString, {

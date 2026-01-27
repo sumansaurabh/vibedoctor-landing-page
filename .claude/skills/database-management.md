@@ -205,6 +205,9 @@ export const postsRelations = relations(posts, ({ one }) => ({
 ### Import and Use
 ```typescript
 // app/lib/db.server.ts - Already configured
+// NOTE: Prefer static imports for Drizzle and your schema in server modules
+// (e.g., `app/lib/db.server.ts`) so bundlers include schema definitions and
+// avoid runtime issues caused by dynamic import paths in production.
 import { db } from "~/lib/db.server";
 import { users } from "~/../../db/schema";
 
