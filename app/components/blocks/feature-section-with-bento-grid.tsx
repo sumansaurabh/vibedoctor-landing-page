@@ -7,6 +7,7 @@ import { IconBrandYoutubeFilled } from "@tabler/icons-react";
 import { Link } from "@remix-run/react";
 import { SplineHoverCubes } from "~/components/ui/spline-hover-cubes";
 import { SplineHoverSphere } from "~/components/ui/spline-hover-sphere";
+import { SplineRobotGreeter } from "~/components/ui/spline-robot-greeter";
 
 export function FeaturesSectionWithBentoGrid() {
   const features = [
@@ -27,6 +28,13 @@ export function FeaturesSectionWithBentoGrid() {
         "col-span-1 md:col-span-3 lg:col-span-3 border-b dark:border-neutral-800",
     },
     {
+      title: "Friendly Robot Greeter",
+      description:
+        "Meet your cheerful website mascot! This interactive robot tracks your cursor, creating eye contact and a welcoming presence.",
+      skeleton: <SkeletonSeven />,
+      className: "col-span-1 md:col-span-2 lg:col-span-2 border-b md:border-r dark:border-neutral-800",
+    },
+    {
       title: "Capture pictures with AI",
       description:
         "Capture stunning photos effortlessly using our advanced AI technology.",
@@ -39,14 +47,7 @@ export function FeaturesSectionWithBentoGrid() {
         "Whether its you or Tyler Durden, you can get to know about our product on YouTube",
       skeleton: <SkeletonThree />,
       className:
-        "col-span-1 md:col-span-2 lg:col-span-2 border-b md:border-r dark:border-neutral-800",
-    },
-    {
-      title: "Track issues effectively",
-      description:
-        "Track and manage your project issues with ease using our intuitive interface.",
-      skeleton: <SkeletonOne />,
-      className: "col-span-1 md:col-span-2 lg:col-span-2 border-b md:border-none",
+        "col-span-1 md:col-span-2 lg:col-span-2 border-b dark:border-neutral-800",
     },
   ];
   return (
@@ -312,6 +313,49 @@ export const SkeletonSix = () => {
       <div className="absolute bottom-4 right-4 z-20">
         <div className="px-3 py-1.5 rounded-full bg-teal-500/10 border border-teal-400/30 backdrop-blur-sm">
           <span className="text-xs font-medium text-teal-300">#sphere #hover #wave</span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+/**
+ * SkeletonSeven: Friendly Robot Greeter
+ *
+ * Key Features:
+ * - Cursor tracking with smooth head movement
+ * - Creates eye contact effect
+ * - Friendly smiling character
+ * - Perfect for welcoming visitors
+ *
+ * Tags: #robot #character #bot #mascot #friendly #greeting #welcome
+ * Colors: Black/Dark with Coral/Pink accents (#FFB5B5, #FF9B9B)
+ */
+export const SkeletonSeven = () => {
+  return (
+    <div className="relative flex h-full min-h-[450px] w-full overflow-hidden rounded-lg bg-gradient-to-br from-gray-950 via-gray-900 to-slate-950">
+      {/* 3D Spline Robot - Layer 0 (Background) */}
+      <SplineRobotGreeter className="absolute inset-0 z-0" />
+
+      {/* Content positioned in top-right corner - Layer 20 */}
+      <div className="absolute top-6 right-6 z-20 max-w-[200px]">
+        <div className="rounded-lg bg-black/40 backdrop-blur-sm p-3 border border-pink-500/20">
+          <h3 className="text-xs font-semibold text-white mb-1">
+            👋 Hello!
+          </h3>
+          <p className="text-[10px] text-pink-200/80 leading-snug">
+            Move your cursor around - I'll follow with my eyes!
+          </p>
+        </div>
+      </div>
+
+      {/* Bottom gradient overlay - Layer 10 */}
+      <div className="absolute bottom-0 left-0 right-0 z-10 h-20 bg-gradient-to-t from-black/50 via-black/10 to-transparent pointer-events-none" />
+
+      {/* Corner accent indicator */}
+      <div className="absolute bottom-4 left-4 z-20">
+        <div className="px-2.5 py-1 rounded-full bg-pink-500/10 border border-pink-400/30 backdrop-blur-sm">
+          <span className="text-[10px] font-medium text-pink-300">#robot #greeter</span>
         </div>
       </div>
     </div>

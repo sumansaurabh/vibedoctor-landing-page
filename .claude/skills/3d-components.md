@@ -52,13 +52,14 @@ export default function Features() {
 **Dependencies**: Requires `cobe` package
 
 **Bento Grid Layout**:
-The component also includes a complete features section with a Bento Grid layout (6-column grid) featuring six skeleton components:
+The component also includes a complete features section with a Bento Grid layout (6-column grid) featuring seven skeleton components:
 - **SkeletonOne**: Image showcase with gradient overlays
 - **SkeletonTwo**: Interactive image gallery with hover animations
 - **SkeletonThree**: YouTube video link with play button overlay
 - **SkeletonFour**: 3D Globe component
 - **SkeletonFive**: Spline Hover Cubes - Interactive 3D cubes with hover effects
 - **SkeletonSix**: Spline Hover Sphere - Reactive sphere made of smaller spheres
+- **SkeletonSeven**: Spline Robot Greeter - Friendly robot that tracks cursor
 
 **Use Cases**:
 - Global reach sections
@@ -323,7 +324,128 @@ See `SkeletonSix` in `~/components/blocks/feature-section-with-bento-grid.tsx` f
 - **Size Changes**: Smaller spheres scale on hover
 - **Tech Aesthetic**: Perfect for SaaS, AI, tech products
 
-### 5. SplineSceneBasic Component
+### 5. SplineRobotGreeter Component
+**Location**: `~/components/ui/spline-robot-greeter.tsx`
+
+**Purpose**: Friendly interactive robot greeter that tracks your cursor, creating eye contact and a welcoming presence. Perfect for adding personality and engagement to your website.
+
+**Scene URL**: `https://prod.spline.design/Zrzvhl0glLnIKAeZ/scene.splinecode`
+
+**Tags**: `#robot` `#character` `#bot` `#mascot` `#smile` `#assistant` `#greeting` `#welcome` `#salute` `#friendly`
+
+**Color Scheme**:
+- Primary: Black/Dark Gray (#1a1a1a, #2a2a2a)
+- Accent: Coral/Pink (#FFB5B5, #FF9B9B - peachy-pink)
+- Face: Dark with white smile
+- Theme: Dark with warm pink/coral accents
+- Style: Friendly, modern, playful, welcoming
+
+**Features**:
+- Cursor tracking with smooth head movement
+- Creates eye contact effect with visitors
+- Friendly smiling character design
+- Constantly follows mouse movement
+- Cheerful and welcoming presence
+- Perfect for greetings and introductions
+- Adds personality to your website
+- Lazy loaded with React Suspense
+
+**Basic Usage**:
+```tsx
+import { SplineRobotGreeter } from "~/components/ui/spline-robot-greeter";
+
+export function WelcomeSection() {
+  return (
+    <div className="relative h-[500px] w-full bg-gray-950">
+      <div className="container mx-auto grid md:grid-cols-2 gap-8 h-full items-center">
+        <div>
+          <h1 className="text-4xl font-bold text-white mb-4">
+            Welcome! 👋
+          </h1>
+          <p className="text-gray-300">
+            Meet our friendly assistant ready to help you.
+          </p>
+        </div>
+
+        <div className="h-[400px]">
+          <SplineRobotGreeter className="w-full h-full" />
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
+**Perfect For**:
+- Website greeters (hero sections)
+- About page introductions
+- Customer support sections
+- Landing page mascots
+- Portfolio character introductions
+- Chatbot representations
+- Help/Support pages
+- Team/Contact pages
+
+**Not Recommended For**:
+- Light-themed pages (colors don't match)
+- Very small spaces (< 400px)
+- Mobile-only experiences (cursor tracking limited)
+- Pages without cursor interaction
+
+**KEY FEATURE: Cursor Tracking**
+
+⚠️ **The robot's head follows your cursor smoothly!**
+
+**How it Works**:
+- Robot head rotates to track mouse position
+- Creates eye contact effect with users
+- Enhances engagement and personality
+- Most effective in open spaces
+- Works best when cursor naturally moves nearby
+
+**CRITICAL PLACEMENT GUIDELINES**:
+
+**DO's** ✅:
+1. Place in hero sections as a welcoming character
+2. Use as side companion (left or right corner)
+3. Position where cursor tracking is visible
+4. Give 400px-600px height for full character visibility
+5. Use on dark backgrounds to match color scheme
+6. Pair with greeting text nearby
+7. Center in greeting sections
+
+**DON'Ts** ❌:
+1. Don't hide the robot's face (cursor tracking is key)
+2. Don't use in cramped spaces (< 400px)
+3. Don't place where cursor won't naturally move
+4. Don't use on light backgrounds
+5. Don't overlap with other interactive elements
+6. Don't use multiple instances on same page
+
+**Best Practices**:
+- **Side Companion**: Place robot on left/right with content opposite
+- **Greeting Section**: Center robot with welcome message
+- **Dark Background**: Essential for color visibility
+- **Open Space**: Allow room for cursor to move around
+- **Single Instance**: One robot per page
+- **Mobile Consideration**: Robot is static on touch devices
+
+**Bento Grid Implementation Example**:
+See `SkeletonSeven` in `~/components/blocks/feature-section-with-bento-grid.tsx` for proper integration:
+- Min-height of 450px for character visibility
+- Small instruction text in top-right corner
+- Tag indicators in bottom-left
+- Dark gray gradient background matching robot theme
+- Pink/coral accent colors in borders
+
+**Character Personality**:
+- **Friendly**: Smiling face creates warm welcome
+- **Attentive**: Eye tracking shows engagement
+- **Helpful**: Perfect for support/assistant contexts
+- **Modern**: Clean, tech-forward design
+- **Memorable**: Unique character adds brand personality
+
+### 6. SplineSceneBasic Component
 **Location**: `~/components/ui/spline-scene-basic.tsx`
 
 **Purpose**: Pre-built showcase section featuring a 3D robot model with text content and spotlight effects.
