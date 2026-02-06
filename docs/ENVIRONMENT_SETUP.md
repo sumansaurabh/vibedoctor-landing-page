@@ -16,8 +16,8 @@ Edit `.env` and set the following:
 ```env
 # Application
 NODE_ENV=development
-PORT=5173
-PUBLIC_URL=http://localhost:5173
+PORT=8080
+PUBLIC_URL=http://localhost:8080
 
 # Database (PostgreSQL)
 DATABASE_URL=postgresql://user:password@localhost:5432/database_name?schema=public
@@ -44,7 +44,7 @@ node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
 | Variable | Description | Example |
 |----------|-------------|---------|
 | `DATABASE_URL` | PostgreSQL connection string | `postgresql://user:pass@localhost:5432/db` |
-| `PUBLIC_URL` | Public-facing application URL | `http://localhost:5173` |
+| `PUBLIC_URL` | Public-facing application URL | `http://localhost:8080` |
 | `SESSION_SECRET` | Secret for session encryption | `random-32-char-string` |
 
 ### Optional Variables
@@ -52,7 +52,7 @@ node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
 | Variable | Description | Example |
 |----------|-------------|---------|
 | `NODE_ENV` | Environment mode | `development`, `production` |
-| `PORT` | Server port | `5173` |
+| `PORT` | Server port | `8080` |
 | `DIRECT_DATABASE_URL` | Direct DB connection (pooling) | `postgresql://...` |
 
 ### Adding API Keys
@@ -82,7 +82,7 @@ AWS_SECRET_ACCESS_KEY=...
 ### Development
 ```env
 NODE_ENV=development
-PUBLIC_URL=http://localhost:5173
+PUBLIC_URL=http://localhost:8080
 DATABASE_URL=postgresql://postgres:password@localhost:5432/app_dev
 ```
 

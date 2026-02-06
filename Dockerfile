@@ -35,7 +35,7 @@ FROM node:20-alpine AS production
 WORKDIR /app
 
 ENV NODE_ENV=production
-ENV PORT=5173
+ENV PORT=8080
 
 # Add non-root user for security
 RUN addgroup --system --gid 1001 remix && \
@@ -49,6 +49,6 @@ COPY --from=build /app/public ./public
 
 USER remix
 
-EXPOSE 5173
+EXPOSE 8080
 
-CMD ["npm", "run", "start"]
+CMD ["sh", "-c", "PORT=${PORT_IN:-$PORT} npm run start"]

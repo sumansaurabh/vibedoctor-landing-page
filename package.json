@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "VITE_CJS_IGNORE_WARNING=true remix vite:dev",
     "build": "VITE_CJS_IGNORE_WARNING=true remix vite:build",
-    "start": "PORT=5173 remix-serve ./build/server/index.js",
+    "start": "remix-serve ./build/server/index.js",
     "lint": "eslint .",
     "typecheck": "tsc",
     "test": "vitest run",
