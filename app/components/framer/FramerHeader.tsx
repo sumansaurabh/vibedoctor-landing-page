@@ -6,11 +6,13 @@ export function FramerHeader() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
         <Link to="/" className="flex-shrink-0">
-          <img
-            src="https://framerusercontent.com/images/04vJJZ3D2ponPv6rzLBq6sf2PZU.svg"
-            alt="Logo"
-            className="h-8 w-auto"
-          />
+          <div className="flex aspect-square h-10 w-10 flex-shrink-0 items-center justify-center rounded-full p-1.5" style={{ backgroundColor: "#B4B9C3" }}>
+            <img
+              src="/vibedoctor-logo.svg"
+              alt="Logo"
+              className="max-h-full max-w-full object-contain"
+            />
+          </div>
         </Link>
 
         {/* Center Nav - Pill shaped */}

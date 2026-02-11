@@ -78,32 +78,17 @@ export function FramerHero() {
                 "rgba(87, 133, 179, 0.48) 0px 0.796192px 0.796192px -0.875px, rgba(87, 133, 179, 0.455) 0px 2.41451px 2.41451px -1.75px, rgba(87, 133, 179, 0.4) 0px 6.38265px 6.38265px -2.625px, rgba(87, 133, 179, 0.21) 0px 20px 20px -3.5px",
             }}
           >
-            <img
-              src="/vibedoctor-logo.svg"
-              alt=""
-              className="h-full w-full object-contain"
-            />
+            <div className="flex aspect-square h-12 w-12 flex-shrink-0 items-center justify-center rounded-full p-1.5" style={{ backgroundColor: "#B4B9C3" }}>
+              <img
+                src="/vibedoctor-logo.svg"
+                alt=""
+                className="max-h-full max-w-full object-contain"
+              />
+            </div>
           </div>
         </div>
 
         <div className="flex w-full flex-col items-center gap-6">
-          <div className="flex items-center gap-2 px-3 py-2">
-            <span className="relative block h-3 w-3">
-              <span className="absolute left-1/2 top-1/2 h-[7px] w-[7px] -translate-x-1/2 -translate-y-1/2 animate-ping rounded-full bg-[#94d1ff] opacity-50" />
-              <span
-                className="absolute inset-[3px] rounded-full bg-[#a6daff]"
-                style={{
-                  boxShadow: "rgba(168, 209, 255, 0.5) 0px 0px 20px 0px",
-                }}
-              />
-            </span>
-            <span
-              className="text-[14px] font-medium uppercase leading-[22px] tracking-[-0.01em] text-[rgba(255,255,255,0.6)]"
-              style={{ fontFamily: interFamily }}
-            >
-              VIBEDOCTOR
-            </span>
-          </div>
 
           <h1
             className="max-w-[936px] text-[44px] font-medium leading-[0.98] tracking-[-0.02em] text-transparent sm:text-[60px] xl:text-[80px]"
