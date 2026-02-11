@@ -25,8 +25,8 @@ export function FramerPricing() {
       className="relative overflow-hidden bg-[#04070d] py-24 sm:py-[100px]"
       id="pricing"
     >
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-1 bg-[radial-gradient(50%_50%_at_50%_50%,#d8e7f212_0%,#04070d_100%)]" />
-      <div className="pointer-events-none absolute -bottom-[249px] left-1/2 z-[1] h-[499px] w-[793px] -translate-x-1/2 -rotate-[13deg] rounded-[10px] bg-[radial-gradient(50%_50%_at_50%_50%,#d5dbe6b3_0%,#04070d00_100%)] opacity-10" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-1 bg-[radial-gradient(50%_50%_at_50%_50%,#b4b9c31f_0%,#04070d_100%)]" />
+      <div className="pointer-events-none absolute -bottom-[249px] left-1/2 z-[1] h-[499px] w-[793px] -translate-x-1/2 -rotate-[13deg] rounded-[10px] bg-[radial-gradient(50%_50%_at_50%_50%,#b4b9c3b3_0%,#04070d00_100%)] opacity-10" />
 
       <div className="relative z-[2] mx-auto flex w-full max-w-[1200px] flex-col items-center gap-11 px-6 sm:px-10">
         <div className="flex w-full max-w-[860px] flex-col items-center gap-6 text-center">
@@ -34,11 +34,11 @@ export function FramerPricing() {
             className="inline-flex items-center gap-2 rounded-[60px] px-3 py-1.5"
             style={{
               backgroundColor: '#04070d',
-              border: '1px solid rgba(216, 231, 242, 0.07)',
+              border: '1px solid rgba(180,185,195, 0.07)',
             }}
           >
             <svg
-              className="h-[17px] w-[17px] text-[#d5dbe6]"
+              className="h-[17px] w-[17px] text-[#B4B9C3]"
               viewBox="0 0 18.531 18.531"
               fill="currentColor"
               aria-hidden="true"
@@ -46,7 +46,7 @@ export function FramerPricing() {
               <path d="M 0.219 9.219 C 0.079 9.079 0 8.888 0 8.69 L 0 0 L 8.69 0 C 8.888 0 9.079 0.079 9.219 0.219 L 18.531 9.531 C 18.823 9.823 18.823 10.298 18.531 10.591 L 10.594 18.531 C 10.301 18.823 9.826 18.823 9.533 18.531 Z" />
             </svg>
             <span
-              className="text-xs uppercase text-[#d5dbe6]"
+              className="text-xs uppercase text-[#B4B9C3]"
               style={{
                 fontFamily: interFamily,
                 fontSize: '12px',
@@ -64,7 +64,7 @@ export function FramerPricing() {
             style={{
               fontFamily: interFamily,
               backgroundImage:
-                'linear-gradient(161deg, rgb(213, 219, 230) 51.657657657657666%, rgb(4, 7, 13) 166%)',
+                'linear-gradient(161deg, rgb(180, 185, 195) 51.657657657657666%, rgb(4, 7, 13) 166%)',
               WebkitBackgroundClip: 'text',
               backgroundClip: 'text',
             }}
@@ -77,7 +77,7 @@ export function FramerPricing() {
           </h2>
 
           <p
-            className="max-w-[760px] text-[16px] leading-[1.6] tracking-[-0.02em] text-[rgba(213,219,230,0.6)]"
+            className="max-w-[760px] text-[16px] leading-[1.6] tracking-[-0.02em] text-[rgba(180,185,195,0.6)]"
             style={{ fontFamily: interFamily }}
           >
             Pay only for what you use. No subscriptions, no hidden fees.
@@ -85,19 +85,19 @@ export function FramerPricing() {
         </div>
 
         <div className="grid w-full max-w-[1080px] gap-6 lg:grid-cols-[1.4fr_1fr]">
-          <article className="relative overflow-hidden rounded-[20px] border border-[rgba(216,231,242,0.08)] bg-[#04070d] p-7 sm:p-8">
+          <article className="relative overflow-hidden rounded-[20px] border border-[rgba(180,185,195,0.08)] bg-[#04070d] p-7 sm:p-8">
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_85%_at_78%_8%,rgba(180,185,195,0.14)_0%,rgba(4,7,13,0)_72%)]" />
 
             <div className="relative z-[1]">
               <div
-                className="inline-flex items-center rounded-full border border-[rgba(216,231,242,0.18)] bg-white/[0.02] px-3 py-1 text-[13px] uppercase tracking-[0.08em] text-[rgba(213,219,230,0.88)]"
+                className="inline-flex items-center rounded-full border border-[rgba(180,185,195,0.18)] bg-white/[0.02] px-3 py-1 text-[13px] uppercase tracking-[0.08em] text-[rgba(180,185,195,0.88)]"
                 style={{ fontFamily: interFamily }}
               >
                 Hourly Billing
               </div>
 
               <p
-                className="mt-4 text-[17px] leading-[1.55] text-[rgba(213,219,230,0.64)]"
+                className="mt-4 text-[17px] leading-[1.55] text-[rgba(180,185,195,0.64)]"
                 style={{ fontFamily: interFamily }}
               >
                 Perfect for short tasks and testing
@@ -105,13 +105,13 @@ export function FramerPricing() {
 
               <div className="mt-6 flex items-end gap-2">
                 <span
-                  className="text-[54px] font-medium leading-none tracking-[-0.03em] text-[#e4e9f2]"
+                  className="text-[54px] font-medium leading-none tracking-[-0.03em] text-[#B4B9C3]"
                   style={{ fontFamily: interFamily }}
                 >
                   $0.085
                 </span>
                 <span
-                  className="mb-1 text-[22px] text-[rgba(213,219,230,0.74)]"
+                  className="mb-1 text-[22px] text-[rgba(180,185,195,0.74)]"
                   style={{ fontFamily: interFamily }}
                 >
                   /hour
@@ -122,7 +122,7 @@ export function FramerPricing() {
                 {hourlyFeatures.map((item) => (
                   <li
                     key={item}
-                    className="flex items-start gap-3 text-[16px] leading-[1.55] text-[rgba(213,219,230,0.7)]"
+                    className="flex items-start gap-3 text-[16px] leading-[1.55] text-[rgba(180,185,195,0.7)]"
                     style={{ fontFamily: interFamily }}
                   >
                     <span className="mt-[7px] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#B4B9C3]" />
@@ -142,15 +142,15 @@ export function FramerPricing() {
           </article>
 
           <div className="space-y-6">
-            <article className="rounded-[20px] border border-[rgba(216,231,242,0.08)] bg-[#04070d] p-7">
+            <article className="rounded-[20px] border border-[rgba(180,185,195,0.08)] bg-[#04070d] p-7">
               <h3
-                className="text-[24px] font-medium leading-[1.2] tracking-[-0.02em] text-[#d5dbe6]"
+                className="text-[24px] font-medium leading-[1.2] tracking-[-0.02em] text-[#B4B9C3]"
                 style={{ fontFamily: interFamily }}
               >
                 $5 Free Credits
               </h3>
               <p
-                className="mt-3 text-[16px] leading-[1.55] text-[rgba(213,219,230,0.64)]"
+                className="mt-3 text-[16px] leading-[1.55] text-[rgba(180,185,195,0.64)]"
                 style={{ fontFamily: interFamily }}
               >
                 Every new account receives $5 in credits. Top up anytime with a
@@ -161,25 +161,25 @@ export function FramerPricing() {
                 {creditNotes.map((item) => (
                   <li
                     key={item}
-                    className="flex items-start gap-3 text-[15px] leading-[1.55] text-[rgba(213,219,230,0.7)]"
+                    className="flex items-start gap-3 text-[15px] leading-[1.55] text-[rgba(180,185,195,0.7)]"
                     style={{ fontFamily: interFamily }}
                   >
-                    <span className="mt-[7px] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-white/70" />
+                    <span className="mt-[7px] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[rgba(180,185,195,0.75)]" />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
             </article>
 
-            <article className="rounded-[20px] border border-[rgba(216,231,242,0.08)] bg-[#04070d] p-7">
+            <article className="rounded-[20px] border border-[rgba(180,185,195,0.08)] bg-[#04070d] p-7">
               <h3
-                className="text-[22px] font-medium leading-[1.2] tracking-[-0.02em] text-[#d5dbe6]"
+                className="text-[22px] font-medium leading-[1.2] tracking-[-0.02em] text-[#B4B9C3]"
                 style={{ fontFamily: interFamily }}
               >
                 Model Token Pricing
               </h3>
               <p
-                className="mt-3 text-[15px] leading-[1.55] text-[rgba(213,219,230,0.62)]"
+                className="mt-3 text-[15px] leading-[1.55] text-[rgba(180,185,195,0.62)]"
                 style={{ fontFamily: interFamily }}
               >
                 Model token costs are metered separately so your bill stays
@@ -190,7 +190,7 @@ export function FramerPricing() {
                 {tokenNotes.map((item) => (
                   <li
                     key={item}
-                    className="flex items-start gap-3 text-[14px] leading-[1.55] text-[rgba(213,219,230,0.68)]"
+                    className="flex items-start gap-3 text-[14px] leading-[1.55] text-[rgba(180,185,195,0.68)]"
                     style={{ fontFamily: interFamily }}
                   >
                     <span className="mt-[7px] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[rgba(180,185,195,0.8)]" />
