@@ -24,7 +24,7 @@ export function FramerHero() {
         className="pointer-events-none absolute inset-x-0 -bottom-[140px] top-0 z-[1] opacity-40 grayscale"
       >
         <video
-          src="https://framerusercontent.com/assets/1g8IkhtJmlWcC4zEYWKUmeGWzI.mp4"
+          src="https://framerusercontent.com/assets/Cw9D8nOGuMDx0eVn02OhggPWXg.mp4"
           loop
           autoPlay
           muted
