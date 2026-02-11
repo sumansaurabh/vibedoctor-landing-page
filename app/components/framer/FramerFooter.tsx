@@ -22,6 +22,8 @@ export function FramerFooter() {
               { label: "Process", href: "/#process" },
               { label: "Pricing", href: "/#pricing" },
               { label: "Contact", href: "/contact" },
+              { label: "Terms", href: "/terms" },
+              { label: "Privacy", href: "/privacy" },
               { label: "Blog", href: "/blog" },
             ].map((item) => (
               <Link
