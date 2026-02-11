@@ -1,41 +1,100 @@
 export function FramerFounder() {
+  const interFamily = '"Inter", "Inter Placeholder", sans-serif';
+  const serifFamily = '"Instrument Serif", "Instrument Serif Placeholder", serif';
+
   return (
-    <section className="relative overflow-hidden border-b border-white/5 bg-[#04070d] py-24" id="founder-note">
-      {/* Background shape */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[60%] w-[120%] -rotate-[13deg] bg-gradient-to-t from-cyan-500/[0.02] to-transparent rounded-[100px]" />
-
-      <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
-        {/* Badge */}
-        <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-[#04070d] px-4 py-1.5">
-          <svg className="h-4 w-4 text-cyan-300" viewBox="0 0 19.498 18.632" fill="currentColor">
-            <path d="M 9.749 15.477 L 14.879 18.632 C 15.151 18.797 15.496 18.782 15.753 18.594 C 16.01 18.406 16.128 18.082 16.053 17.772 L 14.658 11.886 L 19.223 7.948 C 19.461 7.739 19.552 7.409 19.455 7.108 C 19.357 6.806 19.09 6.592 18.774 6.563 L 12.783 6.075 L 10.475 0.488 C 10.354 0.193 10.068 0 9.749 0 C 9.431 0 9.144 0.193 9.023 0.488 L 6.715 6.075 L 0.724 6.563 C 0.406 6.59 0.136 6.806 0.038 7.109 C -0.06 7.412 0.034 7.745 0.275 7.953 L 4.84 11.89 L 3.445 17.772 C 3.37 18.082 3.488 18.406 3.745 18.594 C 4.002 18.782 4.347 18.797 4.619 18.632 Z" />
-          </svg>
-          <span className="text-xs font-medium uppercase tracking-[0.12em] text-white/70">
-            Why We Built This
-          </span>
-        </div>
-
-        {/* Quote */}
-        <h3 className="mb-10 text-2xl font-medium leading-relaxed tracking-tight text-white/40 sm:text-3xl">
-          AI coding tools made building easy. Shipping safely to{" "}
-          <span className="italic text-[#d5dbe6]">customer-owned cloud</span>{" "}
-          is still the bottleneck. VibeDoctor closes that gap.
-        </h3>
-
-        {/* Author */}
-        <div className="flex flex-col items-center gap-3">
-          <div className="h-14 w-14 overflow-hidden rounded-full border-2 border-white/10">
-            <img
-              src="https://framerusercontent.com/images/W7xYkGKzPzvnPv58ZBNzxS3JZI.jpg"
-              alt="Co-founder"
-              className="h-full w-full object-cover"
-            />
+    <section
+      className="relative overflow-hidden rounded-t-[50px] bg-[#04070d] py-24 sm:py-[100px]"
+      id="founder-note"
+    >
+      <div className="relative z-[2] mx-auto flex w-full max-w-[1200px] flex-col items-center gap-6 px-6 sm:px-10">
+        <div className="flex w-full max-w-[744px] flex-col items-center gap-6 text-center">
+          <div
+            className="inline-flex items-center gap-2 rounded-[60px] px-3 py-1.5"
+            style={{
+              backgroundColor: "#04070d",
+              border: "1px solid rgba(216, 231, 242, 0.07)",
+            }}
+          >
+            <svg
+              className="h-[17px] w-[17px] text-[#d5dbe6]"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path d="M11.48 1.04a.75.75 0 0 1 1.04 0l2.74 2.63c.15.14.35.22.55.22h3.77a.75.75 0 0 1 .74.87l-.63 3.56a.75.75 0 0 0 .22.67l2.58 2.56a.75.75 0 0 1 0 1.06l-2.58 2.56a.75.75 0 0 0-.22.67l.63 3.56a.75.75 0 0 1-.74.87h-3.77a.75.75 0 0 0-.55.22l-2.74 2.63a.75.75 0 0 1-1.04 0l-2.74-2.63a.75.75 0 0 0-.55-.22H4.42a.75.75 0 0 1-.74-.87l.63-3.56a.75.75 0 0 0-.22-.67l-2.58-2.56a.75.75 0 0 1 0-1.06l2.58-2.56a.75.75 0 0 0 .22-.67l-.63-3.56a.75.75 0 0 1 .74-.87h3.77a.75.75 0 0 0 .55-.22z" />
+            </svg>
+            <span
+              className="text-xs uppercase text-[#d5dbe6]"
+              style={{
+                fontFamily: interFamily,
+                fontSize: "12px",
+                lineHeight: "1.3em",
+                letterSpacing: "0em",
+                fontWeight: 400,
+              }}
+            >
+              Why We Built This
+            </span>
           </div>
-          <p className="text-sm text-white/40">
-            Suman Saurabh, Co-founder, VibeDoctor
-          </p>
+
+          <h3
+            className="w-full text-[26px] font-normal leading-[1.4] tracking-[-0.03em] text-[rgba(184,199,217,0.5)] sm:text-[32px]"
+            style={{ fontFamily: interFamily }}
+          >
+            AI coding tools made building easy. Shipping safely to{" "}
+            <span
+              className="italic text-[#d5dbe6]"
+              style={{ fontFamily: serifFamily }}
+            >
+              "Customer Private Cloud"
+            </span>{" "}
+            is still the bottleneck. 
+          </h3>
+
+          <h3
+            className="w-full text-[26px] font-normal leading-[1.4] tracking-[-0.03em] text-[rgba(184,199,217,0.5)] sm:text-[32px]"
+            style={{ fontFamily: interFamily }}
+          >
+            VibeDoctor closes that gap.
+          </h3>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <div
+              className="h-7 w-7 overflow-hidden rounded-full"
+              style={{ boxShadow: "0px 0px 0px 2px #ffffff" }}
+            >
+              <img
+                src="/suman.png"
+                alt="Co-founder"
+                className="h-full w-full object-cover"
+              />
+            </div>
+            <p
+              className="text-[16px] leading-[1.6] tracking-[-0.02em] text-[rgba(213,219,230,0.6)]"
+              style={{ fontFamily: interFamily }}
+            >
+              Suman Saurabh, Co-founder, VibeDoctor
+            </p>
+          </div>
         </div>
       </div>
+
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-0 left-0 right-0 z-[1] h-1"
+        style={{
+          background:
+            "radial-gradient(50% 50% at 50% 50%, #d8e7f212 0%, #04070d 100%)",
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-[249px] left-1/2 z-[1] h-[499px] w-[793px] -translate-x-1/2 -rotate-[13deg] rounded-[10px] opacity-10"
+        style={{
+          background:
+            "radial-gradient(50% 50% at 50% 50%, #d5dbe6b3 0%, #04070d00 100%)",
+        }}
+      />
     </section>
   );
 }
