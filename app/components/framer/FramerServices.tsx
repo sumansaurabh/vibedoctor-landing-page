@@ -1,94 +1,535 @@
+import { useEffect, useMemo, useState } from "react";
+import {
+  Background,
+  Controls,
+  Edge,
+  Handle,
+  MarkerType,
+  Node,
+  NodeTypes,
+  NodeProps,
+  Position,
+  ReactFlow,
+} from "@xyflow/react";
+import { useInView } from "react-intersection-observer";
+import "@xyflow/react/dist/style.css";
+
+type PipelineNodeData = {
+  active: boolean;
+  body: string;
+  compact?: boolean;
+  label: string;
+  title: string;
+};
+
+type PipelineFlowNode = Node<PipelineNodeData, "pipelineNode">;
+
+function PipelineNode({ data }: NodeProps<PipelineFlowNode>) {
+  const baseCard =
+    "relative overflow-hidden rounded-xl border backdrop-blur-sm transition-all duration-500";
+  const activeCard =
+    "border-cyan-300/35 bg-white/[0.05] shadow-[0_0_34px_rgba(103,232,249,0.14)]";
+  const idleCard = "border-white/[0.08] bg-white/[0.03]";
+
+  return (
+    <div className={data.compact ? "w-[210px]" : "w-[260px]"}>
+      <Handle
+        type="target"
+        position={Position.Left}
+        className="!h-2 !w-2 !border-0 !bg-transparent !opacity-0"
+      />
+
+      <div className={`${baseCard} ${data.active ? activeCard : idleCard}`}>
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(65%_80%_at_78%_10%,rgba(103,232,249,0.12)_0%,rgba(4,7,13,0)_75%)]" />
+
+        <div className="relative z-[1] space-y-2 p-4">
+          <span
+            className={`inline-flex rounded-full px-2 py-0.5 text-[13px] font-medium uppercase tracking-[0.09em] ${
+              data.active
+                ? "border border-cyan-300/30 bg-cyan-300/10 text-cyan-200"
+                : "border border-white/15 bg-white/[0.04] text-white/55"
+            }`}
+          >
+            {data.label}
+          </span>
+
+          <h3 className="text-[20px] font-medium leading-[1.25] tracking-[-0.01em] text-[#e4e9f2]">
+            {data.title}
+          </h3>
+          <p className="whitespace-pre-line text-[17px] leading-[1.45] text-white/55">
+            {data.body}
+          </p>
+        </div>
+      </div>
+
+      <Handle
+        type="source"
+        position={Position.Right}
+        className="!h-2 !w-2 !border-0 !bg-transparent !opacity-0"
+      />
+    </div>
+  );
+}
+
+const nodeTypes: NodeTypes = { pipelineNode: PipelineNode };
+
+const activationByEdge: Record<string, number> = {
+  "edge-prompt-cloud": 1,
+  "edge-cloud-connect": 2,
+  "edge-connect-live": 3,
+  "edge-cloud-redis": 1,
+  "edge-cloud-app": 1,
+  "edge-redis-connect": 2,
+  "edge-app-connect": 2,
+};
+
+function edgeFor(
+  id: string,
+  source: string,
+  target: string,
+  activeStep: number,
+  label?: string,
+): Edge {
+  const isActive = activeStep >= (activationByEdge[id] ?? 99);
+  const stroke = isActive
+    ? "rgba(103, 232, 249, 0.62)"
+    : "rgba(255, 255, 255, 0.15)";
+
+  return {
+    id,
+    source,
+    target,
+    animated: isActive,
+    type: "smoothstep",
+    className: isActive ? "flow-edge-active" : "flow-edge-idle",
+    label,
+    labelStyle: {
+      fill: isActive
+        ? "rgba(186, 230, 253, 0.95)"
+        : "rgba(213, 219, 230, 0.68)",
+      fontSize: 14,
+      fontWeight: 500,
+      letterSpacing: "0.03em",
+      textTransform: "uppercase",
+    },
+    labelBgPadding: [9, 5],
+    labelBgBorderRadius: 999,
+    labelBgStyle: {
+      fill: isActive ? "rgba(8, 18, 26, 0.9)" : "rgba(8, 12, 20, 0.76)",
+      stroke: isActive
+        ? "rgba(103, 232, 249, 0.45)"
+        : "rgba(216, 231, 242, 0.2)",
+      strokeWidth: 1,
+    },
+    style: {
+      stroke,
+      strokeWidth: isActive ? 2.1 : 1.4,
+      strokeDasharray: isActive ? "8 6" : "4 8",
+    },
+    markerEnd: {
+      type: MarkerType.ArrowClosed,
+      width: 16,
+      height: 16,
+      color: stroke,
+    },
+  };
+}
+
 export function FramerServices() {
-  const services = [
-    {
-      title: "Repo Change Automation",
-      description:
-        "Send a request like 'add OTP login' and run cloud agents against your existing GitHub repository.",
-      icon: (
-        <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182" />
-        </svg>
+  const interFamily = '"Inter", "Inter Placeholder", sans-serif';
+  const serifFamily =
+    '"Instrument Serif", "Instrument Serif Placeholder", serif';
+
+  const [activeStep, setActiveStep] = useState(-1);
+  const { ref, inView } = useInView({ threshold: 0.35, triggerOnce: false });
+
+  useEffect(() => {
+    if (!inView) {
+      setActiveStep(-1);
+      return;
+    }
+
+    setActiveStep(0);
+    let step = 0;
+    const timer = window.setInterval(() => {
+      step += 1;
+      if (step > 3) {
+        window.clearInterval(timer);
+        return;
+      }
+      setActiveStep(step);
+    }, 650);
+
+    return () => window.clearInterval(timer);
+  }, [inView]);
+
+  const nodes = useMemo<PipelineFlowNode[]>(
+    () => [
+      {
+        id: "prompt",
+        type: "pipelineNode",
+        position: { x: 0, y: 95 },
+        data: {
+          active: activeStep >= 0,
+          label: "Prompt",
+          title: '"Add OTP verification to signup"',
+          body: "Natural-language request",
+        },
+      },
+      {
+        id: "cloud",
+        type: "pipelineNode",
+        position: { x: 340, y: 95 },
+        data: {
+          active: activeStep >= 1,
+          label: "Cloud Spawn",
+          title: "Provision services",
+          body: "Creates Redis + app runtime\nin your cloud account",
+        },
+      },
+      {
+        id: "connect",
+        type: "pipelineNode",
+        position: { x: 680, y: 95 },
+        data: {
+          active: activeStep >= 2,
+          label: "Auto-Connect",
+          title: "Wire infra to app",
+          body: "Inject env vars\nAttach service bindings",
+        },
+      },
+      {
+        id: "live",
+        type: "pipelineNode",
+        position: { x: 1020, y: 95 },
+        data: {
+          active: activeStep >= 3,
+          label: "Live & Done",
+          title: "Production release",
+          body: "OTP flow is live\nRollback-ready deploy",
+        },
+      },
+      {
+        id: "redis",
+        type: "pipelineNode",
+        position: { x: 360, y: 290 },
+        data: {
+          active: activeStep >= 1,
+          compact: true,
+          label: "Data",
+          title: "Redis Instance",
+          body: "memorystore 6.x",
+        },
+      },
+      {
+        id: "app",
+        type: "pipelineNode",
+        position: { x: 620, y: 290 },
+        data: {
+          active: activeStep >= 1,
+          compact: true,
+          label: "App",
+          title: "Next.js Service",
+          body: "Cloud Run",
+        },
+      },
+    ],
+    [activeStep],
+  );
+
+  const edges = useMemo<Edge[]>(
+    () => [
+      edgeFor(
+        "edge-prompt-cloud",
+        "prompt",
+        "cloud",
+        activeStep,
+        "",
       ),
+      edgeFor("edge-cloud-connect", "cloud", "connect", activeStep),
+      edgeFor("edge-connect-live", "connect", "live", activeStep),
+      edgeFor("edge-cloud-redis", "cloud", "redis", activeStep),
+      edgeFor("edge-cloud-app", "cloud", "app", activeStep),
+      edgeFor("edge-redis-connect", "redis", "connect", activeStep),
+      edgeFor("edge-app-connect", "app", "connect", activeStep),
+    ],
+    [activeStep],
+  );
+
+  const mobileSteps = [
+    {
+      active: activeStep >= 0,
+      title: "Prompt",
+      description: '"Add OTP verification to signup"',
     },
     {
-      title: "Managed Infra Provisioning",
-      description:
-        "Provision Redis, PostgreSQL, queues, and object storage inside your cloud with sane defaults.",
-      icon: (
-        <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z" />
-        </svg>
-      ),
+      active: activeStep >= 1,
+      title: "Cloud Spawn",
+      description: "Analyze intent, then provision app runtime and Redis.",
     },
     {
-      title: "Integration Wiring",
-      description:
-        "Automatically connect newly provisioned services to app code, env vars, and runtime configs.",
-      icon: (
-        <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
-        </svg>
-      ),
+      active: activeStep >= 2,
+      title: "Auto-Connect",
+      description: "Wires services, env vars, and app integration.",
     },
     {
-      title: "Deployment Orchestration",
-      description:
-        "Release to Cloud Run or Kubernetes with staged rollout and autoscaling support.",
-      icon: (
-        <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
-        </svg>
-      ),
+      active: activeStep >= 3,
+      title: "Live & Done",
+      description: "Staged release complete. OTP flow is production-ready.",
     },
   ];
 
   return (
-    <section className="relative overflow-hidden border-b border-white/5 bg-[#04070d] py-24" id="services">
-      {/* Background shape */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[60%] w-[120%] -rotate-[13deg] bg-gradient-to-t from-cyan-500/[0.02] to-transparent rounded-[100px]" />
+    <section
+      className="relative overflow-hidden bg-[#04070d] py-24 sm:py-[100px]"
+      id="services"
+    >
+      <style>{`
+        .byoc-flow .react-flow__attribution { display: none; }
+        .byoc-flow .react-flow__pane { cursor: default; }
+        .byoc-flow .react-flow__edge-path {
+          transition: stroke 280ms ease, stroke-width 280ms ease;
+        }
+        .byoc-flow .flow-edge-active .react-flow__edge-path {
+          animation: byoc-dash 1.2s linear infinite;
+        }
+        .byoc-flow .react-flow__controls {
+          box-shadow: none;
+          border: 1px solid rgba(216, 231, 242, 0.14);
+          border-radius: 10px;
+          overflow: hidden;
+          background: rgba(4, 7, 13, 0.85);
+          backdrop-filter: blur(6px);
+        }
+        .byoc-flow .react-flow__controls button {
+          background: rgba(255, 255, 255, 0.02);
+          border-bottom: 1px solid rgba(216, 231, 242, 0.12);
+          color: rgba(213, 219, 230, 0.88);
+        }
+        .byoc-flow .react-flow__controls button:hover {
+          background: rgba(255, 255, 255, 0.08);
+        }
+        .byoc-flow .react-flow__controls button:last-child {
+          border-bottom: 0;
+        }
+        @keyframes byoc-dash {
+          to { stroke-dashoffset: -30; }
+        }
+        @keyframes dotPulse {
+          0%, 20% { opacity: 0; }
+          50% { opacity: 1; }
+          100% { opacity: 0; }
+        }
+      `}</style>
 
-      <div className="relative z-10 mx-auto max-w-6xl px-6">
-        {/* Section heading */}
-        <div className="mb-16 flex flex-col items-center text-center">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-[#04070d] px-4 py-1.5">
-            <svg className="h-3.5 w-3.5 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z" />
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-            <span className="text-xs font-medium uppercase tracking-[0.12em] text-white/70">
-              Use Cases
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-1 bg-[radial-gradient(50%_50%_at_50%_50%,#d8e7f212_0%,#04070d_100%)]" />
+      <div className="pointer-events-none absolute -bottom-[249px] left-1/2 z-[1] h-[499px] w-[793px] -translate-x-1/2 -rotate-[13deg] rounded-[10px] bg-[radial-gradient(50%_50%_at_50%_50%,#d5dbe6b3_0%,#04070d00_100%)] opacity-10" />
+
+      <div className="relative z-[2] mx-auto flex w-full max-w-[1200px] flex-col items-center gap-11 px-6 sm:px-10">
+        <div className="flex w-full max-w-[820px] flex-col items-center gap-6 text-center">
+          <div
+            className="inline-flex items-center gap-2 rounded-[60px] px-3 py-1.5"
+            style={{
+              backgroundColor: "#04070d",
+              border: "1px solid rgba(216, 231, 242, 0.07)",
+            }}
+          >
+            <span
+              className="text-[16px] uppercase text-[#d5dbe6]"
+              style={{
+                fontFamily: interFamily,
+                fontSize: "16px",
+                lineHeight: "1.3em",
+                letterSpacing: "0em",
+                fontWeight: 400,
+              }}
+            >
+              LIVE PIPELINE
             </span>
           </div>
-          <h2 className="mb-4 text-3xl font-bold tracking-tight text-[#d5dbe6] sm:text-4xl lg:text-5xl">
-            What you can ship with <span className="italic font-normal">VibeDoctor</span>
+
+          <h2
+            className="text-[36px] font-medium leading-[1.2] tracking-[-0.02em] text-transparent sm:text-[48px]"
+            style={{
+              fontFamily: interFamily,
+              backgroundImage:
+                "linear-gradient(161deg, rgb(213, 219, 230) 51.657657657657666%, rgb(4, 7, 13) 166%)",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+            }}
+          >
+            Tell us once. We ship it{" "}
+            <span
+              className="font-normal italic"
+              style={{ fontFamily: serifFamily }}
+            >
+              in your cloud.
+            </span>
           </h2>
-          <p className="max-w-md text-base text-white/40">
-            Everything needed to move from AI-generated code to reliable
-            production delivery.
+
+          <p
+            className="max-w-[720px] text-[20px] leading-[1.6] tracking-[-0.02em] text-[rgba(213,219,230,0.6)]"
+            style={{ fontFamily: interFamily }}
+          >
+            You describe the change in plain English. Our agent plans the work,
+            provisions infrastructure, wires integrations, and ships a safer
+            production release.
           </p>
         </div>
 
-        {/* Services grid */}
-        <div className="grid gap-6 sm:grid-cols-2">
-          {services.map((service) => (
-            <div
-              key={service.title}
-              className="group relative rounded-2xl border border-white/[0.06] bg-[#04070d] p-8 transition-all hover:border-white/10 hover:bg-white/[0.02]"
-            >
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-cyan-500/[0.03] to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-              <div className="relative z-10">
-                <div className="mb-5 inline-flex rounded-xl border border-white/[0.08] bg-white/[0.03] p-3 text-cyan-300/80">
-                  {service.icon}
-                </div>
-                <h3 className="mb-3 text-lg font-semibold text-[#d5dbe6]">
-                  {service.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-white/40">
-                  {service.description}
+        <div
+          ref={ref}
+          className="w-full rounded-[20px] border border-[rgba(216,231,242,0.07)] bg-[#04070d] p-4 sm:p-5"
+        >
+          <div className="space-y-4 rounded-[14px] border border-[rgba(216,231,242,0.08)] bg-white/[0.02] p-5">
+            {/* Chat Header */}
+            <div className="flex items-center gap-2 border-b border-[rgba(216,231,242,0.06)] pb-3">
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-cyan-400/20 to-blue-500/20 ring-1 ring-cyan-300/30">
+                <svg className="h-4 w-4 text-cyan-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </div>
+              <div>
+                <p
+                  className="text-[13px] font-medium text-[#d5dbe6]"
+                  style={{ fontFamily: interFamily }}
+                >
+                  You
+                </p>
+                <p
+                  className="text-[11px] uppercase tracking-[0.08em] text-[rgba(213,219,230,0.45)]"
+                  style={{ fontFamily: interFamily }}
+                >
+                  User Request
                 </p>
               </div>
             </div>
-          ))}
+
+            {/* Chat Message Bubble */}
+            <div className="flex gap-3">
+              <div className="flex-1">
+                <div className="rounded-2xl rounded-tl-sm border border-[rgba(216,231,242,0.12)] bg-white/[0.04] px-4 py-3 shadow-sm">
+                  <p
+                    className="text-[19px] leading-relaxed text-[#d5dbe6]"
+                    style={{ fontFamily: interFamily }}
+                  >
+                    Add OTP verification to my signup flow
+                    <span className="ml-1 inline-flex gap-0.5">
+                      <span className="text-cyan-300" style={{ animation: 'dotPulse 1.4s ease-in-out 0s infinite' }}>.</span>
+                      <span className="text-cyan-300" style={{ animation: 'dotPulse 1.4s ease-in-out 0.2s infinite' }}>.</span>
+                      <span className="text-cyan-300" style={{ animation: 'dotPulse 1.4s ease-in-out 0.4s infinite' }}>.</span>
+                    </span>
+                  </p>
+                </div>
+                <p
+                  className="mt-1.5 text-[12px] text-[rgba(213,219,230,0.4)]"
+                  style={{ fontFamily: interFamily }}
+                >
+                  Just now
+                </p>
+              </div>
+            </div>
+
+            {/* Typing Indicator */}
+            <div className="flex items-center gap-2">
+              <div className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500/20 to-purple-500/20 ring-1 ring-cyan-300/40">
+                <svg className="h-3.5 w-3.5 text-cyan-300" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"/>
+                </svg>
+              </div>
+              <div className="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-3 py-1.5">
+                <div className="flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-cyan-300" />
+                  <span
+                    className="text-[13px] font-medium tracking-[0.05em] text-cyan-200"
+                    style={{ fontFamily: interFamily }}
+                  >
+                    Agent is working
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-4 hidden md:block">
+            <div className="byoc-flow h-[430px] w-full overflow-hidden rounded-[14px] border border-[rgba(216,231,242,0.08)] bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.06)_1px,transparent_0)] [background-size:24px_24px]">
+              <ReactFlow
+                nodes={nodes}
+                edges={edges}
+                nodeTypes={nodeTypes}
+                fitView={true}
+                fitViewOptions={{ padding: 0.05 }}
+                nodesDraggable={false}
+                nodesConnectable={false}
+                elementsSelectable={false}
+                panOnDrag={false}
+                zoomOnScroll={false}
+                zoomOnPinch={false}
+                zoomOnDoubleClick={false}
+                proOptions={{ hideAttribution: true }}
+              >
+                <Background
+                  gap={24}
+                  size={1}
+                  color="rgba(255, 255, 255, 0.05)"
+                />
+                <Controls showInteractive={false} />
+              </ReactFlow>
+            </div>
+          </div>
+
+          <div className="mt-4 space-y-3 md:hidden">
+            {mobileSteps.map((step) => (
+              <div
+                key={step.title}
+                className={`rounded-xl border p-4 transition-all ${
+                  step.active
+                    ? "border-cyan-300/35 bg-white/[0.05]"
+                    : "border-white/[0.08] bg-white/[0.02]"
+                }`}
+              >
+                <h3 className="text-[18px] font-medium text-[#e4e9f2]">
+                  {step.title}
+                </h3>
+                <p className="mt-1 text-[17px] leading-[1.45] text-white/55">
+                  {step.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
+            {[
+              "GCP Cloud Run",
+              "AWS Lambda",
+              "Azure Functions",
+              "Your BYOC",
+            ].map((pill) => (
+              <span
+                key={pill}
+                className="rounded-full border border-[rgba(216,231,242,0.16)] bg-white/[0.02] px-3 py-1.5 text-[15px] uppercase tracking-[0.08em] text-[rgba(213,219,230,0.78)] transition-colors hover:border-cyan-300/30 hover:text-cyan-200"
+                style={{ fontFamily: interFamily }}
+              >
+                {pill}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="space-y-1 text-center">
+          <p
+            className="text-[24px] font-medium tracking-[-0.02em] text-[#d5dbe6]"
+            style={{ fontFamily: interFamily }}
+          >
+            Your infrastructure. Your cloud. Our automation.
+          </p>
+          <p
+            className="text-[18px] text-[rgba(213,219,230,0.58)]"
+            style={{ fontFamily: interFamily }}
+          >
+            We provision, connect, and deploy - you keep full ownership and
+            control.
+          </p>
         </div>
       </div>
     </section>

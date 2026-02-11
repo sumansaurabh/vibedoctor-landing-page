@@ -1,87 +1,230 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+
 export function FramerBenefits() {
-  const benefits = [
+  const interFamily = '"Inter", "Inter Placeholder", sans-serif';
+  const serifFamily = '"Instrument Serif", "Instrument Serif Placeholder", serif';
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const visualCards = [
     {
-      title: "Deploy to Your Cloud, Not Ours",
+      title: "From Request to Release",
       description:
-        "Run on AWS, GCP, Azure, or Kubernetes with full ownership of your infra, data, and costs.",
-      icon: (
-        <svg className="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-        </svg>
-      ),
+        "Request -> Provision Infra -> Integrate -> Deploy.",
+      image: "https://s3.anek.codes/ai-generated-images/generated/WfJr5YfehOyJuHNRTL8dA/PkebtsNB-puriPGu.jpeg",
+      alt:
+        "Dark premium futuristic product visual showing a flow from text prompt to GitHub code changes to cloud deployment pipeline; navy and black base with subtle cyan glow; cinematic depth; enterprise-grade mood.",
     },
     {
-      title: "One Flow from Request to Release",
+      title: "Your Cloud, Your Control",
       description:
-        "Go from change request to code, provisioning, integration, and deploy without tool-hopping.",
-      icon: (
-        <svg className="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
-        </svg>
-      ),
+        "Connect with GCP, AWS, Azure, or Kubernetes in your private cloud. No vendor lock-in, no third-party access.",
+      image: "https://s3.anek.codes/ai-generated-images/generated/WfJr5YfehOyJuHNRTL8dA/Ph-5S0z1DbDsXE1_.jpeg",
+      alt:
+        "Secure private-cloud themed scene with a central platform panel connected to AWS, GCP, Azure, and Kubernetes icons inside a protected customer-owned boundary; dark mode, minimal, trustworthy security aesthetic.",
     },
     {
-      title: "Safer Friday Deploys",
+      title: "Safer Production Delivery",
       description:
-        "Use staged rollouts and rollback-friendly releases so teams can ship fast with lower risk.",
-      icon: (
-        <svg className="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m9.86-2.51a4.5 4.5 0 00-1.242-7.244l-4.5-4.5a4.5 4.5 0 00-6.364 6.364L5.25 9.88" />
-        </svg>
-      ),
+        "Highlight Reliability, Staged Rollouts, Health Checks, and Rollback-ready releases with low-risk shipping.",
+      image: "https://s3.anek.codes/ai-generated-images/generated/WfJr5YfehOyJuHNRTL8dA/ybwNX6XAQKE0Ssf9.jpeg",
+      alt:
+        "Operations control-room style dashboard showing rollout stages, service health, and rollback button with green status signals; dark cinematic UI, high contrast typography, subtle cyan accents, no clutter.",
     },
   ];
 
-  return (
-    <section className="relative overflow-hidden border-b border-white/5 bg-[#04070d] py-24" id="benefits">
-      {/* Background shape */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[60%] w-[120%] -rotate-[13deg] bg-gradient-to-t from-cyan-500/[0.02] to-transparent rounded-[100px]" />
+  // Duplicate cards for seamless infinite scroll
+  const allCards = [...visualCards, ...visualCards, ...visualCards];
 
-      <div className="relative z-10 mx-auto max-w-6xl px-6">
-        {/* Section heading */}
-        <div className="mb-16 flex flex-col items-center text-center">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-[#04070d] px-4 py-1.5">
-            <svg className="h-3.5 w-3.5 text-cyan-300" viewBox="0 0 16.5 16.5" fill="currentColor">
-              <path d="M 5.65 10.849 L 0.485 8.946 C 0.194 8.839 0 8.561 0 8.25 C 0 7.939 0.194 7.661 0.485 7.553 L 5.65 5.65 L 7.553 0.485 C 7.661 0.194 7.939 0 8.25 0 C 8.561 0 8.839 0.194 8.946 0.485 L 10.849 5.65 L 16.014 7.553 C 16.306 7.661 16.5 7.939 16.5 8.25 C 16.5 8.561 16.306 8.839 16.014 8.946 L 10.849 10.849 L 8.946 16.014 C 8.839 16.306 8.561 16.5 8.25 16.5 C 7.939 16.5 7.661 16.306 7.553 16.014 Z" />
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+
+    let animationId: number;
+    let scrollPosition = 0;
+    const scrollSpeed = 0.5; // pixels per frame
+
+    const scroll = () => {
+      if (!isPaused && scrollContainer) {
+        scrollPosition += scrollSpeed;
+        const cardWidth = scrollContainer.scrollWidth / allCards.length;
+        const resetPoint = cardWidth * visualCards.length;
+
+        if (scrollPosition >= resetPoint) {
+          scrollPosition = 0;
+        }
+
+        scrollContainer.scrollLeft = scrollPosition;
+      }
+      animationId = requestAnimationFrame(scroll);
+    };
+
+    animationId = requestAnimationFrame(scroll);
+
+    return () => {
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+      }
+    };
+  }, [isPaused, allCards.length, visualCards.length]);
+
+  return (
+    <section
+      className="relative overflow-hidden bg-[#04070d] py-24 sm:py-[100px]"
+      id="comparison"
+      style={{
+        backgroundImage: `url('https://s3.anek.codes/ai-generated-images/generated/WfJr5YfehOyJuHNRTL8dA/lxguPtYeOQ6cSRIy.jpeg')`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      {/* Dark overlay to maintain contrast */}
+      <div
+        className="absolute inset-0 z-[1]"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(4,7,13,0.85) 0%, rgba(4,7,13,0.92) 50%, rgba(4,7,13,0.85) 100%)",
+        }}
+      />
+      <div className="relative z-[2] mx-auto flex w-full max-w-[1200px] flex-col items-center gap-11 px-6 sm:px-10">
+        <div className="flex w-full max-w-[744px] flex-col items-center gap-6 text-center">
+          <div
+            className="inline-flex items-center gap-2 rounded-[60px] px-3 py-1.5"
+            style={{
+              backgroundColor: "#04070d",
+              border: "1px solid rgba(216, 231, 242, 0.07)",
+            }}
+          >
+            <svg
+              className="h-[17px] w-[17px] text-[#d5dbe6]"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path d="M4 4h7v7H4V4zm9 0h7v7h-7V4zM4 13h7v7H4v-7zm10.5 0 1.94 1.94L18.38 13l1.12 1.12-1.94 1.94L19.5 18l-1.12 1.12-1.94-1.94-1.94 1.94L13.38 18l1.94-1.94-1.94-1.94z" />
             </svg>
-            <span className="text-xs font-medium uppercase tracking-[0.12em] text-white/70">
-              Why Teams Switch
+            <span
+              className="text-xs uppercase text-[#d5dbe6]"
+              style={{
+                fontFamily: interFamily,
+                fontSize: "12px",
+                lineHeight: "1.3em",
+                letterSpacing: "0em",
+                fontWeight: 400,
+              }}
+            >
+              COMPARISON
             </span>
           </div>
-          <h2 className="mb-4 text-3xl font-bold tracking-tight text-[#d5dbe6] sm:text-4xl lg:text-5xl">
-            Why teams choose <span className="italic font-normal">VibeDoctor</span>
+
+          <h2
+            className="text-[32px] font-medium leading-[1.2] tracking-[-0.02em] text-transparent sm:text-[44px]"
+            style={{
+              fontFamily: interFamily,
+              backgroundImage:
+                "linear-gradient(161deg, rgb(213, 219, 230) 51.657657657657666%, rgb(4, 7, 13) 166%)",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+            }}
+          >
+            Why Choose Us{" "}
+            <span
+              className="font-normal italic"
+              style={{ fontFamily: serifFamily }}
+            >
+              Over Others
+            </span>
           </h2>
-          <p className="max-w-md text-base text-white/40">
-            Prototypes are easy. Production delivery is where most teams lose
-            time.
-          </p>
         </div>
 
-        {/* Benefits grid */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {benefits.map((benefit) => (
-            <div
-              key={benefit.title}
-              className="group relative rounded-2xl border border-white/[0.06] bg-[#04070d] p-8 transition-all hover:border-white/10 hover:bg-white/[0.02]"
-            >
-              {/* Glow on hover */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-cyan-500/[0.03] to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+        {/* Rolling Carousel */}
+        <div className="relative w-full">
+          {/* Gradient fade edges */}
+          <div
+            className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24"
+            style={{
+              background:
+                "linear-gradient(90deg, rgba(4,7,13,0.95) 0%, transparent 100%)",
+            }}
+          />
+          <div
+            className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24"
+            style={{
+              background:
+                "linear-gradient(270deg, rgba(4,7,13,0.95) 0%, transparent 100%)",
+            }}
+          />
 
-              <div className="relative z-10">
-                <div className="mb-6 text-cyan-300/80">
-                  {benefit.icon}
+          <div
+            ref={scrollRef}
+            className="flex gap-6 overflow-x-hidden"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            style={{
+              scrollBehavior: "auto",
+            }}
+          >
+            {allCards.map((card, index) => (
+              <article
+                key={`${card.title}-${index}`}
+                className="relative flex-shrink-0 overflow-hidden rounded-[20px] border border-[rgba(216,231,242,0.07)] bg-[#04070d] transition-transform duration-300 hover:scale-105"
+                style={{ width: "clamp(300px, 33vw, 380px)" }}
+              >
+                <div className="relative aspect-[16/10] overflow-hidden border-b border-[rgba(216,231,242,0.07)]">
+                  <img
+                    src={card.image}
+                    alt={card.alt}
+                    className="h-full w-full object-cover opacity-60"
+                  />
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-0"
+                    style={{
+                      background:
+                        "radial-gradient(60% 70% at 70% 20%, rgba(184,199,217,0.35) 0%, rgba(4,7,13,0.2) 45%, rgba(4,7,13,0.75) 100%)",
+                    }}
+                  />
                 </div>
-                <h3 className="mb-3 text-lg font-semibold text-[#d5dbe6]">
-                  {benefit.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-white/40">
-                  {benefit.description}
-                </p>
-              </div>
-            </div>
-          ))}
+
+                <div className="space-y-3 px-5 py-5">
+                  <h3
+                    className="text-[22px] font-medium leading-[1.2] tracking-[-0.015em] text-[#e4e9f2]"
+                    style={{ fontFamily: interFamily }}
+                  >
+                    {card.title}
+                  </h3>
+                  <p
+                    className="text-[15px] leading-[1.6] tracking-[-0.01em] text-[rgba(213,219,230,0.62)]"
+                    style={{ fontFamily: interFamily }}
+                  >
+                    {card.description}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
+
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-0 left-0 right-0 z-[1] h-1"
+        style={{
+          background:
+            "radial-gradient(50% 50% at 50% 50%, #d8e7f212 0%, #04070d 100%)",
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-[249px] left-1/2 z-[1] h-[499px] w-[793px] -translate-x-1/2 -rotate-[13deg] rounded-[10px] opacity-10"
+        style={{
+          background:
+            "radial-gradient(50% 50% at 50% 50%, #d5dbe6b3 0%, #04070d00 100%)",
+        }}
+      />
     </section>
   );
 }
