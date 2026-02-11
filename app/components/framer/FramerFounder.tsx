@@ -58,7 +58,7 @@ export function FramerFounder() {
           >
             VibeDoctor closes that gap.
           </h3>
-          <div className="flex flex-wrap items-center justify-center gap-4">
+          {/* <div className="flex flex-wrap items-center justify-center gap-4">
             <div
               className="h-7 w-7 overflow-hidden rounded-full"
               style={{ boxShadow: "0px 0px 0px 2px #ffffff" }}
@@ -75,7 +75,7 @@ export function FramerFounder() {
             >
               Suman Saurabh, Co-founder, VibeDoctor
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
 
