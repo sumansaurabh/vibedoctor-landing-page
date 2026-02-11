@@ -1,13 +1,16 @@
 export function FramerIntegrations() {
   const integrations = [
-    { name: "Slack", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/slack.svg" },
-    { name: "Notion", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/notion.svg" },
-    { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/figma.svg" },
     { name: "GitHub", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" },
-    { name: "Stripe", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/stripe.svg" },
-    { name: "Zapier", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/zapier.svg" },
-    { name: "HubSpot", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/hubspot.svg" },
-    { name: "Salesforce", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/salesforce.svg" },
+    { name: "OpenAI", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/openai.svg" },
+    { name: "Anthropic", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/anthropic.svg" },
+    { name: "Google Cloud", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/googlecloud.svg" },
+    { name: "AWS", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/amazonwebservices.svg" },
+    { name: "Azure", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/microsoftazure.svg" },
+    { name: "Kubernetes", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/kubernetes.svg" },
+    { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/postgresql.svg" },
+    /*
+     Keep total cards at 8 so the existing grid rhythm is preserved.
+    */
   ];
 
   return (
@@ -22,13 +25,15 @@ export function FramerIntegrations() {
             <svg className="h-3.5 w-3.5 text-cyan-300" viewBox="0 0 18 10.5" fill="currentColor">
               <path d="M 0 5.25 L 9 10.5 L 18 5.25 L 9 0 Z" />
             </svg>
-            <span className="text-xs font-medium uppercase tracking-[0.12em] text-white/70">Integrations</span>
+            <span className="text-xs font-medium uppercase tracking-[0.12em] text-white/70">
+              Ecosystem
+            </span>
           </div>
           <h2 className="mb-4 text-3xl font-bold tracking-tight text-[#e4e9f2] sm:text-4xl lg:text-5xl">
-            Seamless <span className="italic font-normal">Integrations</span>
+            Works with your existing <span className="italic font-normal">stack</span>
           </h2>
           <p className="max-w-md text-base text-white/40">
-            Interact with all your favorite software without unnecessary fuss
+            Keep your preferred repo, cloud, runtime, and model providers.
           </p>
         </div>
 

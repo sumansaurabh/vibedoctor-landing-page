@@ -1,22 +1,25 @@
 export function FramerSuccess() {
   const stories = [
     {
-      title: "Max's SaaS Revolution",
-      description: "Max, the founder of CloudFlow, implemented AI automation in their processes. This move slashed operational costs by 50% and boosted team productivity by 75%.",
-      metric: "50%",
-      metricLabel: "Cost Reduction",
+      title: "Validated Pain",
+      description:
+        "We interviewed founders, freelancers, and small teams to map the exact bottlenecks after AI prototyping.",
+      metric: "40+",
+      metricLabel: "Customer Interviews",
     },
     {
-      title: "Luna's E-Commerce Growth",
-      description: "Luna's fashion brand used our AI-powered analytics to understand customer behavior and personalize shopping experiences, driving a 120% revenue increase.",
-      metric: "120%",
-      metricLabel: "Revenue Growth",
+      title: "Paying Beta Users",
+      description:
+        "Private beta already has trial paying customers validating demand for faster cloud-owned delivery workflows.",
+      metric: "8",
+      metricLabel: "Trial Paying Customers",
     },
     {
-      title: "Aria's HealthTech Breakthrough",
-      description: "Aria's health startup deployed AI chatbots for patient intake, reducing wait times by 80% and improving patient satisfaction scores dramatically.",
-      metric: "80%",
-      metricLabel: "Faster Response",
+      title: "Early Revenue Signal",
+      description:
+        "Credit-based usage is generating revenue in beta while additional B2B demos move through pipeline.",
+      metric: "$310",
+      metricLabel: "Private Beta Revenue",
     },
   ];
 
@@ -32,13 +35,16 @@ export function FramerSuccess() {
             <svg className="h-3.5 w-3.5 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
             </svg>
-            <span className="text-xs font-medium uppercase tracking-[0.12em] text-white/70">Our Clients</span>
+            <span className="text-xs font-medium uppercase tracking-[0.12em] text-white/70">
+              Traction
+            </span>
           </div>
           <h2 className="mb-4 text-3xl font-bold tracking-tight text-[#d5dbe6] sm:text-4xl lg:text-5xl">
-            Success Stories to <span className="italic font-normal">Inspire</span>
+            Built with real <span className="italic font-normal">customer feedback</span>
           </h2>
           <p className="max-w-md text-base text-white/40">
-            Discover how businesses and creators achieve results
+            Early numbers, real usage, and strong demand from teams shipping
+            client apps.
           </p>
         </div>
 

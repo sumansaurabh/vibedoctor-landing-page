@@ -12,8 +12,12 @@ import { FramerFooter } from "~/components/framer/FramerFooter";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Landio - AI Agency & Landing Page Template" },
-    { name: "description", content: "Supercharge your startup’s growth with Landio—the ultimate Framer template for AI-powered SaaS businesses." },
+    { title: "VibeDoctor" },
+    {
+      name: "description",
+      content:
+        "VibeDoctor helps teams ship AI-built apps to customer-owned cloud faster and safer.",
+    },
   ];
 };
 

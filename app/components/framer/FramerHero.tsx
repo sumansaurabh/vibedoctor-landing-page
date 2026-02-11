@@ -79,9 +79,9 @@ export function FramerHero() {
             }}
           >
             <img
-              src="https://framerusercontent.com/images/5BVUI56YoqDFZ1xvzbir5lf9sZA.svg"
+              src="/vibedoctor-logo.svg"
               alt=""
-              className="h-full w-full rotate-90 object-contain"
+              className="h-full w-full object-contain"
             />
           </div>
         </div>
@@ -101,7 +101,7 @@ export function FramerHero() {
               className="text-[14px] font-medium uppercase leading-[22px] tracking-[-0.01em] text-[rgba(255,255,255,0.6)]"
               style={{ fontFamily: interFamily }}
             >
-              NEW GEN AI AUTOMATION PARTNER
+              VIBEDOCTOR
             </span>
           </div>
 
@@ -115,12 +115,13 @@ export function FramerHero() {
               backgroundClip: "text",
             }}
           >
-            Automate Smarter. Grow Faster.{" "}
+            Scale your AI-apps.{" "}
+            <br></br>
             <span
               className="font-normal italic"
               style={{ fontFamily: serifFamily }}
             >
-              With AI.
+              Ship on your cloud.
             </span>
           </h1>
 
@@ -128,14 +129,18 @@ export function FramerHero() {
             className="max-w-[680px] text-base font-normal leading-[1.6] tracking-[-0.02em] text-[rgba(255,255,255,0.6)]"
             style={{ fontFamily: interFamily }}
           >
-            AI Automation for Modern Businesses Made Simple
+            VibeDoctor turns a plain-language change request into code updates,
+            infra provisioning, integration wiring, and staged production
+            releases across AWS, GCP, Azure, or Kubernetes.
           </p>
         </div>
 
         <a
-          href="#pricing"
+          href="https://www.vibedoctor.dev"
+          target="_blank"
+          rel="noopener noreferrer"
           className="relative inline-flex min-h-[56px] items-center justify-center rounded-lg px-7 py-3.5 no-underline"
-          aria-label="Book a free call"
+          aria-label="Request early access"
         >
           <span
             aria-hidden="true"
@@ -163,7 +168,7 @@ export function FramerHero() {
               className="text-base font-semibold tracking-[-0.01em] text-white"
               style={{ fontFamily: interFamily, lineHeight: "1.2em" }}
             >
-              Book A Free Call
+              Request Early Access
             </span>
             <svg
               className="h-[23px] w-[22px] text-white"

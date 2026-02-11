@@ -2,23 +2,27 @@ export function FramerProcess() {
   const steps = [
     {
       number: "01",
-      title: "Discover & Analyze",
-      description: "We audit your existing workflows, tools, and customer data to uncover opportunities for automation.",
+      title: "Connect Your Repo",
+      description:
+        "Link your existing GitHub repository and choose the target cloud environment.",
     },
     {
       number: "02",
-      title: "Design & Strategize",
-      description: "Our team crafts a tailored AI roadmap aligned with your goals, budget, and technical infrastructure.",
+      title: "Submit Change Request",
+      description:
+        "Describe what you want in plain language: feature, bug fix, or infrastructure request.",
     },
     {
       number: "03",
-      title: "Build & Integrate",
-      description: "We develop and deploy AI solutions that plug seamlessly into your existing tech stack.",
+      title: "Run Agent + Infra Plan",
+      description:
+        "Choose your coding agent, execute code changes, and provision required services with integrations.",
     },
     {
       number: "04",
-      title: "Optimize & Scale",
-      description: "Continuous monitoring and optimization ensure your AI systems perform better over time.",
+      title: "Review and Release",
+      description:
+        "Validate output, run staged deployment, and ship with rollback safety in place.",
     },
   ];
 
@@ -34,13 +38,16 @@ export function FramerProcess() {
             <svg className="h-3.5 w-3.5 text-cyan-300" viewBox="0 0 15.75 13.5" fill="currentColor">
               <path d="M 14.25 13.5 L 0 13.5 L 0 9 L 5.25 9 L 5.25 4.5 L 10.5 4.5 L 10.5 0 L 15.75 0 L 15.75 12 C 15.75 12.828 15.078 13.5 14.25 13.5 Z" />
             </svg>
-            <span className="text-xs font-medium uppercase tracking-[0.12em] text-white/70">Process</span>
+            <span className="text-xs font-medium uppercase tracking-[0.12em] text-white/70">
+              How It Works
+            </span>
           </div>
           <h2 className="mb-4 text-3xl font-bold tracking-tight text-[#d5dbe6] sm:text-4xl lg:text-5xl">
-            Our Simple & <span className="italic font-normal">Smart Process</span>
+            From request to release in <span className="italic font-normal">four steps</span>
           </h2>
           <p className="max-w-lg text-base text-white/40">
-            Everything you need to collaborate, create, and scale, all in one place.
+            No more fragmented handoffs across freelancers, scripts, and
+            hosting panels.
           </p>
         </div>
 
