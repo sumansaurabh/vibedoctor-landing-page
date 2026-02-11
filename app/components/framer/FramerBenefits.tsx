@@ -7,6 +7,7 @@ export function FramerBenefits() {
   const serifFamily = '"Instrument Serif", "Instrument Serif Placeholder", serif';
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
+  const [expandedImage, setExpandedImage] = useState<string | null>(null);
 
   const visualCards = [
     {
@@ -170,14 +171,17 @@ export function FramerBenefits() {
             {allCards.map((card, index) => (
               <article
                 key={`${card.title}-${index}`}
-                className="relative flex-shrink-0 overflow-hidden rounded-[20px] border border-[rgba(216,231,242,0.07)] bg-[#04070d] transition-transform duration-300 hover:scale-105"
+                className="group relative flex-shrink-0 overflow-hidden rounded-[20px] border border-[rgba(216,231,242,0.07)] bg-[#04070d] transition-transform duration-300 hover:scale-105"
                 style={{ width: "clamp(300px, 33vw, 380px)" }}
               >
-                <div className="relative aspect-[16/10] overflow-hidden border-b border-[rgba(216,231,242,0.07)]">
+                <div
+                  className="relative aspect-[16/10] cursor-pointer overflow-hidden border-b border-[rgba(216,231,242,0.07)]"
+                  onClick={() => setExpandedImage(card.image)}
+                >
                   <img
                     src={card.image}
                     alt={card.alt}
-                    className="h-full w-full object-cover opacity-60"
+                    className="h-full w-full object-cover opacity-60 transition-opacity duration-300 group-hover:opacity-80"
                   />
                   <div
                     aria-hidden="true"
@@ -187,6 +191,14 @@ export function FramerBenefits() {
                         "radial-gradient(60% 70% at 70% 20%, rgba(184,199,217,0.35) 0%, rgba(4,7,13,0.2) 45%, rgba(4,7,13,0.75) 100%)",
                     }}
                   />
+                  {/* Click hint */}
+                  <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <div className="rounded-full bg-cyan-300/20 p-3 backdrop-blur-sm ring-1 ring-cyan-300/40">
+                      <svg className="h-6 w-6 text-cyan-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                      </svg>
+                    </div>
+                  </div>
                 </div>
 
                 <div className="space-y-3 px-5 py-5">
@@ -208,6 +220,60 @@ export function FramerBenefits() {
           </div>
         </div>
       </div>
+
+      {/* Expanded Image Modal */}
+      {expandedImage && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center p-8"
+          style={{
+            background: "rgba(4, 7, 13, 0.95)",
+            backdropFilter: "blur(10px)",
+            animation: "fadeIn 0.2s ease-out",
+          }}
+          onClick={() => setExpandedImage(null)}
+        >
+          <div
+            className="relative h-[85vh] w-[90vw] overflow-hidden rounded-[24px] border border-[rgba(103,232,249,0.3)] shadow-[0_0_80px_rgba(103,232,249,0.25)]"
+            style={{
+              animation: "expandIn 0.3s ease-out",
+            }}
+          >
+            <img
+              src={expandedImage}
+              alt="Expanded view"
+              className="h-full w-full object-contain"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(4,7,13,0.4)_100%)]" />
+          </div>
+          {/* Close hint */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 rounded-full border border-cyan-300/30 bg-cyan-300/10 px-4 py-2 backdrop-blur-sm">
+            <p className="text-sm text-cyan-200" style={{ fontFamily: interFamily }}>
+              Click anywhere to close
+            </p>
+          </div>
+        </div>
+      )}
+
+      <style>{`
+        @keyframes expandIn {
+          from {
+            opacity: 0;
+            transform: scale(0.9);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+      `}</style>
 
       <div
         aria-hidden="true"
