@@ -121,11 +121,11 @@ export function FramerHero() {
         </div>
 
         <a
-          href="https://www.vibedoctor.dev"
+          href="https://calendly.com/sumansaurabh-1/anek"
           target="_blank"
           rel="noopener noreferrer"
           className="relative inline-flex min-h-[56px] items-center justify-center rounded-lg px-7 py-3.5 no-underline"
-          aria-label="Request early access"
+          aria-label="Book a Demo"
         >
           <span
             aria-hidden="true"
@@ -153,7 +153,7 @@ export function FramerHero() {
               className="text-base font-semibold tracking-[-0.01em] text-white"
               style={{ fontFamily: interFamily, lineHeight: "1.2em" }}
             >
-              Request Early Access
+              Book a Demo
             </span>
             <svg
               className="h-[23px] w-[22px] text-white"

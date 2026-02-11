@@ -38,7 +38,7 @@ export default function TermsRoute() {
             <a href="mailto:support@vibedoctor.dev">support@vibedoctor.dev</a>
             <br />
             <strong>Website:</strong>{' '}
-            <a href="https://bareuptime.co" className="text-white/70 hover:text-white underline">https://bareuptime.co</a>
+            <a href="https://vibedoctor.dev" className="text-white/70 hover:text-white underline">https://vibedoctor.dev</a>
           </p>
 
           <h2>3. Description of Service</h2>
@@ -94,7 +94,7 @@ export default function TermsRoute() {
             <li>Free Plan: Up to 50 monitors with basic features</li>
             <li>Premium Plans: Additional features and monitors available</li>
             <li>Plan details available at{' '}
-              <a href="https://bareuptime.co" className="text-white/70 hover:text-white underline">https://bareuptime.co</a>
+              <a href="https://vibedoctor.dev" className="text-white/70 hover:text-white underline">https://vibedoctor.dev</a>
             </li>
           </ul>
 

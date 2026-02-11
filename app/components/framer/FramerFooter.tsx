@@ -18,13 +18,12 @@ export function FramerFooter() {
           {/* Nav links */}
           <nav className="flex flex-wrap items-center justify-center gap-6">
             {[
-              { label: "Services", href: "/#services" },
-              { label: "Process", href: "/#process" },
+              { label: "Process", href: "/#services" },
               { label: "Pricing", href: "/#pricing" },
               { label: "Contact", href: "/contact" },
+              { label: "Docs", href: "https://docs.anek.codes/" },
               { label: "Terms", href: "/terms" },
               { label: "Privacy", href: "/privacy" },
-              { label: "Blog", href: "/blog" },
             ].map((item) => (
               <Link
                 key={item.label}
@@ -56,7 +55,7 @@ export function FramerFooter() {
         {/* Bottom */}
         <div className="text-center">
           <p className="text-sm text-white/30">
-            © {new Date().getFullYear()} Landio Template. All rights reserved.
+            © {new Date().getFullYear()} Penify Technologies LLC All rights reserved.
           </p>
         </div>
       </div>

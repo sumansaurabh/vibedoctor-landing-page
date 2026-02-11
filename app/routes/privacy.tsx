@@ -30,7 +30,7 @@ export default function PrivacyRoute() {
             a website monitoring service. This Privacy Policy explains how we
             collect, use, disclose, and safeguard your information when you use
             our website monitoring Service and website located at{' '}
-            <a href="https://bareuptime.co" className="text-white/70 hover:text-white underline">https://bareuptime.co</a>.
+            <a href="https://vibedoctor.dev" className="text-white/70 hover:text-white underline">https://vibedoctor.dev</a>.
           </p>
 
           <h2>2. Company Information</h2>
@@ -43,7 +43,7 @@ export default function PrivacyRoute() {
           </p>
           <p>
             <strong>Website:</strong>{' '}
-            <a href="https://bareuptime.co" className="text-white/70 hover:text-white underline">https://bareuptime.co</a>
+            <a href="https://vibedoctor.dev" className="text-white/70 hover:text-white underline">https://vibedoctor.dev</a>
           </p>
 
           <h2>3. Information We Collect</h2>
