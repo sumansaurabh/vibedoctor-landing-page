@@ -40,6 +40,9 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+/**
+ * Renders the layout of the application, including meta tags and optional Amplitude scripts.
+ */
 export function Layout({ children }: { children: React.ReactNode }) {
   const enableAmplitude = import.meta.env.VITE_ENABLE_AMPLITUDE !== "false";
   const amplitudeApiKey =
