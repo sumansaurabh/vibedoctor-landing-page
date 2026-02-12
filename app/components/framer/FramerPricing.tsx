@@ -4,7 +4,7 @@ export function FramerPricing() {
     '"Instrument Serif", "Instrument Serif Placeholder", serif';
 
   const hourlyFeatures = [
-    'Billed per minute of usage',
+    'Charges include 1 vCPU, 1 GB RAM, and 1 GB disk',
     'Stop anytime, pay only for what you use',
     'Ideal for quick fixes and experiments',
   ];
@@ -107,7 +107,7 @@ export function FramerPricing() {
                   className="text-[54px] font-medium leading-none tracking-[-0.03em] text-[#B4B9C3]"
                   style={{ fontFamily: interFamily }}
                 >
-                  $0.085
+                  $0.0285
                 </span>
                 <span
                   className="mb-1 text-[22px] text-[rgba(180,185,195,0.74)]"

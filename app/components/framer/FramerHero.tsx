@@ -1,3 +1,4 @@
+import { IconBrandDiscord } from "@tabler/icons-react";
 import { Mail } from "lucide-react";
 
 export function FramerHero() {
@@ -185,6 +186,19 @@ export function FramerHero() {
             <svg className="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
               <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
             </svg>
+          </a>
+          <span
+            aria-hidden="true"
+            className="h-6 w-[2px] bg-[#d8e7f212]"
+          />
+          <a
+            href="https://discord.gg/H9QmZnNu"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex h-10 w-10 items-center justify-center rounded-[201px] p-2 text-[rgba(213,219,230,0.5)] transition-colors hover:text-[rgba(213,219,230,0.8)]"
+            aria-label="Discord"
+          >
+            <IconBrandDiscord className="h-6 w-6" />
           </a>
           <span
             aria-hidden="true"
