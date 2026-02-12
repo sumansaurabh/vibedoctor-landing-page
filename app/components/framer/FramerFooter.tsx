@@ -21,7 +21,7 @@ export function FramerFooter() {
             {[
               { label: "Process", href: "/#services" },
               { label: "Pricing", href: "/#pricing" },
-              { label: "Docs", href: "https://docs.anek.codes/" },
+              { label: "Docs", href: "https://docs.vibedoctor.dev/" },
               { label: "Team", href: "/team" },
               { label: "Contact", href: "/contact" },
               { label: "Terms", href: "/terms" },
