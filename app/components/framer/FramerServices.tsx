@@ -33,8 +33,21 @@ function PipelineNode({ data }: NodeProps<PipelineFlowNode>) {
   return (
     <div className={data.compact ? "w-[210px]" : "w-[260px]"}>
       <Handle
+        id="target-left"
         type="target"
         position={Position.Left}
+        className="!h-2 !w-2 !border-0 !bg-transparent !opacity-0"
+      />
+      <Handle
+        id="target-top"
+        type="target"
+        position={Position.Top}
+        className="!h-2 !w-2 !border-0 !bg-transparent !opacity-0"
+      />
+      <Handle
+        id="target-bottom"
+        type="target"
+        position={Position.Bottom}
         className="!h-2 !w-2 !border-0 !bg-transparent !opacity-0"
       />
 
@@ -62,8 +75,15 @@ function PipelineNode({ data }: NodeProps<PipelineFlowNode>) {
       </div>
 
       <Handle
+        id="source-right"
         type="source"
         position={Position.Right}
+        className="!h-2 !w-2 !border-0 !bg-transparent !opacity-0"
+      />
+      <Handle
+        id="source-bottom"
+        type="source"
+        position={Position.Bottom}
         className="!h-2 !w-2 !border-0 !bg-transparent !opacity-0"
       />
     </div>
@@ -77,9 +97,7 @@ const activationByEdge: Record<string, number> = {
   "edge-cloud-connect": 2,
   "edge-connect-live": 3,
   "edge-cloud-redis": 1,
-  "edge-cloud-app": 1,
   "edge-redis-connect": 2,
-  "edge-app-connect": 2,
 };
 
 function edgeFor(
@@ -130,6 +148,49 @@ function edgeFor(
       width: 16,
       height: 16,
       color: stroke,
+    },
+  };
+}
+
+function connectorEdgeFor(
+  id: string,
+  source: string,
+  target: string,
+  activeStep: number,
+  sourceHandle?: string,
+  targetHandle?: string,
+): Edge {
+  const isActive = activeStep >= (activationByEdge[id] ?? 99);
+  const stroke = isActive
+    ? "rgba(103, 232, 249, 0.72)"
+    : "rgba(255, 255, 255, 0.18)";
+
+  return {
+    id,
+    source,
+    target,
+    sourceHandle,
+    targetHandle,
+    animated: isActive,
+    type: "straight",
+    className: isActive ? "flow-edge-active" : "flow-edge-idle",
+    style: {
+      stroke,
+      strokeWidth: isActive ? 2.5 : 1.8,
+      strokeDasharray: isActive ? "1 8" : "1 10",
+      strokeLinecap: "round",
+    },
+    markerEnd: {
+      type: MarkerType.Arrow,
+      width: 0,
+      height: 0,
+      color: "transparent",
+    },
+    markerStart: {
+      type: MarkerType.Arrow,
+      width: 0,
+      height: 0,
+      color: "transparent",
     },
   };
 }
@@ -211,25 +272,13 @@ export function FramerServices() {
       {
         id: "redis",
         type: "pipelineNode",
-        position: { x: 360, y: 290 },
+        position: { x: 550, y: 310 },
         data: {
           active: activeStep >= 1,
           compact: true,
           label: "Data",
           title: "Redis Instance",
           body: "memorystore 6.x",
-        },
-      },
-      {
-        id: "app",
-        type: "pipelineNode",
-        position: { x: 620, y: 290 },
-        data: {
-          active: activeStep >= 1,
-          compact: true,
-          label: "App",
-          title: "Next.js Service",
-          body: "Cloud Run",
         },
       },
     ],
@@ -247,10 +296,22 @@ export function FramerServices() {
       ),
       edgeFor("edge-cloud-connect", "cloud", "connect", activeStep),
       edgeFor("edge-connect-live", "connect", "live", activeStep),
-      edgeFor("edge-cloud-redis", "cloud", "redis", activeStep),
-      edgeFor("edge-cloud-app", "cloud", "app", activeStep),
-      edgeFor("edge-redis-connect", "redis", "connect", activeStep),
-      edgeFor("edge-app-connect", "app", "connect", activeStep),
+      connectorEdgeFor(
+        "edge-cloud-redis",
+        "cloud",
+        "redis",
+        activeStep,
+        "source-bottom",
+        "target-left",
+      ),
+      connectorEdgeFor(
+        "edge-redis-connect",
+        "redis",
+        "connect",
+        activeStep,
+        "source-right",
+        "target-bottom",
+      ),
     ],
     [activeStep],
   );
