@@ -41,6 +41,11 @@ export const meta: MetaFunction = () => {
 };
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const enableAmplitude = import.meta.env.VITE_ENABLE_AMPLITUDE !== "false";
+  const amplitudeApiKey =
+    import.meta.env.VITE_AMPLITUDE_API_KEY || "c79c28d22ed36cc6a9787b3d544e6d05";
+  const amplitudeInitScript = `window.amplitude.add(window.sessionReplay.plugin({sampleRate: 1}));window.amplitude.init(${JSON.stringify(amplitudeApiKey)}, {"autocapture":{"elementInteractions":true}});`;
+
   return (
     <html lang="en">
       <head>
@@ -48,6 +53,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
+        {enableAmplitude && amplitudeApiKey ? (
+          <>
+            <script src="https://cdn.amplitude.com/libs/analytics-browser-2.11.1-min.js.gz"></script>
+            <script src="https://cdn.amplitude.com/libs/plugin-session-replay-browser-1.25.0-min.js.gz"></script>
+            <script
+              dangerouslySetInnerHTML={{
+                __html: amplitudeInitScript,
+              }}
+            />
+          </>
+        ) : null}
       </head>
       <body>
         {children}
