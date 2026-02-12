@@ -2,6 +2,9 @@ import { Link } from "@remix-run/react";
 import { IconBrandDiscord } from "@tabler/icons-react";
 import { Mail } from "lucide-react";
 
+/**
+ * Renders the footer component for the application.
+ */
 export function FramerFooter() {
   return (
     <footer className="relative bg-[#04070d] py-16">
