@@ -67,7 +67,7 @@ export function FramerHero() {
       <div className="relative z-[5] flex w-full max-w-none flex-col gap-12 px-3 pb-5 pt-40 sm:px-6 lg:px-10 2xl:px-14">
         <div className="flex w-full flex-col items-start gap-10 text-left lg:flex-row lg:items-center lg:justify-between lg:gap-8">
           {/* Left content to shift Provisioning text 'ml-*'*/}
-          <div className="flex w-full max-w-[680px] flex-col items-start gap-6 ml-40">
+          <div className="flex w-full max-w-[680px] flex-col items-start gap-6 lg:ml-40">
             <h1
               className="max-w-[936px] text-[44px] font-medium leading-[0.98] tracking-[-0.02em] text-transparent sm:text-[60px] xl:text-[80px]"
               style={{
@@ -180,7 +180,7 @@ export function FramerHero() {
             </div>
           </div>
 
-          <div className="w-full max-w-[520px] self-center lg:ml-auto lg:max-w-[700px] lg:self-auto">
+          <div className="hidden lg:block w-full max-w-[520px] self-center lg:ml-auto lg:max-w-[700px] lg:self-auto">
             <img
               src="/vibedoctor.gif"
               alt="VibeDoctor workflow preview"
