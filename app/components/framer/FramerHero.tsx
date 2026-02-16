@@ -103,13 +103,13 @@ export function FramerHero() {
               backgroundClip: "text",
             }}
           >
-            Scale your AI-apps.{" "}
+            Provision your Infra{" "}
             <br></br>
             <span
               className="font-normal italic"
               style={{ fontFamily: serifFamily }}
             >
-              Ship on your cloud.
+              at the Speed of Chat.
             </span>
           </h1>
 
@@ -117,9 +117,9 @@ export function FramerHero() {
             className="max-w-[680px] text-base font-normal leading-[1.6] tracking-[-0.02em] text-[rgba(255,255,255,0.6)]"
             style={{ fontFamily: interFamily }}
           >
-            VibeDoctor turns a plain-language change request into code updates,
-            infra provisioning, integration wiring, and staged production
-            releases across AWS, GCP, Azure, or Kubernetes.
+            Provision your cloud infrastructure using Natural Language.{" "}
+            <br></br> 
+            No yaml help. No console clicking. Just ask, and we deploy it. 
           </p>
         </div>
 

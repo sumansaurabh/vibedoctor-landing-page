@@ -13,6 +13,10 @@ export default defineConfig({
   server: {
     port: 5173,
   },
+  optimizeDeps: {
+    // Prevent stale optimized chunks for R3F/Three during React upgrades.
+    exclude: ["@react-three/fiber", "@react-three/drei", "three"],
+  },
   resolve: {
     alias: {
       "db": path.resolve(__dirname, "./db"),
