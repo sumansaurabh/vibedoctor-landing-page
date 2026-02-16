@@ -1,6 +1,9 @@
 import { IconBrandDiscord } from "@tabler/icons-react";
 import { Mail } from "lucide-react";
 
+/**
+ * Renders the hero section of the application.
+ */
 export function FramerHero() {
   const interFamily = '"Inter", "Inter Placeholder", sans-serif';
   const serifFamily = '"Instrument Serif", "Instrument Serif Placeholder", serif';
