@@ -341,7 +341,7 @@ export function FramerServices() {
 
   return (
     <section
-      className="relative overflow-hidden bg-[#04070d] py-24 sm:py-[100px]"
+      className="relative hidden overflow-hidden bg-[#04070d] py-24 sm:py-[100px] md:block"
       id="services"
     >
       <style>{`
