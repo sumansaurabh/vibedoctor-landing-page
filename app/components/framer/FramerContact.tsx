@@ -40,7 +40,7 @@ export function FramerContact({
       description:
         "Let's collaborate on custom solutions or discuss product priorities",
       actionLabel: "Book a call",
-      actionHref: "https://calendly.com/",
+      actionHref: "https://calendly.com/sumansaurabh-1/anek",
     },
   ];
 
