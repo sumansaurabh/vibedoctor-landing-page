@@ -131,7 +131,8 @@ export function FramerPricing() {
               </ul>
 
               <a
-                href="#"
+                href="https://app.vibedoctor.dev/"
+                target="_blank"
                 className="mt-8 inline-flex items-center justify-center rounded-[12px] border border-[rgba(180,185,195,0.3)] bg-[rgba(180,185,195,0.12)] px-5 py-3 text-[15px] font-medium text-[#B4B9C3] transition-colors hover:bg-[rgba(180,185,195,0.2)]"
                 style={{ fontFamily: interFamily }}
               >
