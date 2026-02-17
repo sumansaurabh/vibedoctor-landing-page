@@ -48,6 +48,10 @@ export const env = {
   // Security
   SESSION_SECRET: getEnv("SESSION_SECRET") || "dev-secret-change-in-production",
 
+  // Contact email API
+  EMAIL_API_URL:
+    getEnv("EMAIL_API_URL") || "https://app.vibedoctor.dev/api/email/send",
+
   // Add your API keys and secrets here
   // Example:
   // OPENAI_API_KEY: getEnv("OPENAI_API_KEY"),
