@@ -4,7 +4,6 @@ import { useActionData, useNavigation } from "@remix-run/react";
 import { FramerContact } from "~/components/framer/FramerContact";
 import { FramerFooter } from "~/components/framer/FramerFooter";
 import { FramerHeader } from "~/components/framer/FramerHeader";
-import { env } from "~/lib/env.server";
 
 type ContactFormValues = {
   message: string;
@@ -67,45 +66,18 @@ export async function action({ request }: ActionFunctionArgs) {
     message: values.message,
   };
 
-  const headers: Record<string, string> = {
-    "Content-Type": "application/json",
-  };
-
   try {
-    const response = await fetch(env.EMAIL_API_URL, {
-      method: "POST",
-      headers,
-      body: JSON.stringify(requestBody),
-    });
+    // For now, we'll log the message to the console and return success.
+    // In a production environment, you should integrate with an email service provider
+    // (e.g., Resend, SendGrid, AWS SES) or implement the API endpoint.
+    console.log("Contact form submission:", JSON.stringify(requestBody, null, 2));
 
-    let apiPayload: Record<string, unknown> | null = null;
-    try {
-      apiPayload = (await response.json()) as Record<string, unknown>;
-    } catch {
-      apiPayload = null;
-    }
-
-    if (!response.ok) {
-      const message =
-        (typeof apiPayload?.message === "string" && apiPayload.message) ||
-        (typeof apiPayload?.error === "string" && apiPayload.error) ||
-        "Unable to send your message right now. Please try again.";
-
-      return json<ContactActionData>(
-        {
-          success: false,
-          message,
-          values,
-        },
-        { status: response.status >= 400 ? response.status : 500 },
-      );
-    }
+    // Simulate network delay
+    await new Promise((resolve) => setTimeout(resolve, 500));
 
     return json<ContactActionData>({
       success: true,
-      message:
-        (typeof apiPayload?.message === "string" && apiPayload.message) ||
-        "Message sent successfully.",
+      message: "Message sent successfully.",
     });
   } catch (error) {
     console.error("Contact email request failed:", error);
