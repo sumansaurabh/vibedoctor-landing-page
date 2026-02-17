@@ -31,11 +31,11 @@ export const links: LinksFunction = () => [
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Anek.codes App" },
-    { name: "description", content: "Anek.codes Generated Project" },
-    { name: "author", content: "Anek.codes" },
-    { property: "og:title", content: "Anek.codes App" },
-    { property: "og:description", content: "Anek.codes Generated Project" },
+    { title: "VibeDoctor App" },
+    { name: "description", content: "VibeDoctor Generated Project" },
+    { name: "author", content: "VibeDoctor" },
+    { property: "og:title", content: "VibeDoctor App" },
+    { property: "og:description", content: "VibeDoctor Generated Project" },
     { property: "og:type", content: "website" },
   ];
 };
