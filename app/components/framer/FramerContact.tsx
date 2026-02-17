@@ -32,8 +32,8 @@ export function FramerContact({
       title: "Email Us",
       description:
         "Facing technical challenges or product concerns? We're here to assist",
-      actionLabel: "support@vibedoctor.ai",
-      actionHref: "mailto:support@vibedoctor.ai",
+      actionLabel: "support@vibedoctor.dev",
+      actionHref: "mailto:support@vibedoctor.dev",
     },
     {
       title: "Contact Sales",

@@ -46,7 +46,7 @@ export function FramerFooter() {
             <a href="https://discord.gg/H9QmZnNu" target="_blank" rel="noopener noreferrer" className="text-white/30 transition-colors hover:text-white/60" aria-label="Discord">
               <IconBrandDiscord className="h-4 w-4" />
             </a>
-            <a href="mailto:support@vibedoctor_dev" className="text-white/30 transition-colors hover:text-white/60">
+            <a href="mailto:support@vibedoctor.dev" className="text-white/30 transition-colors hover:text-white/60">
               <Mail className="h-4 w-4" />
             </a>
             {/* <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-white/30 transition-colors hover:text-white/60">

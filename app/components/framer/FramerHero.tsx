@@ -171,7 +171,7 @@ export function FramerHero() {
                 className="h-6 w-[2px] bg-[#d8e7f212]"
               />
               <a
-                href="mailto:support@vibedoctor_dev"
+                href="mailto:support@vibedoctor.dev"
                 className="flex h-10 w-10 items-center justify-center rounded-[201px] p-2 text-[rgba(213,219,230,0.5)] transition-colors hover:text-[rgba(213,219,230,0.8)]"
                 aria-label="Email"
               >
