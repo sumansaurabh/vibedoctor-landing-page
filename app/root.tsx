@@ -5,7 +5,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import type { LinksFunction, MetaFunction } from "@remix-run/node";
+import type { LinksFunction } from "@remix-run/node";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useState } from "react";
 
@@ -17,6 +17,7 @@ import "./tailwind.css";
 
 export const links: LinksFunction = () => [
   { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+  { rel: "sitemap", type: "application/xml", href: "/sitemap.xml" },
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
     rel: "preconnect",
@@ -29,16 +30,7 @@ export const links: LinksFunction = () => [
   },
 ];
 
-export const meta: MetaFunction = () => {
-  return [
-    { title: "VibeDoctor App" },
-    { name: "description", content: "VibeDoctor Generated Project" },
-    { name: "author", content: "VibeDoctor" },
-    { property: "og:title", content: "VibeDoctor App" },
-    { property: "og:description", content: "VibeDoctor Generated Project" },
-    { property: "og:type", content: "website" },
-  ];
-};
+// Removed - meta tags now handled by individual routes using remix-seo
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const enableAmplitude = import.meta.env.VITE_ENABLE_AMPLITUDE !== "false";

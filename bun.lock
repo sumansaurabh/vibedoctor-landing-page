@@ -6,6 +6,7 @@
       "name": "remix-app",
       "dependencies": {
         "@hookform/resolvers": "^3.10.0",
+        "@nasa-gcn/remix-seo": "^2.0.1",
         "@radix-ui/react-accordion": "^1.2.11",
         "@radix-ui/react-alert-dialog": "^1.1.14",
         "@radix-ui/react-aspect-ratio": "^1.1.7",
@@ -280,6 +281,8 @@
     "@mediapipe/tasks-vision": ["@mediapipe/tasks-vision@0.10.17", "", {}, "sha512-CZWV/q6TTe8ta61cZXjfnnHsfWIdFhms03M9T7Cnd5y2mdpylJM0rF1qRq+wsQVRMLz1OYPVEBU9ph2Bx8cxrg=="],
 
     "@monogrid/gainmap-js": ["@monogrid/gainmap-js@3.4.0", "", { "dependencies": { "promise-worker-transferable": "^1.0.4" }, "peerDependencies": { "three": ">= 0.159.0" } }, "sha512-2Z0FATFHaoYJ8b+Y4y4Hgfn3FRFwuU5zRrk+9dFWp4uGAdHGqVEdP7HP+gLA3X469KXHmfupJaUbKo1b/aDKIg=="],
+
+    "@nasa-gcn/remix-seo": ["@nasa-gcn/remix-seo@2.0.1", "", { "dependencies": { "lodash": "^4.17.21" }, "peerDependencies": { "@remix-run/react": "^1.0.0 || ^2.0.0", "@remix-run/server-runtime": "^1.0.0 || ^2.0.0" } }, "sha512-g9biDdYfsdFBnOU7lM+7vPGEXSEMRnWmfVLDQ98pT0PnTT/O3pFuA+s3DA0Mj9IwnAq9IcLs2Wee/aL6fvEA+A=="],
 
     "@nodelib/fs.scandir": ["@nodelib/fs.scandir@2.1.5", "", { "dependencies": { "@nodelib/fs.stat": "2.0.5", "run-parallel": "^1.1.9" } }, "sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g=="],
 

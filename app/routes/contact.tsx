@@ -1,6 +1,7 @@
 import type { ActionFunctionArgs, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useActionData, useNavigation } from "@remix-run/react";
+import { getSeoMeta } from "~/lib/seo";
 import { FramerContact } from "~/components/framer/FramerContact";
 import { FramerFooter } from "~/components/framer/FramerFooter";
 import { FramerHeader } from "~/components/framer/FramerHeader";
@@ -123,14 +124,24 @@ export async function action({ request }: ActionFunctionArgs) {
 }
 
 export const meta: MetaFunction = () => {
-  return [
-    { title: "Contact | VibeDoctor" },
+  const siteUrl = process.env.PUBLIC_URL || "http://localhost:5173";
+  
+  return getSeoMeta({
+    title: "Contact Us - VibeDoctor",
+    description: "Reach VibeDoctor for technical support, product questions, or sales discussions. We're here to help you deploy AI apps to customer-owned cloud.",
+    url: `${siteUrl}/contact`,
+    keywords: "contact, support, VibeDoctor, cloud deployment, sales",
+  });
+};
+
+export const handle = {
+  getSitemapEntries: () => [
     {
-      name: "description",
-      content:
-        "Reach VibeDoctor for technical support, product questions, or sales discussions.",
+      route: "/contact",
+      priority: 0.8,
+      changefreq: "monthly",
     },
-  ];
+  ],
 };
 
 export default function ContactRoute() {

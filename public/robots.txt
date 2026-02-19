@@ -12,3 +12,26 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Sitemaps
+Sitemap: http://localhost:5173/sitemap.xml
+
+# IndexNow
+IndexNow-key: your-indexnow-key-here
+
+# Crawl-delay
+Crawl-delay: 0
+
+# Disallow admin/private areas (if you have any)
+# Disallow: /admin/
+# Disallow: /api/
+
+# Common best practices
+Allow: /*.css
+Allow: /*.js
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.png
+Allow: /*.gif
+Allow: /*.svg
+Allow: /*.webp

@@ -1,15 +1,23 @@
 import type { MetaFunction } from "@remix-run/node";
+import { getSeoMeta } from "~/lib/seo";
 import { FramerHeader } from "~/components/framer/FramerHeader";
 import { FramerFooter } from "~/components/framer/FramerFooter";
 
 export const meta: MetaFunction = () => {
-  return [
-    { title: "Terms of Service | VibeDoctor" },
+  return getSeoMeta({
+    title: "Terms of Service - VibeDoctor",
+    description: "Terms of Service for VibeDoctor",
+  });
+};
+
+export const handle = {
+  getSitemapEntries: () => [
     {
-      name: "description",
-      content: "Terms of Service for VibeDoctor",
+      route: "/terms",
+      priority: 0.5,
+      changefreq: "yearly",
     },
-  ];
+  ],
 };
 
 export default function TermsRoute() {

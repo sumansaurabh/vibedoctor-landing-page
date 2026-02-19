@@ -1,15 +1,23 @@
 import type { MetaFunction } from "@remix-run/node";
+import { getSeoMeta } from "~/lib/seo";
 import { FramerHeader } from "~/components/framer/FramerHeader";
 import { FramerFooter } from "~/components/framer/FramerFooter";
 
 export const meta: MetaFunction = () => {
-  return [
-    { title: "Privacy Policy | VibeDoctor" },
+  return getSeoMeta({
+    title: "Privacy Policy - VibeDoctor",
+    description: "Privacy Policy for VibeDoctor",
+  });
+};
+
+export const handle = {
+  getSitemapEntries: () => [
     {
-      name: "description",
-      content: "Privacy Policy for VibeDoctor",
+      route: "/privacy",
+      priority: 0.5,
+      changefreq: "yearly",
     },
-  ];
+  ],
 };
 
 export default function PrivacyRoute() {
