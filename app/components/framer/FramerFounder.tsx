@@ -42,21 +42,52 @@ export function FramerFounder() {
             className="w-full text-[26px] font-normal leading-[1.4] tracking-[-0.03em] text-[rgba(184,199,217,0.5)] sm:text-[32px]"
             style={{ fontFamily: interFamily }}
           >
-            AI coding tools made building easy. Shipping safely to{" "}
+            Hands-free, code from anywhere in the world. 
+            <br></br>
             <span
               className="italic text-[#d5dbe6]"
-              style={{ fontFamily: serifFamily }}
+              style={{ fontFamily: interFamily }}
             >
-              "Customer Private Cloud"
-            </span>{" "}
-            is still the bottleneck. 
+              "Build without being glued to your computer"{" "}
+            </span>{" "}            
           </h3>
+          <br></br>
 
           <h3
             className="w-full text-[26px] font-normal leading-[1.4] tracking-[-0.03em] text-[rgba(184,199,217,0.5)] sm:text-[32px]"
             style={{ fontFamily: interFamily }}
           >
-            VibeDoctor closes that gap.
+            Connect your favourite subscription. {" "}
+            <br></br>
+            <span
+              className="italic text-[#d5dbe6]"
+              style={{ fontFamily: interFamily }}
+            >
+              "Do not pay heavy token cost to Lovable or Replit"
+            </span>{" "}
+          </h3>
+          <br></br>
+
+          <h3
+            className="w-full text-[26px] font-normal leading-[1.4] tracking-[-0.03em] text-[rgba(184,199,217,0.5)] sm:text-[32px]"
+            style={{ fontFamily: interFamily }}
+          >
+            Also, Deploy in your own BYOC cloud. {" "}
+            <br></br>
+            <span
+              className="italic text-[#d5dbe6]"
+              style={{ fontFamily: interFamily }}
+            >
+              "Why should you pay for the hosting when you can use your own Cloud Credits?"
+            </span>{" "}
+          </h3>
+          
+          <br></br>
+          <h3
+            className="w-full text-[26px] font-normal leading-[1.4] tracking-[-0.03em] text-[rgba(184,199,217,0.5)] sm:text-[32px]"
+            style={{ fontFamily: interFamily }}
+          >
+            VibeDoctor closes these gaps.
           </h3>
           {/* <div className="flex flex-wrap items-center justify-center gap-4">
             <div

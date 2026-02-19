@@ -15,6 +15,7 @@ export function FramerPricing() {
   ];
 
   const tokenNotes = [
+    'Connect your own Claude or Codex Subscription and you do not pay any token cost to us',
     'Token usage is tracked per model in real time',
     'No hidden markups on token consumption',
   ];
@@ -182,8 +183,7 @@ export function FramerPricing() {
                 className="mt-3 text-[15px] leading-[1.55] text-[rgba(180,185,195,0.62)]"
                 style={{ fontFamily: interFamily }}
               >
-                Model token costs are metered separately so your bill stays
-                predictable and transparent.
+                Model token costs are dependent on your configuration.
               </p>
 
               <ul className="mt-5 space-y-3">

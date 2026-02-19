@@ -23,6 +23,7 @@ export function FramerHeader() {
             { label: "Docs", href: "https://docs.vibedoctor.dev/" },
             { label: "Team", href: "/team" },
             { label: "Contact", href: "/contact" },
+            { label: "Book a Demo", href: "https://calendly.com/sumansaurabh-1/anek" },
           ].map((item) => (
             <Link
               key={item.label}
