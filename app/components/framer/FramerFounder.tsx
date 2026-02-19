@@ -42,13 +42,13 @@ export function FramerFounder() {
             className="w-full text-[26px] font-normal leading-[1.4] tracking-[-0.03em] text-[rgba(184,199,217,0.5)] sm:text-[32px]"
             style={{ fontFamily: interFamily }}
           >
-            Hands-free, code from anywhere in the world. 
+            Hands-free, code from anywhere on the planet. {" "}
             <br></br>
             <span
               className="italic text-[#d5dbe6]"
               style={{ fontFamily: interFamily }}
             >
-              "Build without being glued to your computer"{" "}
+              "Your dev environment, always within reach."{" "}
             </span>{" "}            
           </h3>
           <br></br>
@@ -72,7 +72,7 @@ export function FramerFounder() {
             className="w-full text-[26px] font-normal leading-[1.4] tracking-[-0.03em] text-[rgba(184,199,217,0.5)] sm:text-[32px]"
             style={{ fontFamily: interFamily }}
           >
-            Also, Deploy in your own BYOC cloud. {" "}
+            Also, deploy in your own BYOC cloud. {" "}
             <br></br>
             <span
               className="italic text-[#d5dbe6]"

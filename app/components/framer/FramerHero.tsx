@@ -92,127 +92,55 @@ export function FramerHero() {
               className="max-w-[680px] mt-6 text-lg font-normal leading-[1.6] tracking-[-0.02em] text-[rgba(255,255,255,0.6)]"
               style={{ fontFamily: '"Inter", sans-serif' }}
             >
-              Connect your personal Claude Code or Codex subscription.{" "}
+              Build your AI apps by connecting to your Claude Code or Codex subscription.{" "}
               <br />
+              Do not pay heavy token cost to Lovable or Replit.{" "}
             </p>
-
             {/* Two-step CTA */}
-            <div className="hidden lg:flex flex-col lg:flex-row items-center gap-4 sm:gap-5 lg:gap-6">
-              {/* Step 1 – Sign In */}
-              <div className="flex flex-row items-center gap-3 sm:gap-4 px-3 py-2 bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden">
-                <div
-                  className="text-[13px] sm:text-[15px] font-semibold text-white"
+             <a
+              href="https://app.vibedoctor.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative inline-flex min-h-[56px] items-center justify-center rounded-lg px-7 py-3.5 no-underline"
+              aria-label="Sign In"
+            >
+              <span
+                aria-hidden="true"
+                className="absolute inset-0 rounded-lg"
+                style={{
+                  background:
+                    "radial-gradient(25% 50% at 50% 100%, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 100%)",
+                  filter: "blur(15px)",
+                }}
+              />
+              <span
+                aria-hidden="true"
+                className="absolute inset-[2px] rounded-lg bg-[#04070d] border border-white/20"
+              />
+              <span className="relative z-[1] flex items-center gap-1.5">
+                <span
+                  className="text-base font-semibold tracking-[-0.01em] text-white"
+                  style={{ fontFamily: '"Inter", sans-serif', lineHeight: "1.2em" }}
                 >
                   Sign In
-                </div>
-
-                <a
-                  href="https://app.vibedoctor.dev"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[13px] sm:text-[15px] font-semibold text-white hover:underline"
-                >
-
-                <div className="flex items-center gap-[2px] p-1 bg-white/[0.03] rounded-lg sm:rounded-xl shadow-[3px_3px_0px_0px_rgba(0,0,0,0.2)] overflow-visible">
-                  <span className="flex items-center justify-center w-9 h-9 p-2 text-white rounded-md sm:rounded-lg transition-all duration-150 hover:bg-white/10" title="GitHub">
-                    <Github className="w-4 h-4" />
-                  </span>
-
-                  <span className="flex items-center justify-center w-9 h-9 p-2 text-white rounded-md sm:rounded-lg transition-all duration-150 hover:bg-white/10" title="Bitbucket">
-                    <IconBrandBitbucket className="w-4 h-4" />
-                  </span>
-
-                  <span className="flex items-center justify-center w-9 h-9 p-2 text-white rounded-md sm:rounded-lg transition-all duration-150 hover:bg-white/10" title="GitLab">
-                    <Gitlab className="w-4 h-4" />
-                  </span>
-                </div>
-                </a>
-              </div>
-
-              {/* Step 2 – Code from Anywhere */}
-              <div className="relative flex items-center gap-2 sm:gap-3 px-3 py-1.5 bg-white/5 backdrop-blur-sm rounded-xl overflow-visible">
-                <span className="text-[13px] sm:text-[15px] font-medium text-white leading-[22px] whitespace-nowrap">
-                  Connect your Agent
                 </span>
-                <a
-                  href="https://app.vibedoctor.dev"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[13px] sm:text-[15px] font-semibold text-white hover:underline"
+                <svg
+                  className="h-[23px] w-[22px] text-white"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"
                 >
-                <div className="flex items-center gap-[2px] p-1 bg-white/[0.03] rounded-lg sm:rounded-xl shadow-[3px_3px_0px_0px_rgba(0,0,0,0.2)] overflow-visible">
-                  {/* Codex */}
-                  <span
-                    className="flex items-center justify-center w-9 h-9 p-2 text-white rounded-md sm:rounded-lg transition-all duration-150 hover:bg-white/10"
-                    title="Codex"
-                  >
-                    <Code className="w-4 h-4" />
-                  </span>
-                  {/* Gemini */}
-                  <span
-                    className="flex items-center justify-center w-9 h-9 p-2 text-white rounded-md sm:rounded-lg transition-all duration-150 hover:bg-white/10 hover:text-white"
-                    title="Gemini"
-                  >
-                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none">
-                      <path d="M12 0C12 6.627 6.627 12 0 12c6.627 0 12 5.373 12 12 0-6.627 5.373-12 12-12-6.627 0-12-5.373-12-12z" fill="currentColor" />
-                    </svg>
-                  </span>
-                  {/* Claude */}
-                  <span
-                    className="flex items-center justify-center w-9 h-9 p-2 text-white rounded-md sm:rounded-lg transition-all duration-150 hover:bg-white/10"
-                    title="Claude"
-                  >
-                    <Terminal className="w-4 h-4" />
-                  </span>
-                  {/* Cursor */}
-                  <span
-                    className="flex items-center justify-center w-9 h-9 p-2 text-white rounded-md sm:rounded-lg transition-all duration-150 hover:bg-white/10"
-                    title="Cursor"
-                  >
-                    <TextCursor className="w-4 h-4" />
-                  </span>
-                </div>
-                </a>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-8 mt-8">
-              <a
-                href="https://x.com/vibedoctor_dev"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-[201px] p-2 text-[rgba(213,219,230,0.5)] transition-colors hover:text-[rgba(213,219,230,0.8)]"
-                aria-label="X"
-              >
-                <svg className="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                  <path
+                    d="M7 17L17 7M17 7H9M17 7V15"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
-              </a>
-              <span
-                aria-hidden="true"
-                className="h-6 w-[2px] bg-[#d8e7f212]"
-              />
-              <a
-                href="https://discord.gg/H9QmZnNu"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-[201px] p-2 text-[rgba(213,219,230,0.5)] transition-colors hover:text-[rgba(213,219,230,0.8)]"
-                aria-label="Discord"
-              >
-                <IconBrandDiscord className="h-6 w-6" />
-              </a>
-              <span
-                aria-hidden="true"
-                className="h-6 w-[2px] bg-[#d8e7f212]"
-              />
-              <a
-                href="mailto:support@vibedoctor.dev"
-                className="flex h-10 w-10 items-center justify-center rounded-[201px] p-2 text-[rgba(213,219,230,0.5)] transition-colors hover:text-[rgba(213,219,230,0.8)]"
-                aria-label="Email"
-              >
-                <Mail className="h-6 w-6" />
-              </a>
-            </div>
+              </span>
+            </a>
+          
           </div>
 
           <div className="hidden lg:block w-full max-w-[520px] self-center lg:ml-auto lg:max-w-[700px] lg:self-auto">
