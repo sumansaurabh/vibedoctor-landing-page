@@ -97,7 +97,7 @@ export function FramerHero() {
             </p>
 
             {/* Two-step CTA */}
-            <div className="flex flex-col lg:flex-row items-center gap-4 sm:gap-5 lg:gap-6">
+            <div className="hidden lg:flex flex-col lg:flex-row items-center gap-4 sm:gap-5 lg:gap-6">
               {/* Step 1 – Sign In */}
               <div className="flex flex-row items-center gap-3 sm:gap-4 px-3 py-2 bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden">
                 <div
