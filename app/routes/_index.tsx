@@ -40,7 +40,8 @@ export default function Index() {
       <FramerHero />
       <FramerFounder />
       <FramerBenefits />
-      <FramerServices />
+      {/*This service is only suitable if we go global provision*/}
+      {/* <FramerServices /> */}
       {/* <FramerProcess /> */}
       {/* <FramerSuccess /> */}
       <FramerIntegrations />
