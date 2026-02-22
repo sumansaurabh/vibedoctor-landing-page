@@ -7,20 +7,22 @@ export function FramerTeam() {
     {
       name: "Suman Saurabh",
       role: "Co-founder · Full-stack + AI",
-      bio: "Builds product and AI execution flows across code generation, runtime automation, and developer experience.",
+      bio: "Ex-OpenAI at Microsoft, where he helped build the AI Foundry ecosystem as one of the early engineers. Builds product and AI execution flows across code generation, runtime automation, and developer experience.",
       image: "/suman.png",
       imageAlt: "Suman Saurabh, co-founder of VibeDoctor",
       initials: "SS",
       location: "Bengaluru / San Francisco",
+      linkedinUrl: "https://www.linkedin.com/in/ssumansaurabh/",
     },
     {
       name: "Sunil Agarwal",
       role: "Co-founder · Infrastructure",
-      bio: "Leads infrastructure provisioning, private-cloud architecture, and deployment reliability for customer-owned environments.",
+      bio: "Built ad infrastructure (including DSB) and scaled InMovie’s end-to-end platform infrastructure. Leads infrastructure provisioning, private-cloud architecture, and deployment reliability for customer-owned environments.",
       image: null as string | null,
       imageAlt: "Sunil Agarwal, co-founder of VibeDoctor",
       initials: "SA",
       location: "Bengaluru / San Francisco",
+      linkedinUrl: "https://www.linkedin.com/in/sunilagwl5/",
     },
   ];
 
@@ -105,12 +107,30 @@ export function FramerTeam() {
                   </div>
 
                   <div>
-                    <h3
-                      className="text-[24px] font-medium tracking-[-0.02em] text-[#B4B9C3]"
-                      style={{ fontFamily: interFamily }}
-                    >
-                      {founder.name}
-                    </h3>
+                    <div className="flex items-center gap-3">
+                      <h3
+                        className="text-[24px] font-medium tracking-[-0.02em] text-[#B4B9C3]"
+                        style={{ fontFamily: interFamily }}
+                      >
+                        {founder.name}
+                      </h3>
+                      <a
+                        href={founder.linkedinUrl}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        aria-label={`LinkedIn profile for ${founder.name}`}
+                        className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[rgba(180,185,195,0.2)] bg-[rgba(180,185,195,0.06)] text-[rgba(180,185,195,0.72)] transition hover:bg-[rgba(180,185,195,0.1)] hover:text-[#B4B9C3]"
+                      >
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          className="h-4 w-4"
+                          aria-hidden="true"
+                        >
+                          <path d="M20.447 20.452H17.21v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.003V9h3.103v1.561h.044c.432-.82 1.49-1.685 3.065-1.685 3.276 0 3.878 2.156 3.878 4.959v6.617zM5.337 7.433a1.804 1.804 0 1 1 0-3.607 1.804 1.804 0 0 1 0 3.607zM6.956 20.452H3.717V9h3.239v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.727v20.545C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.273V1.727C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg>
+                      </a>
+                    </div>
                     <p
                       className="text-[14px] uppercase tracking-[0.08em] text-[rgba(180,185,195,0.72)]"
                       style={{ fontFamily: interFamily }}
