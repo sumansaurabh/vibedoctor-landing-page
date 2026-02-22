@@ -36,7 +36,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const enableAmplitude = import.meta.env.VITE_ENABLE_AMPLITUDE !== "false";
   const amplitudeApiKey =
     import.meta.env.VITE_AMPLITUDE_API_KEY || "c79c28d22ed36cc6a9787b3d544e6d05";
-  const amplitudeInitScript = `window.amplitude.add(window.sessionReplay.plugin({sampleRate: 1}));window.amplitude.init(${JSON.stringify(amplitudeApiKey)}, {"autocapture":{"elementInteractions":true}});`;
+  const amplitudeInitScript = `window.amplitude.add(window.sessionReplay.plugin({sampleRate: 1}));window.amplitude.init(${JSON.stringify(amplitudeApiKey)}, {"autocapture":{"elementInteractions":true, "attribution": true}});`;
 
   return (
     <html lang="en">
