@@ -28,12 +28,12 @@ export default function TermsRoute() {
         <div className="max-w-3xl mx-auto prose prose-invert lg:prose-lg space-y-6 leading-relaxed">
           <h1>Terms of Service</h1>
 
-          <p><strong>Effective Date:</strong> June 24, 2025</p>
-          <p><strong>Last Updated:</strong> June 24, 2025</p>
+          <p><strong>Effective Date:</strong> Jan 15, 2026</p>
+          <p><strong>Last Updated:</strong> Jan 15, 2026</p>
 
           <h2>1. Agreement to Terms</h2>
           <p>
-            By accessing or using BareUptime ("Service"), you agree to be bound
+            By accessing or using VibeDoctor ("Service"), you agree to be bound
             by these Terms of Service ("Terms"). If you disagree with any part
             of these Terms, you may not access the Service.
           </p>
@@ -187,7 +187,7 @@ export default function TermsRoute() {
           </p>
 
           <p>
-            By using BareUptime, you acknowledge that you have read, understood,
+            By using VibeDoctor, you acknowledge that you have read, understood,
             and agree to be bound by these Terms of Service.
           </p>
         </div>

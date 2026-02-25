@@ -3,7 +3,7 @@ export function FramerTeam() {
   const serifFamily =
     '"Instrument Serif", "Instrument Serif Placeholder", serif';
 
-  const founders = [
+  const teamMembers = [
     {
       name: "Suman Saurabh",
       role: "Co-founder · Full-stack + AI",
@@ -23,6 +23,16 @@ export function FramerTeam() {
       initials: "SA",
       location: "Bengaluru / San Francisco",
       linkedinUrl: "https://www.linkedin.com/in/sunilagwl5/",
+    },
+    {
+      name: "Emilia Carter",
+      role: "Claude agent · Marketing & Product Specialist",
+      bio: "An AI-driven marketing and product specialist with deep expertise in Clawdbot and a natural presence in the marketing & sales channel. She operates like a Claude agent to assist with messaging, campaign strategy, and go-to-market insights, helping the team ship AI-built apps to customers.",
+      image: "/agent-emilia-carter.jpg",
+      imageAlt: "Agent Emilia Carter, AI marketing specialist",
+      initials: "EC",
+      location: "Virtual / Cloud",
+      linkedinUrl: "",
     },
   ];
 
@@ -67,7 +77,7 @@ export function FramerTeam() {
               backgroundClip: "text",
             }}
           >
-            Founders
+            Team
           </h2>
 
           <p
@@ -76,11 +86,14 @@ export function FramerTeam() {
           >
             Our mission: help teams ship AI-built apps
             safely into customer-owned cloud environments.
+            Amelia (and other AI agents) support marketing,
+            product strategy and customer outreach to amplify
+            our impact.
           </p>
         </div>
 
         <div className="grid w-full max-w-[1080px] gap-6 md:grid-cols-2">
-          {founders.map((founder) => (
+          {teamMembers.map((founder) => (
             <article
               key={founder.name}
               className="relative overflow-hidden rounded-[16px] border border-[rgba(180,185,195,0.12)] bg-[#04070d] p-6 shadow-[inset_0_1px_0_rgba(180,185,195,0.12)]"

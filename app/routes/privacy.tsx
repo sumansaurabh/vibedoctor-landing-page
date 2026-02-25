@@ -34,7 +34,7 @@ export default function PrivacyRoute() {
           <h2>1. Introduction</h2>
 
           <p>
-            Penify Technologies LLC ("we," "our," or "us") operates BareUptime,
+            Penify Technologies LLC ("we," "our," or "us") operates VibeDoctor,
             a website monitoring service. This Privacy Policy explains how we
             collect, use, disclose, and safeguard your information when you use
             our website monitoring Service and website located at{' '}

@@ -23,7 +23,7 @@ export function getSeoMeta(config: SEOConfig): MetaDescriptor[] {
     robots = "index, follow",
   } = config;
 
-  const siteUrl = process.env.PUBLIC_URL || "http://localhost:5173";
+  const siteUrl = (typeof process !== "undefined" ? process.env.PUBLIC_URL : undefined) || "https://vibedoctor.dev";
   const fullImageUrl = image.startsWith("http") ? image : `${siteUrl}${image}`;
 
   const meta: MetaDescriptor[] = [

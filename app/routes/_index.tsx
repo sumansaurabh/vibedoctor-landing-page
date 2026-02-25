@@ -12,7 +12,7 @@ import { FramerPricing } from "~/components/framer/FramerPricing";
 import { FramerFooter } from "~/components/framer/FramerFooter";
 
 export const meta: MetaFunction = () => {
-  const siteUrl = process.env.PUBLIC_URL || "http://localhost:5173";
+  const siteUrl = (typeof process !== "undefined" ? process.env.PUBLIC_URL : undefined) || "https://vibedoctor.dev";
   
   return getSeoMeta({
     title: "VibeDoctor - Ship AI Apps to Customer-Owned Cloud",
