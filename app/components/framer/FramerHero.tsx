@@ -92,9 +92,7 @@ export function FramerHero() {
               className="max-w-[680px] mt-6 text-lg font-normal leading-[1.6] tracking-[-0.02em] text-[rgba(255,255,255,0.6)]"
               style={{ fontFamily: '"Inter", sans-serif' }}
             >
-              Build your AI apps by connecting to your Claude Code or Codex subscription.{" "}
-              <br />
-              Do not pay heavy token cost to Lovable or Replit.{" "}
+              Build your AI apps and deploy to your Cloud using our Agentic OS from anywhere in the world.
             </p>
             {/* Two-step CTA */}
              <a
