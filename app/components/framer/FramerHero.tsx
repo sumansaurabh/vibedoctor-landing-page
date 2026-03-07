@@ -79,12 +79,12 @@ export function FramerHero() {
                 backgroundClip: "text",
               }}
             >
-              Build your AI apps and deploy to your Cloud{" "}
+              Code from Anywhere{" "}
               <span
                 className="font-normal italic text-[32px] sm:text-[42px] xl:text-[56px]"
                 style={{ fontFamily: ibmPlexFamily }}
               >
-              using our Agentic OS from anywhere in the world.
+              using your favourite Agent.
             </span>
             </h1>
 
@@ -92,9 +92,7 @@ export function FramerHero() {
               className="max-w-[680px] mt-6 text-lg font-normal leading-[1.6] tracking-[-0.02em] text-[rgba(255,255,255,0.6)]"
               style={{ fontFamily: '"Inter", sans-serif' }}
             >
-              Build your AI apps by connecting to your Claude Code or Codex subscription.{" "}
-              <br />
-              Do not pay heavy token cost to Lovable or Replit.{" "}
+              Build your AI apps and deploy to your Cloud using our Agentic OS from anywhere in the world.
             </p>
             {/* Two-step CTA */}
              <a
