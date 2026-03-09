@@ -20,7 +20,8 @@ export function FramerFooter() {
           {/* Nav links */}
           <nav className="flex flex-wrap items-center justify-center gap-6">
             {[
-              { label: "Process", href: "/#services" },
+              { label: "Features", href: "/#services" },
+              { label: "Process", href: "/#process" },
               { label: "Pricing", href: "/#pricing" },
               { label: "Docs", href: "https://docs.vibedoctor.dev/" },
               { label: "Team", href: "/team" },
