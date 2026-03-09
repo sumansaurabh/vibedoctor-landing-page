@@ -89,12 +89,14 @@ export function FramerSuccess() {
           </h2>
         </div>
 
-        {/* Masonry-style Grid for Testimonials */}
-        <div className="columns-1 gap-6 md:columns-2 space-y-6 w-full max-w-[1000px]">
+        {/* Two-column layout for Testimonials */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-[1000px] items-start">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="group relative break-inside-avoid overflow-hidden rounded-[24px] border border-[rgba(216,231,242,0.07)] bg-white/[0.02] p-8 transition-all hover:border-[rgba(216,231,242,0.14)] hover:bg-white/[0.04]"
+              className={`group relative overflow-hidden rounded-[24px] border border-[rgba(216,231,242,0.07)] bg-white/[0.02] p-8 transition-all hover:border-[rgba(216,231,242,0.14)] hover:bg-white/[0.04] ${
+                index % 2 !== 0 ? 'md:mt-12' : '' // Stagger the second column
+              }`}
             >
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(65%_80%_at_78%_10%,rgba(103,232,249,0.05)_0%,rgba(4,7,13,0)_75%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               
