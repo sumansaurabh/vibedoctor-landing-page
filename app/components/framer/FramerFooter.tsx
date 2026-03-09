@@ -22,7 +22,6 @@ export function FramerFooter() {
             {[
               { label: "Features", href: "/#services" },
               { label: "Process", href: "/#process" },
-              { label: "Pricing", href: "/#pricing" },
               { label: "Docs", href: "https://docs.vibedoctor.dev/" },
               { label: "Team", href: "/team" },
               { label: "Contact", href: "/contact" },

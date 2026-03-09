@@ -8,7 +8,6 @@ import { FramerServices } from "~/components/framer/FramerServices";
 import { FramerProcess } from "~/components/framer/FramerProcess";
 import { FramerSuccess } from "~/components/framer/FramerSuccess";
 import { FramerIntegrations } from "~/components/framer/FramerIntegrations";
-import { FramerPricing } from "~/components/framer/FramerPricing";
 import { FramerFooter } from "~/components/framer/FramerFooter";
 
 export const meta: MetaFunction = () => {
@@ -45,7 +44,6 @@ export default function Index() {
       <FramerProcess />
       <FramerSuccess />
       <FramerIntegrations />
-      <FramerPricing />
       <FramerFooter />
     </div>
   );
