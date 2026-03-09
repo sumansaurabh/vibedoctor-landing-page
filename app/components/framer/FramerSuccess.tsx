@@ -1,25 +1,28 @@
 export function FramerSuccess() {
-  const stories = [
+  const testimonials = [
     {
-      title: "Validated Pain",
-      description:
-        "We interviewed founders, freelancers, and small teams to map the exact bottlenecks after AI prototyping.",
-      metric: "40+",
-      metricLabel: "Customer Interviews",
+      author: "Kartik Singhal",
+      company: "Meta",
+      quote:
+        "VibeDoctor completely transformed our prototyping workflow. Being able to ship directly to our own cloud without any intermediate hosting hassle is a game changer.",
     },
     {
-      title: "Paying Beta Users",
-      description:
-        "Private beta already has trial paying customers validating demand for faster cloud-owned delivery workflows.",
-      metric: "8",
-      metricLabel: "Trial Paying Customers",
+      author: "Farhan",
+      company: "InMobi",
+      quote:
+        "The ability to use our preferred AI agents while maintaining full control over our deployment infrastructure makes this the ultimate platform for serious engineering teams.",
     },
     {
-      title: "Early Revenue Signal",
-      description:
-        "Credit-based usage is generating revenue in beta while additional B2B demos move through pipeline.",
-      metric: "$310",
-      metricLabel: "Private Beta Revenue",
+      author: "Simon",
+      company: "",
+      quote:
+        "Deployment used to be the biggest bottleneck after getting an AI app working. Now we go from prompt to production in minutes on our own AWS accounts.",
+    },
+    {
+      author: "Jama",
+      company: "",
+      quote:
+        "Finally a tool that understands we want to own our infrastructure. The auto provisioning feature saves us hours of manual DevOps work every week.",
     },
   ];
 
@@ -33,36 +36,42 @@ export function FramerSuccess() {
         <div className="mb-16 flex flex-col items-center text-center">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-[#04070d] px-4 py-1.5">
             <svg className="h-3.5 w-3.5 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
             </svg>
             <span className="text-xs font-medium uppercase tracking-[0.12em] text-white/70">
-              Traction
+              Testimonials
             </span>
           </div>
           <h2 className="mb-4 text-3xl font-bold tracking-tight text-[#d5dbe6] sm:text-4xl lg:text-5xl">
-            Built with real <span className="italic font-normal">customer feedback</span>
+            Loved by <span className="italic font-normal">engineers</span>
           </h2>
           <p className="max-w-md text-base text-white/40">
-            Early numbers, real usage, and strong demand from teams shipping
-            client apps.
+            See what developers are saying about shipping to their own cloud.
           </p>
         </div>
 
         {/* Stories grid */}
-        <div className="grid gap-6 md:grid-cols-3">
-          {stories.map((story) => (
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {testimonials.map((testimonial, index) => (
             <div
-              key={story.title}
-              className="group relative rounded-2xl border border-white/[0.06] bg-[#04070d] p-8 transition-all hover:border-white/10 hover:bg-white/[0.02]"
+              key={index}
+              className="group relative flex flex-col justify-between rounded-2xl border border-white/[0.06] bg-[#04070d] p-8 transition-all hover:border-white/10 hover:bg-white/[0.02]"
             >
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-cyan-500/[0.03] to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
               <div className="relative z-10">
-                <div className="mb-6">
-                  <span className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-cyan-300 to-cyan-500/50">{story.metric}</span>
-                  <p className="mt-1 text-xs uppercase tracking-wider text-white/30">{story.metricLabel}</p>
-                </div>
-                <h3 className="mb-3 text-lg font-semibold text-[#d5dbe6]">{story.title}</h3>
-                <p className="text-sm leading-relaxed text-white/40">{story.description}</p>
+                <svg className="mb-4 h-6 w-6 text-cyan-300/40" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                </svg>
+                <p className="text-sm leading-relaxed text-white/70">
+                  "{testimonial.quote}"
+                </p>
+              </div>
+              
+              <div className="relative z-10 mt-6 pt-6 border-t border-white/[0.06]">
+                <p className="text-base font-semibold text-[#d5dbe6]">{testimonial.author}</p>
+                {testimonial.company && (
+                  <p className="mt-0.5 text-xs text-cyan-300/70">{testimonial.company}</p>
+                )}
               </div>
             </div>
           ))}
