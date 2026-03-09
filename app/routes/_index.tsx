@@ -5,14 +5,12 @@ import { FramerHero } from "~/components/framer/FramerHero";
 import { FramerFounder } from "~/components/framer/FramerFounder";
 import { FramerBenefits } from "~/components/framer/FramerBenefits";
 import { FramerServices } from "~/components/framer/FramerServices";
-import { FramerProcess } from "~/components/framer/FramerProcess";
 import { FramerSuccess } from "~/components/framer/FramerSuccess";
 import { FramerIntegrations } from "~/components/framer/FramerIntegrations";
-import { FramerPricing } from "~/components/framer/FramerPricing";
 import { FramerFooter } from "~/components/framer/FramerFooter";
 
 export const meta: MetaFunction = () => {
-  const siteUrl = (typeof process !== "undefined" ? process.env.PUBLIC_URL : undefined) || "https://vibedoctor.dev";
+  const siteUrl = (typeof process !== "undefined" && process.env ? process.env.PUBLIC_URL : undefined) || "https://vibedoctor.dev";
   
   return getSeoMeta({
     title: "VibeDoctor - Ship AI Apps to Customer-Owned Cloud",
@@ -41,11 +39,9 @@ export default function Index() {
       <FramerFounder />
       <FramerBenefits />
       {/*This service is only suitable if we go global provision*/}
-      {/* <FramerServices /> */}
-      {/* <FramerProcess /> */}
-      {/* <FramerSuccess /> */}
+      <FramerServices />
+      <FramerSuccess />
       <FramerIntegrations />
-      <FramerPricing />
       <FramerFooter />
     </div>
   );

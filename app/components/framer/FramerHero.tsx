@@ -79,12 +79,12 @@ export function FramerHero() {
                 backgroundClip: "text",
               }}
             >
-              Code from Anywhere{" "}
+              Ship AI Apps to{" "}
               <span
                 className="font-normal italic text-[32px] sm:text-[42px] xl:text-[56px]"
                 style={{ fontFamily: ibmPlexFamily }}
               >
-              using your favourite Agent.
+              Your Own Cloud.
             </span>
             </h1>
 
@@ -92,7 +92,7 @@ export function FramerHero() {
               className="max-w-[680px] mt-6 text-lg font-normal leading-[1.6] tracking-[-0.02em] text-[rgba(255,255,255,0.6)]"
               style={{ fontFamily: '"Inter", sans-serif' }}
             >
-              Build your AI apps and deploy to your Cloud using our Agentic OS from anywhere in the world.
+              Build with your favorite AI agent and seamlessly deploy to your AWS, GCP, or private infrastructure. No vendor lock-in, just your code in your cloud.
             </p>
             {/* Two-step CTA */}
              <a
