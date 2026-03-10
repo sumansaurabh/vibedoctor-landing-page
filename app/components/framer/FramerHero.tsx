@@ -79,12 +79,12 @@ export function FramerHero() {
                 backgroundClip: "text",
               }}
             >
-              Ship AI Apps to{" "}
+              Code from Anywhere{" "}
               <span
                 className="font-normal italic text-[32px] sm:text-[42px] xl:text-[56px]"
                 style={{ fontFamily: ibmPlexFamily }}
               >
-              Your Own Cloud.
+              Deploy in your Own Cloud.
             </span>
             </h1>
 
@@ -92,8 +92,10 @@ export function FramerHero() {
               className="max-w-[680px] mt-6 text-lg font-normal leading-[1.6] tracking-[-0.02em] text-[rgba(255,255,255,0.6)]"
               style={{ fontFamily: '"Inter", sans-serif' }}
             >
-              Build with your favorite AI agent and seamlessly deploy to your AWS, GCP, or private infrastructure. No vendor lock-in, just your code in your cloud.
+              Connect your favorite Agent Subscription with Github and deploy it in your preferrred cloud - VPS, AWS, GCP, Azure. You name it, our Agnetic OS configures it. 
+              <p><br></br> No vendor lock-in, just your code in your cloud.</p>
             </p>
+
             {/* Two-step CTA */}
              <a
               href="https://app.vibedoctor.dev"

@@ -21,7 +21,7 @@ function Sidebar({ activeTab }: { activeTab: number }) {
         {(["Tasks", "Deployments", "Migrations"] as const).map((tab, i) => (
           <div
             key={tab}
-            className="flex items-center gap-2.5 px-4 py-2 text-[10.5px] font-medium"
+            className="flex items-center gap-2.5 px-4 py-2 text-[12.5px] font-medium"
             style={{
               fontFamily: F,
               color: i === activeTab ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,0.28)",
@@ -56,8 +56,8 @@ function Sidebar({ activeTab }: { activeTab: number }) {
           }}
         />
         <div className="min-w-0">
-          <span className="block text-[10px] text-white/50 truncate font-medium" style={{ fontFamily: F }}>Suman Saurabh</span>
-          <span className="block text-[8px] text-white/20 truncate" style={{ fontFamily: F }}>ss.sumansaurabh92@gmail.c...</span>
+          <span className="block text-[12px] text-white/50 truncate font-medium" style={{ fontFamily: F }}>Suman Saurabh</span>
+          <span className="block text-[10px] text-white/20 truncate" style={{ fontFamily: F }}>ss.sumansaurabh92@gmail.c...</span>
         </div>
       </div>
     </div>
@@ -248,9 +248,9 @@ function ScreenCodeEditor() {
       >
         <div className="ml-3 flex items-center gap-2 text-[11px]" style={{ fontFamily: F }}>
           <svg className="h-3.5 w-3.5 text-white/25" viewBox="0 0 16 16" fill="currentColor">
-            <path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354Z" />
+            <path d="M8.878.392a1.75 1.75 0 0 0-1.756 0l-5.25 3.045A1.75 1.75 0 0 0 1 4.951v6.098c0 .624.332 1.2.872 1.514l5.25 3.045a1.75 1.75 0 0 0 1.756 0l5.25-3.045c.54-.313.872-.89.872-1.514V4.951c0-.624-.332-1.2-.872-1.514L8.878.392zM8 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
           </svg>
-          <span className="text-white/65 font-medium">Improve website clarity and fix broken links</span>
+          <span className="text-white/65 font-medium">Prepare production deployment with Docker + AWS</span>
         </div>
       </WindowChrome>
 
@@ -269,9 +269,9 @@ function ScreenCodeEditor() {
           >
             <div className="flex items-center">
               {[
-                { name: "FramerHero.tsx", active: true },
-                { name: "FramerFounder.tsx", active: false },
-                { name: "_index.tsx", active: false },
+                { name: "Dockerfile", active: true },
+                { name: "docker-compose.yml", active: false },
+                { name: "apprunner.yaml", active: false },
               ].map((tab, i) => (
                 <div
                   key={i}
@@ -285,45 +285,46 @@ function ScreenCodeEditor() {
                   }}
                 >
                   <span style={{ color: tab.active ? "rgba(96,165,250,0.6)" : "rgba(255,255,255,0.15)" }}>
-                    <svg className="h-3 w-3" viewBox="0 0 16 16" fill="currentColor"><path d="M3.5 2A1.5 1.5 0 0 0 2 3.5v9A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 12.5 2h-9z" /></svg>
+                    {tab.name === "Dockerfile" ? (
+                      <svg className="h-3 w-3" viewBox="0 0 16 16" fill="currentColor"><path d="M8.5 1.5A.5.5 0 0 0 8 1H6.5a.5.5 0 0 0 0 1H8v1H4.5a.5.5 0 0 0 0 1H8v1H5.5a.5.5 0 0 0 0 1H8v1H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 .5.5h5a2.5 2.5 0 0 0 2.5-2.5v-3A2.5 2.5 0 0 0 13.5 2H8.5v-.5z" /></svg>
+                    ) : (
+                      <svg className="h-3 w-3" viewBox="0 0 16 16" fill="currentColor"><path d="M3.5 2A1.5 1.5 0 0 0 2 3.5v9A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 12.5 2h-9z" /></svg>
+                    )}
                   </span>
                   {tab.name}
                 </div>
               ))}
             </div>
-            <div className="ml-auto mr-4 text-[9px] text-white/15" style={{ fontFamily: MONO }}>app/components/framer/</div>
+            <div className="ml-auto mr-4 text-[9px] text-white/15" style={{ fontFamily: MONO }}>/</div>
           </div>
 
           {/* Diff view */}
           <div className="flex-1 overflow-hidden p-0" style={{ background: "rgba(13,17,23,0.5)" }}>
             <div className="h-full overflow-y-auto text-[10.5px] leading-[19px]" style={{ fontFamily: MONO }}>
               {[
-                { num: 78, code: '              backgroundClip: "text",', type: "normal" },
-                { num: 79, code: "            }}", type: "normal" },
-                { num: 80, code: "          >", type: "normal" },
-                { num: 81, code: '            Code from Anywhere{" "}', type: "deleted" },
-                { num: 82, code: '            Ship AI Apps to{" "}', type: "added" },
-                { num: 83, code: "            <span", type: "normal" },
-                { num: 84, code: '              className="font-normal italic text-[32px]...', type: "normal" },
-                { num: 85, code: '              style={{ fontFamily: ibmPlexFamily }}', type: "normal" },
-                { num: 86, code: "            >", type: "normal" },
-                { num: 87, code: "            using your favourite Agent.", type: "deleted" },
-                { num: 88, code: "            Customer-Owned Cloud.", type: "added" },
-                { num: 89, code: "          </span>", type: "normal" },
-                { num: 90, code: "          </h1>", type: "normal" },
-                { num: 91, code: "", type: "normal" },
-                { num: 92, code: "          <p", type: "normal" },
-                { num: 93, code: '            className="max-w-[680px] mt-6 text-lg font-normal..."', type: "normal" },
-                { num: 94, code: "            style={{ fontFamily: '\"Inter\", sans-serif' }}", type: "normal" },
-                { num: 95, code: "          >", type: "normal" },
-                { num: 96, code: '            Build your AI apps and deploy to your Cloud using just Agent sub...', type: "normal" },
-                { num: 97, code: "            <br />", type: "normal" },
-                { num: 98, code: '            Do not pay heavy token cost to Lovable or Replit.{" "}', type: "deleted" },
-                { num: 99, code: "            An AI-native IDE in your browser. Connect with your AI agent...", type: "added" },
-                { num: 100, code: '            EC2, or private infrastructure. No vendor lock-in.{" "}', type: "added" },
-                { num: 101, code: "          </p>", type: "normal" },
-                { num: 102, code: '          {/* Two-step CTA */}', type: "normal" },
-                { num: 103, code: "           <a", type: "normal" },
+                { num: 1, code: "# ── Stage 1: Build ──", type: "added" },
+                { num: 2, code: "FROM node:20-alpine AS builder", type: "added" },
+                { num: 3, code: "WORKDIR /app", type: "added" },
+                { num: 4, code: "COPY package*.json ./", type: "added" },
+                { num: 5, code: "RUN npm ci --production=false", type: "added" },
+                { num: 6, code: "COPY . .", type: "added" },
+                { num: 7, code: "RUN npm run build", type: "added" },
+                { num: 8, code: "", type: "normal" },
+                { num: 9, code: "# ── Stage 2: Runtime ──", type: "added" },
+                { num: 10, code: "FROM node:20-alpine AS runtime", type: "added" },
+                { num: 11, code: "WORKDIR /app", type: "added" },
+                { num: 12, code: "COPY --from=builder /app/build ./build", type: "added" },
+                { num: 13, code: "COPY --from=builder /app/node_modules ./node_modules", type: "added" },
+                { num: 14, code: "COPY --from=builder /app/package.json ./", type: "added" },
+                { num: 15, code: "", type: "normal" },
+                { num: 16, code: "# Redis for session caching", type: "added" },
+                { num: 17, code: 'ENV REDIS_URL="redis://cache:6379"', type: "added" },
+                { num: 18, code: "ENV NODE_ENV=production", type: "added" },
+                { num: 19, code: "ENV PORT=3000", type: "added" },
+                { num: 20, code: "", type: "normal" },
+                { num: 21, code: "EXPOSE 3000", type: "added" },
+                { num: 22, code: 'HEALTHCHECK CMD wget -q --spider http://localhost:3000/health', type: "added" },
+                { num: 23, code: 'CMD ["node", "build/server.js"]', type: "added" },
               ].map((line, i) => (
                 <div
                   key={i}
@@ -381,11 +382,11 @@ function ScreenCodeEditor() {
               <span className="text-[9px] text-white/20 uppercase tracking-wider" style={{ fontFamily: F }}>Terminal</span>
             </div>
             <div className="px-3 py-1.5 text-[9.5px] leading-[15px] text-white/25 space-y-[2px] overflow-hidden" style={{ fontFamily: MONO }}>
-              <div><span className="text-green-400/50">✓</span> Website generated successfully.</div>
-              <div><span className="text-white/10">10:42:18</span> <span className="text-blue-400/30">Creating task continuation ——————</span></div>
-              <div><span className="text-white/10">10:42:19</span> Processing follow-up actions...</div>
-              <div><span className="text-white/10">10:42:20</span> Using authenticated Git access</div>
-              <div><span className="text-white/10">10:42:21</span> <span className="text-amber-400/30">⟳</span> Staging files for commit...</div>
+              <div><span className="text-green-400/50">✓</span> Repository analyzed — Remix + Node.js detected</div>
+              <div><span className="text-green-400/50">✓</span> Redis dependency found in lib/session.ts</div>
+              <div><span className="text-green-400/50">✓</span> Dockerfile generated (multi-stage, 89MB final)</div>
+              <div><span className="text-white/10">10:42:20</span> Pushing image to ECR: 924xxxxxx.dkr.ecr.us-east-1...</div>
+              <div><span className="text-white/10">10:42:21</span> <span className="text-amber-400/30">⟳</span> Deploying to AWS App Runner...</div>
             </div>
           </div>
         </div>
@@ -415,16 +416,16 @@ function ScreenCodeEditor() {
           </div>
           <div className="flex-1 overflow-y-auto p-3.5 space-y-3.5">
             <div>
-              <h4 className="text-[10.5px] font-semibold text-white/65 mb-1.5" style={{ fontFamily: F }}>What happened:</h4>
+              <h4 className="text-[10.5px] font-semibold text-white/65 mb-1.5" style={{ fontFamily: F }}>What I found:</h4>
               <p className="text-[9.5px] leading-[14px] text-white/35" style={{ fontFamily: F }}>
-                In client-side bundles, the <code className="text-blue-300/50 font-medium" style={{ fontFamily: MONO }}>process</code> object is often
-                undefined. The fix checks for <code className="text-blue-300/50 font-medium" style={{ fontFamily: MONO }}>typeof process</code> before accessing env.
+                Detected <code className="text-blue-300/50 font-medium" style={{ fontFamily: MONO }}>Remix + Node.js</code> app.
+                Found Redis usage in <code className="text-blue-300/50 font-medium" style={{ fontFamily: MONO }}>lib/session.ts</code> for session caching. Identified 2 external API deps.
               </p>
             </div>
             <div>
-              <h4 className="text-[10.5px] font-semibold text-white/65 mb-1.5" style={{ fontFamily: F }}>The fix:</h4>
+              <h4 className="text-[10.5px] font-semibold text-white/65 mb-1.5" style={{ fontFamily: F }}>Actions taken:</h4>
               <p className="text-[9.5px] leading-[14px] text-white/35" style={{ fontFamily: F }}>
-                Updated meta functions to safely check <code className="text-blue-300/50 font-medium" style={{ fontFamily: MONO }}>process.env</code> existence.
+                Generated multi-stage Dockerfile (89MB final). Created docker-compose with Redis sidecar. Configured AWS App Runner service with auto-scaling.
               </p>
             </div>
             <div
@@ -436,16 +437,16 @@ function ScreenCodeEditor() {
                 border: "1px solid rgba(255,255,255,0.05)",
               }}
             >
-              <div><span style={{ color: "rgba(192,132,252,0.5)" }}>typeof</span> process !== <span style={{ color: "rgba(134,239,172,0.5)" }}>"undefined"</span></div>
-              <div className="mt-0.5">  ? process.env.PUBLIC_URL</div>
-              <div>  : <span style={{ color: "rgba(134,239,172,0.5)" }}>"undefined"</span></div>
+              <div><span style={{ color: "rgba(192,132,252,0.5)" }}>aws</span> apprunner create-service \</div>
+              <div className="mt-0.5">  --source ecr://my-app:latest \</div>
+              <div>  --port <span style={{ color: "rgba(134,239,172,0.5)" }}>3000</span> --cpu <span style={{ color: "rgba(134,239,172,0.5)" }}>1024</span> --memory <span style={{ color: "rgba(134,239,172,0.5)" }}>2048</span></div>
             </div>
             <div>
-              <h4 className="text-[10.5px] font-semibold text-white/65 mb-1.5" style={{ fontFamily: F }}>Files changed:</h4>
+              <h4 className="text-[10.5px] font-semibold text-white/65 mb-1.5" style={{ fontFamily: F }}>Files created:</h4>
               <div className="space-y-1.5">
-                {["app/routes/_index.tsx", "app/lib/seo.ts"].map((file, i) => (
+                {["Dockerfile", "docker-compose.yml", "apprunner.yaml", ".dockerignore"].map((file, i) => (
                   <div key={i} className="flex items-center gap-2 text-[9.5px] text-white/35">
-                    <div className="h-1 w-1 rounded-full bg-blue-400/40" />
+                    <div className="h-1 w-1 rounded-full bg-green-400/40" />
                     <span style={{ fontFamily: F }}>{file}</span>
                   </div>
                 ))}
@@ -460,7 +461,7 @@ function ScreenCodeEditor() {
             >
               <p className="text-[9.5px] text-green-300/55 flex items-center gap-1.5" style={{ fontFamily: F }}>
                 <svg className="h-3 w-3 flex-shrink-0" viewBox="0 0 16 16" fill="currentColor" style={{ color: "rgba(34,197,94,0.5)" }}><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z" /></svg>
-                Task merged successfully.
+                Deployment config ready. Push to deploy.
               </p>
             </div>
           </div>
@@ -557,7 +558,7 @@ function ScreenDeployment() {
 
           <div className="flex items-center gap-1.5 text-[12px] mb-5" style={{ color: "rgba(52,211,153,0.6)" }}>
             <svg className="h-3.5 w-3.5" viewBox="0 0 16 16" fill="currentColor"><path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm3.78-9.72a.75.75 0 0 0-1.06-1.06L6.75 9.19 5.28 7.72a.75.75 0 0 0-1.06 1.06l2 2a.75.75 0 0 0 1.06 0l4.5-4.5z" /></svg>
-            Existing project — will create a new deployment run
+            Existing project - will create a new deployment
           </div>
 
           <label className="text-[12.5px] font-medium text-white/55 mb-2">Repository</label>
