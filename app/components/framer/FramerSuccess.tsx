@@ -10,20 +10,20 @@ export function FramerSuccess() {
         "VibeDoctor completely transformed our prototyping workflow. Being able to ship directly to our own cloud without any intermediate hosting hassle is a game changer.",
     },
     {
-      author: "Farhan",
+      author: "Farhan Ahmad",
       company: "InMobi",
       quote:
         "The ability to use our preferred AI agents while maintaining full control over our deployment infrastructure makes this the ultimate platform for serious engineering teams.",
     },
     {
-      author: "Simon",
+      author: "Simon D.",
       company: "Google",
       quote:
         "Deployment used to be the biggest bottleneck after getting an AI app working. Now we go from prompt to production in minutes on our own AWS accounts.",
     },
     {
-      author: "Jama",
-      company: "Amazon",
+      author: "Jama M.",
+      company: "AWS",
       quote:
         "Finally a tool that understands we want to own our infrastructure. The auto provisioning feature saves us hours of manual DevOps work every week.",
     },
