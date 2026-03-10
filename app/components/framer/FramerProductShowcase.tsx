@@ -86,9 +86,6 @@ function TasksSidebar() {
           { name: "Configure gpt-5.6 pricing in confi...", active: false, repo: "vibedoctor/agent-config" },
           { name: "Add npm run in manifest...", active: false, repo: "vibedoctor/agent-runner" },
           { name: "Build premium AI SaaS landin...", active: false, repo: "vibedoctor/landing-page" },
-          { name: "Build and deploy AI apps with Ag...", active: false, repo: "vibedoctor/agent-sdk" },
-          { name: "Remove FramerPricing component", active: false, repo: "vibedoctor/landing-page" },
-          { name: "Improve task processing accu...", active: false, repo: "vibedoctor/agent-core" },
         ].map((task, i) => (
           <div
             key={i}
@@ -232,7 +229,7 @@ function ScreenCodeEditor() {
             {["Code", "Chat", "Publish"].map((tab, i) => (
               <button
                 key={tab}
-                className="rounded-md px-3 py-1 text-[10.5px] font-medium transition-all"
+                className="rounded-md px-3 py-1 text-[12.5px] font-medium transition-all"
                 style={{
                   fontFamily: F,
                   color: i === 0 ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.35)",
@@ -246,7 +243,7 @@ function ScreenCodeEditor() {
           </>
         }
       >
-        <div className="ml-3 flex items-center gap-2 text-[11px]" style={{ fontFamily: F }}>
+        <div className="ml-3 flex items-center gap-2 text-[13px]" style={{ fontFamily: F }}>
           <svg className="h-3.5 w-3.5 text-white/25" viewBox="0 0 16 16" fill="currentColor">
             <path d="M8.878.392a1.75 1.75 0 0 0-1.756 0l-5.25 3.045A1.75 1.75 0 0 0 1 4.951v6.098c0 .624.332 1.2.872 1.514l5.25 3.045a1.75 1.75 0 0 0 1.756 0l5.25-3.045c.54-.313.872-.89.872-1.514V4.951c0-.624-.332-1.2-.872-1.514L8.878.392zM8 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
           </svg>
@@ -275,7 +272,7 @@ function ScreenCodeEditor() {
               ].map((tab, i) => (
                 <div
                   key={i}
-                  className="flex items-center gap-1.5 px-3.5 py-[7px] text-[10.5px]"
+                  className="flex items-center gap-1.5 px-3.5 py-[7px] text-[12.5px]"
                   style={{
                     fontFamily: F,
                     color: tab.active ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,0.3)",
@@ -295,12 +292,12 @@ function ScreenCodeEditor() {
                 </div>
               ))}
             </div>
-            <div className="ml-auto mr-4 text-[9px] text-white/15" style={{ fontFamily: MONO }}>/</div>
+            <div className="ml-auto mr-4 text-[11px] text-white/15" style={{ fontFamily: MONO }}>/</div>
           </div>
 
           {/* Diff view */}
           <div className="flex-1 overflow-hidden p-0" style={{ background: "rgba(13,17,23,0.5)" }}>
-            <div className="h-full overflow-y-auto text-[10.5px] leading-[19px]" style={{ fontFamily: MONO }}>
+            <div className="h-full overflow-y-auto text-[12.5px] leading-[21px]" style={{ fontFamily: MONO }}>
               {[
                 { num: 1, code: "# ── Stage 1: Build ──", type: "added" },
                 { num: 2, code: "FROM node:20-alpine AS builder", type: "added" },
@@ -346,7 +343,7 @@ function ScreenCodeEditor() {
                 >
                   <span className="w-[48px] flex-shrink-0 select-none px-2 text-right" style={{ color: "rgba(255,255,255,0.12)" }}>{line.num}</span>
                   <span
-                    className="flex-shrink-0 w-5 select-none text-center text-[11px]"
+                    className="flex-shrink-0 w-5 select-none text-center text-[13px]"
                     style={{
                       color:
                         line.type === "added" ? "rgba(34,197,94,0.7)" : line.type === "deleted" ? "rgba(239,68,68,0.6)" : "transparent",
@@ -377,11 +374,11 @@ function ScreenCodeEditor() {
           {/* Terminal */}
           <div style={{ height: "14%", borderTop: "1px solid rgba(255,255,255,0.04)", background: "rgba(8,11,18,0.7)" }}>
             <div className="flex items-center gap-2 px-3 py-1" style={{ borderBottom: "1px solid rgba(255,255,255,0.03)" }}>
-              <span className="text-[9px] font-semibold uppercase tracking-wider text-white/40" style={{ fontFamily: F }}>Logs</span>
+              <span className="text-[11px] font-semibold uppercase tracking-wider text-white/40" style={{ fontFamily: F }}>Logs</span>
               <span className="h-3 w-px bg-white/[0.06]" />
-              <span className="text-[9px] text-white/20 uppercase tracking-wider" style={{ fontFamily: F }}>Terminal</span>
+              <span className="text-[11px] text-white/20 uppercase tracking-wider" style={{ fontFamily: F }}>Terminal</span>
             </div>
-            <div className="px-3 py-1.5 text-[9.5px] leading-[15px] text-white/25 space-y-[2px] overflow-hidden" style={{ fontFamily: MONO }}>
+            <div className="px-3 py-1.5 text-[11.5px] leading-[17px] text-white/25 space-y-[2px] overflow-hidden" style={{ fontFamily: MONO }}>
               <div><span className="text-green-400/50">✓</span> Repository analyzed — Remix + Node.js detected</div>
               <div><span className="text-green-400/50">✓</span> Redis dependency found in lib/session.ts</div>
               <div><span className="text-green-400/50">✓</span> Dockerfile generated (multi-stage, 89MB final)</div>
@@ -393,7 +390,7 @@ function ScreenCodeEditor() {
 
         {/* Right: Chat panel */}
         <div
-          className="hidden lg:flex w-[22.1%] flex-shrink-0 flex-col"
+          className="hidden lg:flex w-[29%] flex-shrink-0 flex-col"
           style={{
             borderLeft: "1px solid rgba(255,255,255,0.05)",
             background: "linear-gradient(180deg, rgba(13,17,23,0.5) 0%, rgba(10,14,22,0.7) 100%)",
@@ -403,7 +400,7 @@ function ScreenCodeEditor() {
             {["Chat", "Deployments"].map((tab, i) => (
               <button
                 key={tab}
-                className="flex-1 py-2.5 text-[10.5px] font-medium"
+                className="flex-1 py-2.5 text-[12.5px] font-medium"
                 style={{
                   fontFamily: F,
                   color: i === 0 ? "rgba(255,255,255,0.8)" : "rgba(255,255,255,0.3)",
@@ -416,20 +413,20 @@ function ScreenCodeEditor() {
           </div>
           <div className="flex-1 overflow-y-auto p-3.5 space-y-3.5">
             <div>
-              <h4 className="text-[10.5px] font-semibold text-white/65 mb-1.5" style={{ fontFamily: F }}>What I found:</h4>
-              <p className="text-[9.5px] leading-[14px] text-white/35" style={{ fontFamily: F }}>
+              <h4 className="text-[12.5px] font-semibold text-white/65 mb-1.5" style={{ fontFamily: F }}>What I found:</h4>
+              <p className="text-[11.5px] leading-[16px] text-white/35" style={{ fontFamily: F }}>
                 Detected <code className="text-blue-300/50 font-medium" style={{ fontFamily: MONO }}>Remix + Node.js</code> app.
                 Found Redis usage in <code className="text-blue-300/50 font-medium" style={{ fontFamily: MONO }}>lib/session.ts</code> for session caching. Identified 2 external API deps.
               </p>
             </div>
             <div>
-              <h4 className="text-[10.5px] font-semibold text-white/65 mb-1.5" style={{ fontFamily: F }}>Actions taken:</h4>
-              <p className="text-[9.5px] leading-[14px] text-white/35" style={{ fontFamily: F }}>
+              <h4 className="text-[12.5px] font-semibold text-white/65 mb-1.5" style={{ fontFamily: F }}>Actions taken:</h4>
+              <p className="text-[11.5px] leading-[16px] text-white/35" style={{ fontFamily: F }}>
                 Generated multi-stage Dockerfile (89MB final). Created docker-compose with Redis sidecar. Configured AWS App Runner service with auto-scaling.
               </p>
             </div>
             <div
-              className="rounded-lg p-2.5 text-[9px] leading-[14px]"
+              className="rounded-lg p-2.5 text-[11px] leading-[16px]"
               style={{
                 fontFamily: MONO,
                 color: "rgba(255,255,255,0.4)",
@@ -442,10 +439,10 @@ function ScreenCodeEditor() {
               <div>  --port <span style={{ color: "rgba(134,239,172,0.5)" }}>3000</span> --cpu <span style={{ color: "rgba(134,239,172,0.5)" }}>1024</span> --memory <span style={{ color: "rgba(134,239,172,0.5)" }}>2048</span></div>
             </div>
             <div>
-              <h4 className="text-[10.5px] font-semibold text-white/65 mb-1.5" style={{ fontFamily: F }}>Files created:</h4>
+              <h4 className="text-[12.5px] font-semibold text-white/65 mb-1.5" style={{ fontFamily: F }}>Files created:</h4>
               <div className="space-y-1.5">
                 {["Dockerfile", "docker-compose.yml", "apprunner.yaml", ".dockerignore"].map((file, i) => (
-                  <div key={i} className="flex items-center gap-2 text-[9.5px] text-white/35">
+                  <div key={i} className="flex items-center gap-2 text-[11.5px] text-white/35">
                     <div className="h-1 w-1 rounded-full bg-green-400/40" />
                     <span style={{ fontFamily: F }}>{file}</span>
                   </div>
@@ -459,7 +456,7 @@ function ScreenCodeEditor() {
                 border: "1px solid rgba(34,197,94,0.1)",
               }}
             >
-              <p className="text-[9.5px] text-green-300/55 flex items-center gap-1.5" style={{ fontFamily: F }}>
+              <p className="text-[11.5px] text-green-300/55 flex items-center gap-1.5" style={{ fontFamily: F }}>
                 <svg className="h-3 w-3 flex-shrink-0" viewBox="0 0 16 16" fill="currentColor" style={{ color: "rgba(34,197,94,0.5)" }}><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z" /></svg>
                 Deployment config ready. Push to deploy.
               </p>
@@ -475,7 +472,7 @@ function ScreenCodeEditor() {
                 boxShadow: "inset 0 1px 2px rgba(0,0,0,0.1)",
               }}
             >
-              <span className="flex-1 text-[10px] text-white/20" style={{ fontFamily: F }}>Ask a follow-up...</span>
+              <span className="flex-1 text-[12px] text-white/20" style={{ fontFamily: F }}>Ask a follow-up...</span>
               <svg className="h-3.5 w-3.5 text-white/15" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round">
                 <path d="M13.5 7.5l-5.646 5.646a4 4 0 0 1-5.657-5.657l5.647-5.646a2.667 2.667 0 1 1 3.771 3.771L6.003 11.26a1.333 1.333 0 0 1-1.886-1.886l5.293-5.292" />
               </svg>
