@@ -92,7 +92,7 @@ export function FramerHero() {
               className="max-w-[680px] mt-6 text-lg font-normal leading-[1.6] tracking-[-0.02em] text-[rgba(255,255,255,0.6)]"
               style={{ fontFamily: '"Inter", sans-serif' }}
             >
-              Connect your favorite Agent Subscription with Github and deploy it in your preferrred cloud - VPS, AWS, GCP, Azure. You name it, our Agnetic OS configures it. 
+              Our Agentic OS ensures you have zero-configuration deployments across any cloud provider, including Google Cloud, AWS, Azure, VPS, and Kubernetes. 
               <p><br></br> No vendor lock-in, just your code in your cloud.</p>
             </p>
 
