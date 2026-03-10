@@ -1,3 +1,5 @@
+import { FramerCustomers } from "./FramerCustomers";
+
 export function FramerBenefits() {
   const interFamily = '"Inter", "Inter Placeholder", sans-serif';
   const serifFamily = '"Instrument Serif", "Instrument Serif Placeholder", serif';
@@ -87,6 +89,8 @@ export function FramerBenefits() {
           ))}
         </div>
       </div>
+
+      <FramerCustomers />
 
       <div
         aria-hidden="true"
