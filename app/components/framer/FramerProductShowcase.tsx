@@ -107,11 +107,25 @@ export function FramerProductShowcase() {
             <div className="flex absolute inset-0" style={{ top: "5.15%" }}>
               {/* Left sidebar — Tasks */}
               <div className="hidden md:flex w-[20.4%] flex-shrink-0 flex-col border-r border-white/[0.06] bg-[#0a0e16]">
-                <div className="flex items-center justify-between border-b border-white/[0.06] px-3 py-2">
-                  <span className="text-[11px] font-semibold text-white/60 uppercase tracking-wider" style={{ fontFamily: interFamily }}>
-                    Tasks
-                  </span>
-                  <span className="text-[10px] text-white/30">+ New Task</span>
+                <div className="flex flex-col border-b border-white/[0.06]">
+                  {["Tasks", "Deployments", "Migrations"].map((tab, i) => (
+                    <div
+                      key={tab}
+                      className={`flex items-center gap-2 px-3 py-1.5 text-[10.5px] font-medium border-l-2 ${
+                        i === 0
+                          ? "border-l-blue-400/60 bg-white/[0.04] text-white/70"
+                          : "border-l-transparent text-white/30"
+                      }`}
+                      style={{ fontFamily: interFamily }}
+                    >
+                      <svg className="h-3 w-3 flex-shrink-0" viewBox="0 0 16 16" fill="currentColor" style={{ opacity: i === 0 ? 0.7 : 0.3 }}>
+                        {i === 0 && <path d="M2.5 1A1.5 1.5 0 0 0 1 2.5v11A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-11A1.5 1.5 0 0 0 13.5 1h-11zM5 5.75a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 5 5.75zm0 4a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 5 9.75z" />}
+                        {i === 1 && <path d="M8.878.392a1.75 1.75 0 0 0-1.756 0l-5.25 3.045A1.75 1.75 0 0 0 1 4.951v6.098c0 .624.332 1.2.872 1.514l5.25 3.045a1.75 1.75 0 0 0 1.756 0l5.25-3.045c.54-.313.872-.89.872-1.514V4.951c0-.624-.332-1.2-.872-1.514L8.878.392zM8 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />}
+                        {i === 2 && <path d="M5.22 14.78a.75.75 0 0 0 1.06-1.06L4.56 12h8.69a.75.75 0 0 0 0-1.5H4.56l1.72-1.72a.75.75 0 0 0-1.06-1.06l-3 3a.75.75 0 0 0 0 1.06l3 3zm5.56-6.56a.75.75 0 1 1-1.06-1.06L11.44 5.5H2.75a.75.75 0 0 1 0-1.5h8.69L9.72 2.28a.75.75 0 0 1 1.06-1.06l3 3a.75.75 0 0 1 0 1.06l-3 3z" />}
+                      </svg>
+                      {tab}
+                    </div>
+                  ))}
                 </div>
                 {/* Task search */}
                 <div className="border-b border-white/[0.06] px-3 py-1.5">
