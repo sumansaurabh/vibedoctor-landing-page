@@ -25,8 +25,8 @@ function Sidebar({ activeTab }: { activeTab: number }) {
             style={{
               fontFamily: F,
               color: i === activeTab ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,0.28)",
-              background: i === activeTab ? "linear-gradient(90deg, rgba(59,130,246,0.08) 0%, transparent 100%)" : "transparent",
-              borderLeft: i === activeTab ? "2px solid rgba(59,130,246,0.7)" : "2px solid transparent",
+              background: i === activeTab ? "linear-gradient(90deg, rgba(184,199,217,0.08) 0%, transparent 100%)" : "transparent",
+              borderLeft: i === activeTab ? "2px solid rgba(184,199,217,0.7)" : "2px solid transparent",
               transition: "all 0.2s ease",
             }}
           >
@@ -51,8 +51,8 @@ function Sidebar({ activeTab }: { activeTab: number }) {
         <div
           className="h-6 w-6 rounded-full flex-shrink-0"
           style={{
-            background: "linear-gradient(135deg, rgba(99,102,241,0.5) 0%, rgba(168,85,247,0.5) 100%)",
-            boxShadow: "0 0 8px rgba(99,102,241,0.15)",
+            background: "linear-gradient(135deg, rgba(184,199,217,0.5) 0%, rgba(213,219,230,0.5) 100%)",
+            boxShadow: "0 0 8px rgba(184,199,217,0.15)",
           }}
         />
         <div className="min-w-0">
@@ -98,18 +98,18 @@ function TasksSidebar() {
             <div
               className="mt-1 h-1.5 w-1.5 rounded-full flex-shrink-0"
               style={{
-                background: task.active ? "rgba(59,130,246,0.8)" : "rgba(255,255,255,0.12)",
-                boxShadow: task.active ? "0 0 4px rgba(59,130,246,0.4)" : "none",
+                background: task.active ? "rgba(184,199,217,0.8)" : "rgba(255,255,255,0.12)",
+                boxShadow: task.active ? "0 0 4px rgba(184,199,217,0.4)" : "none",
               }}
             />
             <div className="min-w-0 flex-1">
               <span
-                className="block truncate text-[10px] leading-tight"
+                className="block truncate text-[12px] leading-tight"
                 style={{ fontFamily: F, color: task.active ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,0.38)" }}
               >
                 {task.name}
               </span>
-              <span className="block truncate text-[8.5px] text-white/15 mt-0.5" style={{ fontFamily: F }}>{task.repo}</span>
+              <span className="block truncate text-[10px] text-white/15 mt-0.5" style={{ fontFamily: F }}>{task.repo}</span>
             </div>
           </div>
         ))}
@@ -124,9 +124,9 @@ function DeploymentsSidebar() {
       <div className="px-3 py-2 flex items-center" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
         <div
           className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-[12px] text-white/50 font-medium"
-          style={{ fontFamily: F, background: "rgba(59,130,246,0.08)", border: "1px solid rgba(59,130,246,0.15)" }}
+          style={{ fontFamily: F, background: "rgba(184,199,217,0.08)", border: "1px solid rgba(184,199,217,0.15)" }}
         >
-          <svg className="h-3 w-3" viewBox="0 0 16 16" fill="currentColor" style={{ color: "rgba(59,130,246,0.6)" }}>
+          <svg className="h-3 w-3" viewBox="0 0 16 16" fill="currentColor" style={{ color: "rgba(184,199,217,0.6)" }}>
             <path d="M8 2a.75.75 0 0 1 .75.75v4.5h4.5a.75.75 0 0 1 0 1.5h-4.5v4.5a.75.75 0 0 1-1.5 0v-4.5h-4.5a.75.75 0 0 1 0-1.5h4.5v-4.5A.75.75 0 0 1 8 2z" />
           </svg>
           New Deployment
@@ -208,7 +208,7 @@ function ScreenFrame({ children }: { children: React.ReactNode }) {
         border: "1px solid rgba(255,255,255,0.08)",
         background: "linear-gradient(180deg, #111820 0%, #0b0f17 100%)",
         boxShadow:
-          "0 0 0 1px rgba(255,255,255,0.04), inset 0 1px 0 rgba(255,255,255,0.06), 0 25px 60px -12px rgba(0,0,0,0.5), 0 0 100px rgba(59,130,246,0.03)",
+          "0 0 0 1px rgba(255,255,255,0.04), inset 0 1px 0 rgba(255,255,255,0.06), 0 25px 60px -12px rgba(0,0,0,0.5), 0 0 100px rgba(184,199,217,0.03)",
       }}
     >
       {children}
@@ -276,11 +276,11 @@ function ScreenCodeEditor() {
                     fontFamily: F,
                     color: tab.active ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,0.3)",
                     background: tab.active ? "rgba(13,17,23,0.8)" : "transparent",
-                    borderBottom: tab.active ? "2px solid rgba(59,130,246,0.6)" : "2px solid transparent",
+                    borderBottom: tab.active ? "2px solid rgba(184,199,217,0.6)" : "2px solid transparent",
                     borderRight: "1px solid rgba(255,255,255,0.03)",
                   }}
                 >
-                  <span style={{ color: tab.active ? "rgba(96,165,250,0.6)" : "rgba(255,255,255,0.15)" }}>
+                  <span style={{ color: tab.active ? "rgba(184,199,217,0.6)" : "rgba(255,255,255,0.15)" }}>
                     {tab.name === "Dockerfile" ? (
                       <svg className="h-3 w-3" viewBox="0 0 16 16" fill="currentColor"><path d="M8.5 1.5A.5.5 0 0 0 8 1H6.5a.5.5 0 0 0 0 1H8v1H4.5a.5.5 0 0 0 0 1H8v1H5.5a.5.5 0 0 0 0 1H8v1H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 .5.5h5a2.5 2.5 0 0 0 2.5-2.5v-3A2.5 2.5 0 0 0 13.5 2H8.5v-.5z" /></svg>
                     ) : (
@@ -382,7 +382,7 @@ function ScreenCodeEditor() {
               <div><span className="text-green-400/50">✓</span> Redis dependency found in lib/session.ts</div>
               <div><span className="text-green-400/50">✓</span> Dockerfile generated (multi-stage, 89MB final)</div>
               <div><span className="text-white/10">10:42:20</span> Pushing image to ECR: 924xxxxxx.dkr.ecr.us-east-1...</div>
-              <div><span className="text-white/10">10:42:21</span> <span className="text-amber-400/30">⟳</span> Deploying to AWS App Runner...</div>
+              <div><span className="text-white/10">10:42:21</span> <span className="text-white/30">⟳</span> Deploying to AWS App Runner...</div>
             </div>
           </div>
         </div>
@@ -403,7 +403,7 @@ function ScreenCodeEditor() {
                 style={{
                   fontFamily: F,
                   color: i === 0 ? "rgba(255,255,255,0.8)" : "rgba(255,255,255,0.3)",
-                  borderBottom: i === 0 ? "2px solid rgba(59,130,246,0.6)" : "2px solid transparent",
+                  borderBottom: i === 0 ? "2px solid rgba(184,199,217,0.6)" : "2px solid transparent",
                 }}
               >
                 {tab}
@@ -414,8 +414,8 @@ function ScreenCodeEditor() {
             <div>
               <h4 className="text-[12.5px] font-semibold text-white/65 mb-1.5" style={{ fontFamily: F }}>What I found:</h4>
               <p className="text-[11.5px] leading-[16px] text-white/35" style={{ fontFamily: F }}>
-                Detected <code className="text-blue-300/50 font-medium" style={{ fontFamily: MONO }}>Remix + Node.js</code> app.
-                Found Redis usage in <code className="text-blue-300/50 font-medium" style={{ fontFamily: MONO }}>lib/session.ts</code> for session caching. Identified 2 external API deps.
+                Detected <code className="text-[rgba(184,199,217,0.5)] font-medium" style={{ fontFamily: MONO }}>Remix + Node.js</code> app.
+                Found Redis usage in <code className="text-[rgba(184,199,217,0.5)] font-medium" style={{ fontFamily: MONO }}>lib/session.ts</code> for session caching. Identified 2 external API deps.
               </p>
             </div>
             <div>
@@ -433,7 +433,7 @@ function ScreenCodeEditor() {
                 border: "1px solid rgba(255,255,255,0.05)",
               }}
             >
-              <div><span style={{ color: "rgba(192,132,252,0.5)" }}>aws</span> apprunner create-service \</div>
+              <div><span style={{ color: "rgba(184,199,217,0.5)" }}>aws</span> apprunner create-service \</div>
               <div className="mt-0.5">  --source ecr://my-app:latest \</div>
               <div>  --port <span style={{ color: "rgba(134,239,172,0.5)" }}>3000</span> --cpu <span style={{ color: "rgba(134,239,172,0.5)" }}>1024</span> --memory <span style={{ color: "rgba(134,239,172,0.5)" }}>2048</span></div>
             </div>
@@ -472,14 +472,28 @@ function ScreenCodeEditor() {
               }}
             >
               <span className="flex-1 text-[12px] text-white/20" style={{ fontFamily: F }}>Ask a follow-up...</span>
+              <span
+                className="flex items-center gap-1 rounded-md px-1.5 py-0.5 text-[10px] font-medium"
+                style={{
+                  fontFamily: F,
+                  color: "rgba(184,199,217,0.7)",
+                  background: "rgba(184,199,217,0.08)",
+                  border: "1px solid rgba(184,199,217,0.15)",
+                }}
+              >
+                <svg className="h-2.5 w-2.5" viewBox="0 0 16 16" fill="currentColor" style={{ opacity: 0.7 }}>
+                  <path d="M8 1a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 8 1zm0 10a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 8 11zm7-3a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 15 8zM5 8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 5 8zm8.14-3.14a.75.75 0 0 1 0 1.06l-1.77 1.77a.75.75 0 1 1-1.06-1.06l1.77-1.77a.75.75 0 0 1 1.06 0zM5.69 9.31a.75.75 0 0 1 0 1.06l-1.77 1.77a.75.75 0 0 1-1.06-1.06l1.77-1.77a.75.75 0 0 1 1.06 0zm8.45 3.83a.75.75 0 0 1-1.06 0l-1.77-1.77a.75.75 0 1 1 1.06-1.06l1.77 1.77a.75.75 0 0 1 0 1.06zM5.69 6.69a.75.75 0 0 1-1.06 0L2.86 4.92a.75.75 0 0 1 1.06-1.06l1.77 1.77a.75.75 0 0 1 0 1.06z" />
+                </svg>
+                Opus 4.5
+              </span>
               <svg className="h-3.5 w-3.5 text-white/15" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round">
                 <path d="M13.5 7.5l-5.646 5.646a4 4 0 0 1-5.657-5.657l5.647-5.646a2.667 2.667 0 1 1 3.771 3.771L6.003 11.26a1.333 1.333 0 0 1-1.886-1.886l5.293-5.292" />
               </svg>
               <div
                 className="flex h-[22px] w-[22px] items-center justify-center rounded-lg"
                 style={{
-                  background: "linear-gradient(135deg, rgba(59,130,246,0.7) 0%, rgba(99,102,241,0.7) 100%)",
-                  boxShadow: "0 2px 6px rgba(59,130,246,0.2)",
+                  background: "linear-gradient(135deg, rgba(184,199,217,0.7) 0%, rgba(184,199,217,0.7) 100%)",
+                  boxShadow: "0 2px 6px rgba(184,199,217,0.2)",
                 }}
               >
                 <svg className="h-2.5 w-2.5 text-white" viewBox="0 0 16 16" fill="currentColor">
@@ -547,12 +561,12 @@ function ScreenDeployment() {
               className="flex items-center gap-2 rounded-lg px-3 py-2 text-[13px] text-white/45"
               style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)" }}
             >
-              <svg className="h-3.5 w-3.5" viewBox="0 0 16 16" fill="rgba(96,165,250,0.5)"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z" /></svg>
+              <svg className="h-3.5 w-3.5" viewBox="0 0 16 16" fill="rgba(184,199,217,0.5)"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z" /></svg>
               TypeScript / Node.js (vite)
             </div>
           </div>
 
-          <div className="flex items-center gap-1.5 text-[12px] mb-5" style={{ color: "rgba(52,211,153,0.6)" }}>
+          <div className="flex items-center gap-1.5 text-[12px] mb-5" style={{ color: "rgba(34,197,94,0.6)" }}>
             <svg className="h-3.5 w-3.5" viewBox="0 0 16 16" fill="currentColor"><path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm3.78-9.72a.75.75 0 0 0-1.06-1.06L6.75 9.19 5.28 7.72a.75.75 0 0 0-1.06 1.06l2 2a.75.75 0 0 0 1.06 0l4.5-4.5z" /></svg>
             Existing project - will create a new deployment
           </div>
@@ -560,7 +574,7 @@ function ScreenDeployment() {
           <label className="text-[12.5px] font-medium text-white/55 mb-2">Repository</label>
           <div className="flex items-center gap-2.5 mb-5 flex-wrap">
             {[
-              { content: <><div className="h-4 w-4 rounded-full" style={{ background: "linear-gradient(135deg, rgba(99,102,241,0.4) 0%, rgba(168,85,247,0.4) 100%)" }} />sumansa...</>, },
+              { content: <><div className="h-4 w-4 rounded-full" style={{ background: "linear-gradient(135deg, rgba(184,199,217,0.4) 0%, rgba(213,219,230,0.4) 100%)" }} />sumansa...</>, },
               { content: "my-ecommerce-store" },
               { content: "feature/optimization" },
             ].map((item, i) => (
@@ -593,13 +607,13 @@ function ScreenDeployment() {
             <div
               className="flex-1 rounded-lg px-4 py-3 text-[13px]"
               style={{
-                background: "rgba(59,130,246,0.04)",
-                border: "1px solid rgba(59,130,246,0.2)",
-                boxShadow: "0 0 20px rgba(59,130,246,0.04)",
+                background: "rgba(184,199,217,0.04)",
+                border: "1px solid rgba(184,199,217,0.2)",
+                boxShadow: "0 0 20px rgba(184,199,217,0.04)",
               }}
             >
               <div className="flex items-center gap-2.5">
-                <span style={{ color: "rgba(96,165,250,0.6)" }} className="text-[16px]">⬡</span>
+                <span style={{ color: "rgba(184,199,217,0.6)" }} className="text-[16px]">⬡</span>
                 <div>
                   <span className="text-white/80 font-medium block">Dockerfile</span>
                   <span className="block text-[11px] text-white/30 mt-0.5">1 found</span>
@@ -634,18 +648,18 @@ function ScreenDeployment() {
                 key={i}
                 className="flex items-center gap-3 rounded-xl px-3 py-3 mb-1.5"
                 style={{
-                  background: target.active ? "rgba(59,130,246,0.04)" : "transparent",
-                  border: target.active ? "1px solid rgba(59,130,246,0.18)" : "1px solid transparent",
-                  boxShadow: target.active ? "0 0 20px rgba(59,130,246,0.04)" : "none",
+                  background: target.active ? "rgba(184,199,217,0.04)" : "transparent",
+                  border: target.active ? "1px solid rgba(184,199,217,0.18)" : "1px solid transparent",
+                  boxShadow: target.active ? "0 0 20px rgba(184,199,217,0.04)" : "none",
                 }}
               >
                 <div
                   className="h-8 w-8 rounded-xl flex items-center justify-center flex-shrink-0"
                   style={{
                     background: target.active
-                      ? "linear-gradient(135deg, rgba(59,130,246,0.15) 0%, rgba(99,102,241,0.15) 100%)"
+                      ? "linear-gradient(135deg, rgba(184,199,217,0.15) 0%, rgba(184,199,217,0.15) 100%)"
                       : "rgba(255,255,255,0.03)",
-                    border: target.active ? "1px solid rgba(59,130,246,0.15)" : "1px solid rgba(255,255,255,0.05)",
+                    border: target.active ? "1px solid rgba(184,199,217,0.15)" : "1px solid rgba(255,255,255,0.05)",
                   }}
                 >
                   {target.icon === "vibedoctor" ? (
@@ -701,16 +715,16 @@ function ScreenDeployment() {
                     </svg>
                   ) : target.icon === "vps" ? (
                     <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect x="2" y="3" width="20" height="6" rx="1.5" fill="#6366F1" fillOpacity="0.9"/>
-                      <rect x="2" y="11" width="20" height="6" rx="1.5" fill="#818CF8" fillOpacity="0.7"/>
-                      <circle cx="18.5" cy="6" r="1" fill="#34D399"/>
+                      <rect x="2" y="3" width="20" height="6" rx="1.5" fill="rgba(184,199,217,0.9)"/>
+                      <rect x="2" y="11" width="20" height="6" rx="1.5" fill="rgba(184,199,217,0.7)"/>
+                      <circle cx="18.5" cy="6" r="1" fill="rgba(34,197,94,0.8)"/>
                       <circle cx="18.5" cy="14" r="1" fill="rgba(255,255,255,0.3)"/>
                       <circle cx="15.5" cy="6" r="1" fill="rgba(255,255,255,0.4)"/>
                       <circle cx="15.5" cy="14" r="1" fill="rgba(255,255,255,0.2)"/>
                       <path d="M5 6h6" stroke="rgba(255,255,255,0.5)" strokeWidth="1.2" strokeLinecap="round"/>
                       <path d="M5 14h6" stroke="rgba(255,255,255,0.3)" strokeWidth="1.2" strokeLinecap="round"/>
-                      <path d="M8 20v-3M12 20v-3M16 20v-3" stroke="#6366F1" strokeWidth="1.2" strokeLinecap="round"/>
-                      <path d="M6 20h12" stroke="#6366F1" strokeWidth="1.2" strokeLinecap="round"/>
+                      <path d="M8 20v-3M12 20v-3M16 20v-3" stroke="rgba(184,199,217,0.6)" strokeWidth="1.2" strokeLinecap="round"/>
+                      <path d="M6 20h12" stroke="rgba(184,199,217,0.6)" strokeWidth="1.2" strokeLinecap="round"/>
                     </svg>
                   ) : null}
                 </div>
@@ -809,7 +823,7 @@ export function FramerProductShowcase() {
           width: "1000px",
           height: "700px",
           opacity: opacity * 0.06,
-          background: "radial-gradient(50% 50% at 50% 50%, rgba(96,165,250,0.4) 0%, rgba(4,7,13,0) 70%)",
+          background: "radial-gradient(50% 50% at 50% 50%, rgba(184,199,217,0.4) 0%, rgba(4,7,13,0) 70%)",
           filter: "blur(40px)",
         }}
       />
@@ -897,9 +911,9 @@ export function FramerProductShowcase() {
                     width: activeSlide === i ? "20px" : "6px",
                     height: "6px",
                     background: activeSlide === i
-                      ? "linear-gradient(90deg, rgba(59,130,246,0.8) 0%, rgba(99,102,241,0.8) 100%)"
+                      ? "linear-gradient(90deg, rgba(184,199,217,0.8) 0%, rgba(184,199,217,0.8) 100%)"
                       : "rgba(255,255,255,0.15)",
-                    boxShadow: activeSlide === i ? "0 0 8px rgba(59,130,246,0.3)" : "none",
+                    boxShadow: activeSlide === i ? "0 0 8px rgba(184,199,217,0.3)" : "none",
                   }}
                 />
                 {label}

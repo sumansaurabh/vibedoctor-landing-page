@@ -70,7 +70,7 @@ export function FramerHero() {
           {/* Left content to shift Provisioning text 'ml-*'*/}
           <div className="flex w-full max-w-[680px] flex-col items-start gap-6 lg:ml-40">
             <h1
-              className="max-w-[936px] text-[44px] font-medium leading-[0.98] tracking-[-0.02em] text-transparent sm:text-[60px] xl:text-[80px]"
+              className="max-w-[936px] text-[44px] font-medium leading-[0.98] tracking-[-0.02em] text-transparent sm:text-[60px] xl:text-[70px]"
               style={{
                 fontFamily: ibmPlexFamily,
                 backgroundImage:
@@ -80,8 +80,9 @@ export function FramerHero() {
               }}
             >
               Code from Anywhere{" "}
+              <br></br>
               <span
-                className="font-normal italic text-[32px] sm:text-[42px] xl:text-[56px]"
+                className="font-normal italic text-[32px] sm:text-[42px] xl:text-[50px]"
                 style={{ fontFamily: ibmPlexFamily }}
               >
               Deploy in your Own Cloud.
