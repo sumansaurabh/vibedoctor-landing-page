@@ -296,7 +296,7 @@ function ScreenCodeEditor() {
 
           {/* Diff view */}
           <div className="flex-1 overflow-hidden p-0" style={{ background: "rgba(13,17,23,0.5)" }}>
-            <div className="h-full overflow-y-auto text-[12.5px] leading-[21px]" style={{ fontFamily: MONO }}>
+            <div className="h-full overflow-hidden md:overflow-y-auto text-[12.5px] leading-[21px] [&::-webkit-scrollbar]:hidden" style={{ fontFamily: MONO, scrollbarWidth: "none" }}>
               {[
                 { num: 1, code: "# ── Stage 1: Build ──", type: "added" },
                 { num: 2, code: "FROM node:20-alpine AS builder", type: "added" },
@@ -410,7 +410,7 @@ function ScreenCodeEditor() {
               </button>
             ))}
           </div>
-          <div className="flex-1 overflow-y-auto p-3.5 space-y-3.5">
+          <div className="flex-1 overflow-hidden md:overflow-y-auto p-3.5 space-y-3.5 [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: "none" }}>
             <div>
               <h4 className="text-[12.5px] font-semibold text-white/65 mb-1.5" style={{ fontFamily: F }}>What I found:</h4>
               <p className="text-[11.5px] leading-[16px] text-white/35" style={{ fontFamily: F }}>
@@ -530,7 +530,7 @@ function ScreenDeployment() {
         <Sidebar activeTab={1} />
 
         {/* Form */}
-        <div className="flex flex-1 flex-col min-w-0 overflow-y-auto px-7 py-5" style={{ fontFamily: F }}>
+        <div className="flex flex-1 flex-col min-w-0 overflow-hidden md:overflow-y-auto px-7 py-5 [&::-webkit-scrollbar]:hidden" style={{ fontFamily: F, scrollbarWidth: "none" }}>
           <h2 className="text-[19px] font-semibold text-white/90 mb-1 tracking-[-0.01em]">New Deployment</h2>
           <p className="text-[13px] text-white/30 mb-6">Deploy your application from a Git repository or uploaded folder.</p>
 
@@ -620,7 +620,7 @@ function ScreenDeployment() {
           <div className="px-4 pt-5 pb-3">
             <h3 className="text-[19px] font-semibold text-white/90 tracking-[-0.01em]" style={{ fontFamily: 'sans-serif' }}>Deploy To</h3>
           </div>
-          <div className="flex-1 overflow-y-auto px-3">
+          <div className="flex-1 overflow-hidden md:overflow-y-auto px-3 [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: "none" }}>
             {[
               { name: "VibeDoctor", desc: "Deploy to our managed infrastructure", price: "", active: false, soon: false, icon: "vibedoctor" as const },
               { name: "Google Cloud Run (BYOC)", desc: "Deploy as a Docker container on GCR", price: "", active: false, soon: false, icon: "gcp" as const },
