@@ -6,7 +6,6 @@ import { FramerFounder } from "~/components/framer/FramerFounder";
 import { FramerBenefits } from "~/components/framer/FramerBenefits";
 import { FramerServices } from "~/components/framer/FramerServices";
 import { FramerSuccess } from "~/components/framer/FramerSuccess";
-import { FramerIntegrations } from "~/components/framer/FramerIntegrations";
 import { FramerFooter } from "~/components/framer/FramerFooter";
 import { FramerProductShowcase } from "~/components/framer/FramerProductShowcase";
 
@@ -43,7 +42,6 @@ export default function Index() {
       {/*This service is only suitable if we go global provision*/}
       <FramerServices />
       <FramerSuccess />
-      <FramerIntegrations />
       <FramerFooter />
     </div>
   );

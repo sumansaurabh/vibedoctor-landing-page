@@ -15,6 +15,7 @@ dist-ssr
 # Remix / Vite
 build
 .cache
+.next
 
 # Environment variables
 # .env
