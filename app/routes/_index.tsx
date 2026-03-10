@@ -8,6 +8,7 @@ import { FramerServices } from "~/components/framer/FramerServices";
 import { FramerSuccess } from "~/components/framer/FramerSuccess";
 import { FramerIntegrations } from "~/components/framer/FramerIntegrations";
 import { FramerFooter } from "~/components/framer/FramerFooter";
+import { FramerProductShowcase } from "~/components/framer/FramerProductShowcase";
 
 export const meta: MetaFunction = () => {
   const siteUrl = (typeof process !== "undefined" && process.env ? process.env.PUBLIC_URL : undefined) || "https://vibedoctor.dev";
@@ -36,6 +37,7 @@ export default function Index() {
     <div className="min-h-screen w-full bg-[#04070d] text-white antialiased">
       <FramerHeader />
       <FramerHero />
+      <FramerProductShowcase />
       <FramerFounder />
       <FramerBenefits />
       {/*This service is only suitable if we go global provision*/}
