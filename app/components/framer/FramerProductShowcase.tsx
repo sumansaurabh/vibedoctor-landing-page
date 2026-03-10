@@ -201,10 +201,9 @@ function WindowChrome({ children, rightContent }: { children: React.ReactNode; r
 function ScreenFrame({ children }: { children: React.ReactNode }) {
   return (
     <div
-      className="relative flex-shrink-0 overflow-hidden snap-center"
+      className="relative flex-shrink-0 overflow-hidden snap-center aspect-[3/4] md:aspect-[1175/680]"
       style={{
         width: "100%",
-        aspectRatio: "1175 / 680",
         borderRadius: "14px",
         border: "1px solid rgba(255,255,255,0.08)",
         background: "linear-gradient(180deg, #111820 0%, #0b0f17 100%)",
@@ -225,7 +224,7 @@ function ScreenCodeEditor() {
     <ScreenFrame>
       <WindowChrome
         rightContent={
-          <>
+          <div className="hidden sm:flex items-center gap-1.5">
             {["Code", "Chat", "Publish"].map((tab, i) => (
               <button
                 key={tab}
@@ -240,22 +239,22 @@ function ScreenCodeEditor() {
                 {tab}
               </button>
             ))}
-          </>
+          </div>
         }
       >
-        <div className="ml-3 flex items-center gap-2 text-[13px]" style={{ fontFamily: F }}>
-          <svg className="h-3.5 w-3.5 text-white/25" viewBox="0 0 16 16" fill="currentColor">
+        <div className="ml-3 flex flex-1 min-w-0 items-center gap-2 text-[13px]" style={{ fontFamily: F }}>
+          <svg className="h-3.5 w-3.5 flex-shrink-0 text-white/25" viewBox="0 0 16 16" fill="currentColor">
             <path d="M8.878.392a1.75 1.75 0 0 0-1.756 0l-5.25 3.045A1.75 1.75 0 0 0 1 4.951v6.098c0 .624.332 1.2.872 1.514l5.25 3.045a1.75 1.75 0 0 0 1.756 0l5.25-3.045c.54-.313.872-.89.872-1.514V4.951c0-.624-.332-1.2-.872-1.514L8.878.392zM8 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
           </svg>
-          <span className="text-white/65 font-medium">Prepare production deployment with Docker + AWS</span>
+          <span className="text-white/65 font-medium truncate">Prepare production deployment with Docker + AWS</span>
         </div>
       </WindowChrome>
 
       <div className="flex absolute inset-0" style={{ top: "5.5%" }}>
         <Sidebar activeTab={0} />
 
-        {/* Code editor */}
-        <div className="flex flex-1 flex-col min-w-0">
+        {/* Code editor — hidden on mobile */}
+        <div className="hidden md:flex flex-1 flex-col min-w-0">
           {/* File tabs */}
           <div
             className="flex items-center"
@@ -388,12 +387,12 @@ function ScreenCodeEditor() {
           </div>
         </div>
 
-        {/* Right: Chat panel */}
+        {/* Right: Chat panel — full width on mobile, sidebar on desktop */}
         <div
-          className="hidden lg:flex w-[29%] flex-shrink-0 flex-col"
+          className="flex w-full md:w-[29%] flex-shrink-0 flex-col"
           style={{
             borderLeft: "1px solid rgba(255,255,255,0.05)",
-            background: "linear-gradient(180deg, rgba(13,17,23,0.5) 0%, rgba(10,14,22,0.7) 100%)",
+            background: "linear-gradient(180deg, rgba(13,17,23,0.6) 0%, rgba(10,14,22,0.85) 100%)",
           }}
         >
           <div className="flex items-center" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
@@ -833,7 +832,7 @@ export function FramerProductShowcase() {
             {/* Arrows */}
             <button
               onClick={goPrev}
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 flex h-10 w-10 items-center justify-center rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-105"
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 hidden md:flex h-10 w-10 items-center justify-center rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-105"
               style={{
                 background: "rgba(0,0,0,0.6)",
                 border: "1px solid rgba(255,255,255,0.1)",
@@ -847,7 +846,7 @@ export function FramerProductShowcase() {
             </button>
             <button
               onClick={goNext}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 flex h-10 w-10 items-center justify-center rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-105"
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 hidden md:flex h-10 w-10 items-center justify-center rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-105"
               style={{
                 background: "rgba(0,0,0,0.6)",
                 border: "1px solid rgba(255,255,255,0.1)",
@@ -862,7 +861,7 @@ export function FramerProductShowcase() {
 
             <div
               ref={scrollRef}
-              className="flex gap-5 overflow-x-auto snap-x snap-mandatory"
+              className="flex gap-5 overflow-hidden md:overflow-x-auto snap-x snap-mandatory"
               style={{
                 scrollbarWidth: "none",
                 msOverflowStyle: "none",
@@ -870,12 +869,14 @@ export function FramerProductShowcase() {
               }}
             >
               <ScreenCodeEditor />
-              <ScreenDeployment />
+              <div className="hidden md:block flex-shrink-0 w-full snap-center">
+                <ScreenDeployment />
+              </div>
             </div>
           </div>
 
-          {/* Navigation pills */}
-          <div className="flex items-center justify-center gap-2 mt-7">
+          {/* Navigation pills — hidden on mobile (single slide) */}
+          <div className="hidden md:flex items-center justify-center gap-2 mt-7">
             {["Tasks", "Deployments"].map((label, i) => (
               <button
                 key={i}
