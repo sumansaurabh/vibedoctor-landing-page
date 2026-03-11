@@ -28,6 +28,7 @@ export function FramerFooter() {
               { label: "Privacy", href: "/privacy" },
               { label: "GDPR", href: "/gdpr" },
               { label: "Sub-processors", href: "/subprocessors" },
+              { label: "Security", href: "/security" },
             ].map((item) => (
               <Link
                 key={item.label}
