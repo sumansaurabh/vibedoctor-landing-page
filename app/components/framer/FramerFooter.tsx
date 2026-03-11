@@ -26,6 +26,7 @@ export function FramerFooter() {
               { label: "Contact", href: "/contact" },
               { label: "Terms", href: "/terms" },
               { label: "Privacy", href: "/privacy" },
+              { label: "Sub-processors", href: "/subprocessors" },
             ].map((item) => (
               <Link
                 key={item.label}

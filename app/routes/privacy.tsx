@@ -125,7 +125,9 @@ export default function PrivacyRoute() {
           <h3>5.1 Service Providers</h3>
           <p>
             We work with trusted third-party service providers who assist us in
-            operating our Service, including:
+            operating our Service. You can find a complete list of our current
+            sub-processors at our <a href="/subprocessors" className="text-white/70 hover:text-white underline">Sub-processors</a> page.
+            These providers assist with:
           </p>
           <ul>
             <li>Payment processors (Stripe, PayPal)</li>
