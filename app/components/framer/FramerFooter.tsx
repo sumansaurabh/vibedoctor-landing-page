@@ -26,6 +26,7 @@ export function FramerFooter() {
               { label: "Contact", href: "/contact" },
               { label: "Terms", href: "/terms" },
               { label: "Privacy", href: "/privacy" },
+              { label: "GDPR", href: "/gdpr" },
               { label: "Sub-processors", href: "/subprocessors" },
             ].map((item) => (
               <Link
@@ -60,6 +61,10 @@ export function FramerFooter() {
 
         {/* Divider */}
         <div className="my-10 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+
+        <div className="mb-8 text-center text-sm text-white/40 max-w-4xl mx-auto">
+          VibeDoctor is committed to protecting user privacy and handling personal data in accordance with applicable data protection laws including GDPR. Users may request access, correction, or deletion of their stored data by contacting support.
+        </div>
 
         {/* Bottom */}
         <div className="text-center">
