@@ -36,7 +36,7 @@ export default function SecurityRoute() {
           
           <p>Please send details of the vulnerability to:</p>
           <p>
-            <a href="mailto:security@vibedoctor.ai" className="text-white/70 hover:text-white underline">security@vibedoctor.dev</a>
+            <a href="mailto:security@vibedoctor.dev" className="text-white/70 hover:text-white underline">security@vibedoctor.dev</a>
           </p>
 
           <p>When reporting an issue, please include:</p>
