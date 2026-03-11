@@ -29,7 +29,11 @@ export default function SubprocessorsRoute() {
           <h1>VibeDoctor Sub-processors</h1>
 
           <p>
-            VibeDoctor uses trusted third-party service providers to operate the platform and deliver functionality. These providers may process limited customer data on our behalf.
+            VibeDoctor uses trusted third-party service providers to operate the platform and deliver functionality. These providers may process limited customer data on our behalf in order to provide the VibeDoctor service.
+          </p>
+
+          <p>
+            Each sub-processor is contractually obligated to protect customer data and process it only for the purposes of providing the VibeDoctor service.
           </p>
 
           <div className="overflow-x-auto my-8">
@@ -49,54 +53,25 @@ export default function SubprocessorsRoute() {
                   <td className="py-3 px-4">United States</td>
                 </tr>
                 <tr className="hover:bg-white/5 transition-colors">
-                  <td className="py-3 px-4 font-medium text-white">Claude (Anthropic)</td>
+                  <td className="py-3 px-4 font-medium text-white">Anthropic</td>
                   <td className="py-3 px-4">AI model processing for user requests</td>
                   <td className="py-3 px-4">United States</td>
                 </tr>
                 <tr className="hover:bg-white/5 transition-colors">
-                  <td className="py-3 px-4 font-medium text-white">Gemini (Google)</td>
+                  <td className="py-3 px-4 font-medium text-white">Google (Gemini)</td>
                   <td className="py-3 px-4">AI model processing for user requests</td>
-                  <td className="py-3 px-4">United States</td>
-                </tr>
-                
-                {/* Repositories & Issue Trackers */}
-                <tr className="hover:bg-white/5 transition-colors">
-                  <td className="py-3 px-4 font-medium text-white">GitHub</td>
-                  <td className="py-3 px-4">Repository management and automation workflows</td>
-                  <td className="py-3 px-4">United States</td>
-                </tr>
-                <tr className="hover:bg-white/5 transition-colors">
-                  <td className="py-3 px-4 font-medium text-white">GitHub Issues</td>
-                  <td className="py-3 px-4">Issue tracking and project management</td>
-                  <td className="py-3 px-4">United States</td>
-                </tr>
-                <tr className="hover:bg-white/5 transition-colors">
-                  <td className="py-3 px-4 font-medium text-white">Jira</td>
-                  <td className="py-3 px-4">Issue tracking and project management</td>
-                  <td className="py-3 px-4">Global</td>
-                </tr>
-                <tr className="hover:bg-white/5 transition-colors">
-                  <td className="py-3 px-4 font-medium text-white">Linear</td>
-                  <td className="py-3 px-4">Issue tracking and project management</td>
                   <td className="py-3 px-4">United States</td>
                 </tr>
 
                 {/* Databases and Backends */}
                 <tr className="hover:bg-white/5 transition-colors">
-                  <td className="py-3 px-4 font-medium text-white">Convex</td>
-                  <td className="py-3 px-4">Real-time database and backend services</td>
-                  <td className="py-3 px-4">United States</td>
-                </tr>
-                <tr className="hover:bg-white/5 transition-colors">
                   <td className="py-3 px-4 font-medium text-white">Supabase</td>
-                  <td className="py-3 px-4">Database and backend functionality</td>
+                  <td className="py-3 px-4">Database and backend services</td>
                   <td className="py-3 px-4">Global</td>
                 </tr>
-
-                {/* Design */}
                 <tr className="hover:bg-white/5 transition-colors">
-                  <td className="py-3 px-4 font-medium text-white">Figma</td>
-                  <td className="py-3 px-4">Design and prototyping collaboration</td>
+                  <td className="py-3 px-4 font-medium text-white">Convex</td>
+                  <td className="py-3 px-4">Real-time database and backend services</td>
                   <td className="py-3 px-4">United States</td>
                 </tr>
 
@@ -120,6 +95,41 @@ export default function SubprocessorsRoute() {
                   <td className="py-3 px-4 font-medium text-white">Microsoft Azure</td>
                   <td className="py-3 px-4">Cloud infrastructure and data hosting</td>
                   <td className="py-3 px-4">Multiple regions</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>Third-Party Integrations</h2>
+
+          <p>
+            VibeDoctor may integrate with third-party services that users connect to their workflows. These integrations are authorized by the user and are used only to perform requested actions.
+          </p>
+
+          <div className="overflow-x-auto my-8">
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr className="border-b border-white/20">
+                  <th className="py-3 px-4 font-semibold text-white">Integration</th>
+                  <th className="py-3 px-4 font-semibold text-white">Purpose</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-white/10 text-white/80">
+                <tr className="hover:bg-white/5 transition-colors">
+                  <td className="py-3 px-4 font-medium text-white">GitHub</td>
+                  <td className="py-3 px-4">Repository management and automation</td>
+                </tr>
+                <tr className="hover:bg-white/5 transition-colors">
+                  <td className="py-3 px-4 font-medium text-white">Jira</td>
+                  <td className="py-3 px-4">Issue tracking and project management</td>
+                </tr>
+                <tr className="hover:bg-white/5 transition-colors">
+                  <td className="py-3 px-4 font-medium text-white">Linear</td>
+                  <td className="py-3 px-4">Issue tracking and project management</td>
+                </tr>
+                <tr className="hover:bg-white/5 transition-colors">
+                  <td className="py-3 px-4 font-medium text-white">Figma</td>
+                  <td className="py-3 px-4">Design collaboration</td>
                 </tr>
               </tbody>
             </table>
