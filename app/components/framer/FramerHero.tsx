@@ -79,7 +79,7 @@ export function FramerHero() {
                 backgroundClip: "text",
               }}
             >
-              Code from Anywhere{" "}
+              Deploy From Anywhere{" "}
               <br></br>
               <span
                 className="font-normal italic text-[32px] sm:text-[42px] xl:text-[50px]"

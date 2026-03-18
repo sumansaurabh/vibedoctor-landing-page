@@ -42,7 +42,7 @@ export function FramerFounder() {
             className="w-full text-[26px] font-normal leading-[1.4] tracking-[-0.03em] text-[rgba(184,199,217,0.5)] sm:text-[32px]"
             style={{ fontFamily: interFamily }}
           >
-            Hands-free, code from anywhere on the planet. {" "}
+            Hands-free, deploy from anywhere on the planet. {" "}
             <br></br>
             <span
               className="italic text-[#d5dbe6]"
