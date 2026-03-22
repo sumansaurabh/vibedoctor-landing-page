@@ -18,7 +18,7 @@ function Sidebar({ activeTab }: { activeTab: number }) {
     >
       {/* Nav items */}
       <div className="flex flex-col" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
-        {(["Tasks", "Deployments", "Migrations"] as const).map((tab, i) => (
+        {(["Tasks", "Deployments", "Migrations", "Integrations"] as const).map((tab, i) => (
           <div
             key={tab}
             className="flex items-center gap-2.5 px-4 py-2 text-[12.5px] font-medium"
@@ -34,6 +34,7 @@ function Sidebar({ activeTab }: { activeTab: number }) {
               {i === 0 && <path d="M2.5 1A1.5 1.5 0 0 0 1 2.5v11A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-11A1.5 1.5 0 0 0 13.5 1h-11zM5 5.75a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 5 5.75zm0 4a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 5 9.75z" />}
               {i === 1 && <path d="M8.878.392a1.75 1.75 0 0 0-1.756 0l-5.25 3.045A1.75 1.75 0 0 0 1 4.951v6.098c0 .624.332 1.2.872 1.514l5.25 3.045a1.75 1.75 0 0 0 1.756 0l5.25-3.045c.54-.313.872-.89.872-1.514V4.951c0-.624-.332-1.2-.872-1.514L8.878.392zM8 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />}
               {i === 2 && <path d="M5.22 14.78a.75.75 0 0 0 1.06-1.06L4.56 12h8.69a.75.75 0 0 0 0-1.5H4.56l1.72-1.72a.75.75 0 0 0-1.06-1.06l-3 3a.75.75 0 0 0 0 1.06l3 3zm5.56-6.56a.75.75 0 1 1-1.06-1.06L11.44 5.5H2.75a.75.75 0 0 1 0-1.5h8.69L9.72 2.28a.75.75 0 0 1 1.06-1.06l3 3a.75.75 0 0 1 0 1.06l-3 3z" />}
+              {i === 3 && <path d="M6 2a.75.75 0 0 1 .75.75v2.1c0 .636.514 1.15 1.15 1.15h.2c.636 0 1.15-.514 1.15-1.15v-2.1a.75.75 0 0 1 1.5 0v2.1A2.65 2.65 0 0 1 8.1 7.5h-.2A2.65 2.65 0 0 1 5.25 4.85v-2.1A.75.75 0 0 1 6 2zm2 5.5a.75.75 0 0 1 .75.75v2.5h1.75a.75.75 0 0 1 0 1.5h-5a.75.75 0 0 1 0-1.5h1.75v-2.5A.75.75 0 0 1 8 7.5z" />}
             </svg>
             {tab}
           </div>
@@ -42,6 +43,7 @@ function Sidebar({ activeTab }: { activeTab: number }) {
 
       {activeTab === 0 && <TasksSidebar />}
       {activeTab === 1 && <DeploymentsSidebar />}
+      {activeTab === 3 && <IntegrationsSidebar />}
 
       {/* Bottom user — frosted */}
       <div
@@ -157,6 +159,581 @@ function DeploymentsSidebar() {
         </div>
       </div>
     </>
+  );
+}
+
+const integrationCategories = [
+  {
+    name: "Cloud Providers",
+    description:
+      "Connect managed cloud credentials or register your own Docker-ready VPS infrastructure.",
+    icon: "cloud",
+    items: [
+      {
+        name: "VPS",
+        description:
+          "Deploy over SSH to your Linux server with Docker networking and Caddy.",
+        icon: "vps",
+        action: "Connect",
+      },
+      {
+        name: "Google Cloud",
+        description:
+          "Deploy containers to Google Cloud with service account credentials.",
+        icon: "gcp",
+        action: "Connect",
+      },
+      {
+        name: "AWS",
+        description:
+          "Deploy containers to AWS using your IAM credentials.",
+        icon: "aws",
+        action: "Connect",
+      },
+      {
+        name: "Microsoft Azure",
+        description:
+          "Deploy to Azure using service principal credentials.",
+        icon: "azure",
+        action: "Connect",
+      },
+      {
+        name: "Cloudflare",
+        description:
+          "Deploy edge workloads on Cloudflare with API token-based setup.",
+        icon: "cloudflare",
+        action: "Connect",
+      },
+    ],
+  },
+  {
+    name: "Project Management",
+    description:
+      "Connect issue trackers and project tools to reference tickets in your tasks.",
+    icon: "project",
+    items: [
+      {
+        name: "Jira",
+        description: "Reference Jira issues directly inside task prompts.",
+        icon: "jira",
+        action: "Connect",
+      },
+      {
+        name: "Linear",
+        description: "Pull Linear issues into prompts and agent context.",
+        icon: "linear",
+        action: "Connect",
+      },
+      {
+        name: "Notion",
+        description: "Reference Notion pages and docs inside task prompts.",
+        icon: "notion",
+        action: "Connect",
+      },
+      {
+        name: "Asana",
+        description: "Bring Asana tasks into your coding workflow.",
+        icon: "asana",
+        action: "Soon",
+      },
+      {
+        name: "Trello",
+        description: "Pull Trello cards into your task context.",
+        icon: "trello",
+        action: "Soon",
+      },
+    ],
+  },
+  {
+    name: "Communication",
+    description:
+      "Send notifications and trigger tasks from your messaging apps.",
+    icon: "communication",
+    items: [
+      {
+        name: "Slack",
+        description: "Send task updates and notifications into Slack.",
+        icon: "slack",
+        action: "Connect",
+      },
+      {
+        name: "Telegram",
+        description: "Start and monitor tasks directly from Telegram.",
+        icon: "telegram",
+        action: "Connect",
+      },
+      {
+        name: "WhatsApp",
+        description:
+          "Integrate WhatsApp Cloud API for messaging workflows.",
+        icon: "whatsapp",
+        action: "Connect",
+      },
+    ],
+  },
+  {
+    name: "Development Tools",
+    description:
+      "Connect MCP (Model Context Protocol) servers to give your AI agent access to databases, design tools, and more.",
+    icon: "development",
+    items: [
+      {
+        name: "Supabase",
+        description:
+          "Query Supabase data and auth context directly.",
+        icon: "supabase",
+        action: "Connect",
+      },
+      {
+        name: "Figma",
+        description:
+          "Inspect and work with Figma designs from the agent.",
+        icon: "figma",
+        action: "Connect",
+      },
+      {
+        name: "Context7",
+        description:
+          "Pull current library docs through Context7.",
+        icon: "context7",
+        action: "Connect",
+      },
+      {
+        name: "Convex",
+        description: "Interact with Convex backend data and functions.",
+        icon: "convex",
+        action: "Connect",
+      },
+      {
+        name: "Browserbase",
+        description: "Run remote headless browser sessions.",
+        icon: "browserbase",
+        action: "Soon",
+      },
+      {
+        name: "Playwright",
+        description:
+          "Automate browser flows with Playwright.",
+        icon: "playwright",
+        action: "Soon",
+      },
+      {
+        name: "Hugging Face",
+        description:
+          "Access Hugging Face models and datasets.",
+        icon: "huggingface",
+        action: "Soon",
+      },
+    ],
+  },
+] as const;
+
+function IntegrationsSidebar() {
+  return (
+    <>
+      <div className="px-3 py-2 flex items-center" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+        <div
+          className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-[12px] text-white/50 font-medium"
+          style={{ fontFamily: F, background: "rgba(184,199,217,0.08)", border: "1px solid rgba(184,199,217,0.15)" }}
+        >
+          <svg className="h-3 w-3" viewBox="0 0 16 16" fill="currentColor" style={{ color: "rgba(184,199,217,0.6)" }}>
+            <path d="M8 2a.75.75 0 0 1 .75.75v4.5h4.5a.75.75 0 0 1 0 1.5h-4.5v4.5a.75.75 0 0 1-1.5 0v-4.5h-4.5a.75.75 0 0 1 0-1.5h4.5v-4.5A.75.75 0 0 1 8 2z" />
+          </svg>
+          Add Integration
+        </div>
+        <svg className="h-3.5 w-3.5 text-white/20 ml-auto" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834zM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5z" />
+        </svg>
+      </div>
+      <div className="flex-1 overflow-hidden px-2 pt-2">
+        <div
+          className="rounded-xl px-3 py-3"
+          style={{
+            background: "rgba(255,255,255,0.04)",
+            border: "1px solid rgba(255,255,255,0.06)",
+          }}
+        >
+          <div className="flex items-center gap-2">
+            <div
+              className="flex h-7 w-7 items-center justify-center rounded-lg"
+              style={{ background: "rgba(184,199,217,0.08)", border: "1px solid rgba(184,199,217,0.12)" }}
+            >
+              <svg className="h-3.5 w-3.5 text-white/55" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M6 2a.75.75 0 0 1 .75.75v2.1c0 .636.514 1.15 1.15 1.15h.2c.636 0 1.15-.514 1.15-1.15v-2.1a.75.75 0 0 1 1.5 0v2.1A2.65 2.65 0 0 1 8.1 7.5h-.2A2.65 2.65 0 0 1 5.25 4.85v-2.1A.75.75 0 0 1 6 2zm2 5.5a.75.75 0 0 1 .75.75v2.5h1.75a.75.75 0 0 1 0 1.5h-5a.75.75 0 0 1 0-1.5h1.75v-2.5A.75.75 0 0 1 8 7.5z" />
+              </svg>
+            </div>
+            <div className="min-w-0">
+              <span className="block truncate text-[12.5px] text-white/75 font-medium leading-tight" style={{ fontFamily: F }}>No integrations yet</span>
+              <span className="block truncate text-[10.5px] text-white/25 mt-0.5" style={{ fontFamily: F }}>Connect your tools to enhance your workflow</span>
+            </div>
+          </div>
+          <button
+            className="mt-3 w-full rounded-lg px-3 py-2 text-[11.5px] font-medium text-white/75"
+            style={{ fontFamily: F, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.07)" }}
+          >
+            Add New Integration
+          </button>
+        </div>
+      </div>
+    </>
+  );
+}
+
+function IntegrationsSectionIcon({
+  icon,
+}: {
+  icon: (typeof integrationCategories)[number]["icon"];
+}) {
+  if (icon === "cloud") {
+    return (
+      <svg
+        className="h-4 w-4"
+        viewBox="0 0 16 16"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M4 12.5h7.25a2.75 2.75 0 1 0-.63-5.43A3.75 3.75 0 0 0 3.5 8.5 2.5 2.5 0 0 0 4 12.5Z" />
+      </svg>
+    );
+  }
+
+  if (icon === "project") {
+    return (
+      <svg
+        className="h-4 w-4"
+        viewBox="0 0 16 16"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M4 3.5h8M4 8h8M4 12.5h5" />
+        <circle cx="2.75" cy="3.5" r=".75" fill="currentColor" stroke="none" />
+        <circle cx="2.75" cy="8" r=".75" fill="currentColor" stroke="none" />
+        <circle cx="2.75" cy="12.5" r=".75" fill="currentColor" stroke="none" />
+      </svg>
+    );
+  }
+
+  if (icon === "communication") {
+    return (
+      <svg
+        className="h-4 w-4"
+        viewBox="0 0 16 16"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M3.25 4.25h9.5v6.5h-5.2L4.25 13V10.75h-1A1 1 0 0 1 2.25 9.75v-4.5a1 1 0 0 1 1-1Z" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg
+      className="h-4 w-4"
+      viewBox="0 0 16 16"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.3"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M5.25 3.5 2.75 8l2.5 4.5M10.75 3.5 13.25 8l-2.5 4.5" />
+      <path d="M8.6 3.25 7.4 12.75" />
+    </svg>
+  );
+}
+
+function IntegrationLogo({
+  icon,
+}: {
+  icon: (typeof integrationCategories)[number]["items"][number]["icon"];
+}) {
+  const muted = "rgba(24,24,27,0.82)";
+
+  if (icon === "vps") {
+    return (
+      <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none">
+        <rect x="3" y="4" width="18" height="5" rx="1.3" fill={muted} opacity=".9" />
+        <rect x="3" y="11" width="18" height="5" rx="1.3" fill={muted} opacity=".65" />
+        <circle cx="17.5" cy="6.5" r="1" fill="#16a34a" />
+        <circle cx="17.5" cy="13.5" r="1" fill="rgba(24,24,27,0.35)" />
+      </svg>
+    );
+  }
+
+  if (icon === "gcp") {
+    return (
+      <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none">
+        <path d="M6.7 14.4 3.9 7.4a1 1 0 0 1 1.86-.74l2.79 6.95a1 1 0 0 1-1.85.79Z" fill="#fbbc04" />
+        <path d="M12.1 15.1 8.3 5.7a1 1 0 0 1 1.52-1.17l10.1 7.2a1 1 0 1 1-1.16 1.62L10.98 7.8l2.98 7.44a1 1 0 1 1-1.86.74Z" fill="#ea4335" />
+        <path d="m5.7 12.9-2.3 5.76a1 1 0 0 0 1.86.74l2.3-5.75a1 1 0 0 0-.93-1.12H5.7Z" fill="#34a853" />
+        <path d="m18.55 12.9-8.57 6.12 2.34-5.86a1 1 0 0 0-.93-1.12H10.4l-2.3 5.76a1 1 0 0 0 1.52 1.17l10.24-7.32a1 1 0 0 0 .42-.75h-1.73Z" fill="#4285f4" />
+      </svg>
+    );
+  }
+
+  if (icon === "aws") {
+    return (
+      <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none">
+        <path d="M7.4 14.6c.3 0 .66-.06 1-.17.34-.11.63-.31.88-.59.15-.18.26-.38.32-.6.06-.23.1-.5.1-.82v-.4a7.7 7.7 0 0 0-.9-.16 7 7 0 0 0-.92-.06c-.65 0-1.14.13-1.46.39-.32.26-.48.63-.48 1.12 0 .46.12.8.36 1.04.23.17.6.25 1.1.25Z" fill="#111827" opacity=".88" />
+        <path d="M5.15 17.1c3.24 1.86 7.5 2.25 11.3.74.42-.16.77.31.36.58-2.18 1.48-5.2 2.06-7.97 2.06-2.44 0-4.82-.55-6.94-1.8-.24-.15-.03-.48.25-.34Z" fill="#ff9900" />
+        <path d="M17.6 16.02c-.2-.25-1.32-.11-1.83-.05-.16.02-.18-.11-.04-.22.89-.65 2.36-.47 2.53-.26.17.21-.05 1.68-.89 2.4-.13.11-.25.05-.2-.09.19-.47.62-1.53.43-1.78Z" fill="#ff9900" />
+      </svg>
+    );
+  }
+
+  if (icon === "azure") {
+    return (
+      <svg className="h-5 w-5" viewBox="0 0 96 96" fill="none">
+        <path d="M33.34 6.54h26.04L33.78 89.2a4.15 4.15 0 0 1-3.93 2.81H8.15a4.14 4.14 0 0 1-3.92-5.47L29.41 9.35a4.15 4.15 0 0 1 3.93-2.81Z" fill="#0f5fb5" />
+        <path d="M71.17 60.26H29.88a1.91 1.91 0 0 0-1.3 3.31l26.53 24.76a4.17 4.17 0 0 0 2.85 1.12h23.39Z" fill="#38bdf8" />
+        <path d="M66.59 9.35a4.14 4.14 0 0 0-3.93-2.81H33.61a4.15 4.15 0 0 1 3.93 2.81l25.18 77.19a4.14 4.14 0 0 1-3.93 5.47h29.05a4.14 4.14 0 0 0 3.93-5.47Z" fill="#2892df" />
+      </svg>
+    );
+  }
+
+  if (icon === "cloudflare") {
+    return (
+      <svg className="h-5 w-5" viewBox="0 0 128 128" fill="none">
+        <path d="m115.679 69.288-15.591-8.94-2.689-1.163-63.781.436v32.381h82.061Z" fill="#fff" />
+        <path d="M87.295 89.022c.763-2.617.472-5.015-.8-6.796-1.163-1.635-3.125-2.58-5.488-2.689l-44.737-.581c-.291 0-.545-.145-.691-.363s-.182-.509-.109-.8c.145-.436.581-.763 1.054-.8l45.137-.581c5.342-.254 11.157-4.579 13.192-9.885l2.58-6.723c.109-.291.145-.581.073-.872-2.906-13.158-14.644-22.97-28.672-22.97-12.938 0-23.913 8.359-27.838 19.952a13.35 13.35 0 0 0-9.267-2.58c-6.215.618-11.193 5.597-11.811 11.811-.145 1.599-.036 3.162.327 4.615C10.104 70.051 2 78.337 2 88.549c0 .909.073 1.817.182 2.726a.895.895 0 0 0 .872.763h82.57c.472 0 .909-.327 1.054-.8l.617-2.216Z" fill="#f38020" />
+        <path d="M101.542 60.275c-.4 0-.836 0-1.236.036-.291 0-.545.218-.654.509l-1.744 6.069c-.763 2.617-.472 5.015.8 6.796 1.163 1.635 3.125 2.58 5.488 2.689l9.522.581c.291 0 .545.145.691.363.145.218.182.545.109.8-.145.436-.581.763-1.054.8l-9.924.582c-5.379.254-11.157 4.579-13.192 9.885l-.727 1.853c-.145.363.109.727.509.727h34.089c.4 0 .763-.254.872-.654.581-2.108.909-4.325.909-6.614 0-13.447-10.975-24.422-24.458-24.422" fill="#faae40" />
+      </svg>
+    );
+  }
+
+  if (icon === "jira") {
+    return (
+      <svg className="h-5 w-5" viewBox="0 0 16 16" fill="none">
+        <path d="M11.86 1.5H7.29A2.08 2.08 0 0 0 9.37 3.58h1.01v.97a2.08 2.08 0 0 0 2.08 2.08V2.1a.6.6 0 0 0-.6-.6Z" fill="#2684ff" />
+        <path d="M9.6 3.76H5.03A2.08 2.08 0 0 0 7.1 5.84h1.02v.97A2.08 2.08 0 0 0 10.2 8.9V4.36a.6.6 0 0 0-.6-.6Z" fill="#2684ff" opacity=".82" />
+        <path d="M7.34 6.02H2.77A2.08 2.08 0 0 0 4.84 8.1h1.02v.97a2.08 2.08 0 0 0 2.08 2.08V6.62a.6.6 0 0 0-.6-.6Z" fill="#2684ff" opacity=".62" />
+      </svg>
+    );
+  }
+
+  if (icon === "linear") {
+    return (
+      <svg className="h-5 w-5" viewBox="0 0 16 16" fill="none">
+        <circle cx="8" cy="8" r="6.25" stroke="rgba(255,255,255,0.96)" strokeWidth="1.4" />
+        <path d="M4.6 11.2 11.2 4.6" stroke="rgba(255,255,255,0.96)" strokeWidth="1.4" strokeLinecap="round" />
+        <path d="M3.95 8A4.05 4.05 0 0 1 8 3.95" stroke="rgba(255,255,255,0.96)" strokeWidth="1.4" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
+  if (icon === "notion") {
+    return (
+      <svg className="h-5 w-5" viewBox="0 0 16 16" fill="none">
+        <rect x="2.2" y="2.2" width="11.6" height="11.6" rx="1.3" stroke="rgba(255,255,255,0.96)" strokeWidth="1.2" />
+        <path d="M5 12V5l1.8.45 3.2 5.02V4.4H11V12l-1.67-.33L6.1 6.65V12H5Z" fill="rgba(255,255,255,0.96)" />
+      </svg>
+    );
+  }
+
+  if (icon === "asana") {
+    return (
+      <svg className="h-5 w-5" viewBox="0 0 16 16" fill="none">
+        <circle cx="8" cy="4.3" r="2.15" fill="#f06a6a" />
+        <circle cx="4.2" cy="10.55" r="2.15" fill="#f99f4c" />
+        <circle cx="11.8" cy="10.55" r="2.15" fill="#f8cf5a" />
+      </svg>
+    );
+  }
+
+  if (icon === "trello") {
+    return (
+      <svg className="h-5 w-5" viewBox="0 0 16 16" fill="none">
+        <rect x="1.8" y="2.2" width="12.4" height="11.6" rx="2" fill="#0c66e4" />
+        <rect x="4.2" y="4.4" width="2.8" height="6.8" rx="1" fill="#dbeafe" />
+        <rect x="8.4" y="4.4" width="3.4" height="4.6" rx="1" fill="#bfdbfe" />
+      </svg>
+    );
+  }
+
+  if (icon === "slack") {
+    return (
+      <svg className="h-5 w-5" viewBox="0 0 16 16" fill="none">
+        <rect x="6.7" y="1.6" width="2.6" height="6" rx="1.3" fill="#36c5f0" />
+        <rect x="8.4" y="6.7" width="6" height="2.6" rx="1.3" fill="#2eb67d" />
+        <rect x="6.7" y="8.4" width="2.6" height="6" rx="1.3" fill="#ecb22e" />
+        <rect x="1.6" y="6.7" width="6" height="2.6" rx="1.3" fill="#e01e5a" />
+      </svg>
+    );
+  }
+
+  if (icon === "telegram") {
+    return (
+      <svg className="h-5 w-5" viewBox="0 0 16 16" fill="none">
+        <circle cx="8" cy="8" r="6.4" fill="#27a7e7" />
+        <path d="m4.35 7.82 6.62-2.74c.31-.13.58.17.47.53l-1.14 5.17c-.08.36-.51.48-.76.21L8.05 9.5l-.7 1.18c-.1.17-.38.16-.46-.02l-.41-1.1-1.58-.45c-.34-.1-.36-.57-.03-.7Z" fill="#fafafa" />
+      </svg>
+    );
+  }
+
+  if (icon === "whatsapp") {
+    return (
+      <svg className="h-5 w-5" viewBox="0 0 16 16" fill="none">
+        <path d="M8 2.2A5.8 5.8 0 0 0 3.2 11.3L2.35 14l2.8-.82A5.8 5.8 0 1 0 8 2.2Z" fill="#25d366" />
+        <path d="M10.65 9.55c-.24.67-1.1 1.17-1.53 1.2-.39.03-.88.04-2.48-.67-1.93-.86-3.14-2.96-3.24-3.1-.1-.14-.78-1.04-.78-1.98s.5-1.4.67-1.6c.17-.2.36-.25.48-.25h.34c.1 0 .24 0 .36.29.14.34.48 1.16.52 1.24.04.08.07.18.01.28-.06.1-.1.17-.2.27-.1.1-.2.22-.29.3-.1.1-.2.2-.09.38.11.18.49.82 1.05 1.33.72.64 1.33.84 1.52.94.19.1.3.08.41-.05.11-.13.48-.55.61-.74.13-.19.26-.16.44-.1.18.07 1.14.54 1.34.64.2.1.33.15.38.24.05.09.05.52-.19 1.2Z" fill="#fafafa" />
+      </svg>
+    );
+  }
+
+  if (icon === "supabase") {
+    return (
+      <svg className="h-5 w-5" viewBox="0 0 16 16" fill="none">
+        <path d="M10.8 2.4c.38-.5 1.18-.23 1.18.4v8.05c0 .14-.05.28-.15.39l-2.48 2.95c-.5.6-1.47.24-1.47-.54V5.38c0-.14.05-.28.14-.39l2.78-2.59Z" fill="#3ecf8e" />
+        <path d="M5.2 13.6c-.38.5-1.18.23-1.18-.4V5.15c0-.14.05-.28.15-.39l2.48-2.95c.5-.6 1.47-.24 1.47.54v8.27c0 .14-.05.28-.14.39L5.2 13.6Z" fill="#249361" />
+      </svg>
+    );
+  }
+
+  if (icon === "figma") {
+    return (
+      <svg className="h-5 w-5" viewBox="0 0 16 16" fill="none">
+        <rect x="4.2" y="1.5" width="3.6" height="3.6" rx="1.8" fill="#f24e1e" />
+        <rect x="4.2" y="5.2" width="3.6" height="3.6" rx="1.8" fill="#a259ff" />
+        <rect x="4.2" y="8.9" width="3.6" height="3.6" rx="1.8" fill="#0acf83" />
+        <rect x="7.9" y="1.5" width="3.9" height="3.6" rx="1.8" fill="#ff7262" />
+        <circle cx="9.85" cy="7" r="1.95" fill="#1abcfe" />
+      </svg>
+    );
+  }
+
+  if (icon === "context7") {
+    return (
+      <svg className="h-5 w-5" viewBox="0 0 16 16" fill="none">
+        <rect x="2.2" y="2.2" width="11.6" height="11.6" rx="1.8" fill="#2563eb" />
+        <path d="M4.9 4.8h2.1L5.55 11.2M10.95 4.8H8.4l1.45 6.4" stroke="#eff6ff" strokeWidth="1.15" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    );
+  }
+
+  if (icon === "convex") {
+    return (
+      <svg className="h-5 w-5" viewBox="0 0 16 16" fill="none">
+        <path d="M8 2.1 11.9 4.4v4.5L8 11.2 4.1 8.9V4.4L8 2.1Z" stroke="#8b5cf6" strokeWidth="1.2" />
+        <path d="M5.05 3.8 9.3 6.3v4.9" stroke="#a78bfa" strokeWidth="1.2" />
+        <path d="m10.95 3.8-4.2 2.46" stroke="#c4b5fd" strokeWidth="1.2" />
+      </svg>
+    );
+  }
+
+  if (icon === "browserbase") {
+    return (
+      <svg className="h-5 w-5" viewBox="0 0 16 16" fill="none">
+        <rect x="2.1" y="2.1" width="11.8" height="11.8" rx="2" fill="#0f172a" />
+        <path d="M5.1 4.85h2.1c1.38 0 2.1.65 2.1 1.7 0 .7-.34 1.22-.92 1.48.72.2 1.12.78 1.12 1.6 0 1.2-.77 1.92-2.21 1.92H5.1V4.85Zm2.02 2.55c.53 0 .84-.22.84-.63 0-.39-.3-.61-.84-.61H6.56v1.24h.56Zm.15 2.84c.64 0 .99-.25.99-.73 0-.45-.35-.69-.99-.69H6.56v1.42h.71Z" fill="#fafafa" />
+      </svg>
+    );
+  }
+
+  if (icon === "playwright") {
+    return (
+      <svg className="h-5 w-5" viewBox="0 0 16 16" fill="none">
+        <path d="M4.15 10.9c.3 1.5 1.3 2.6 3.85 2.6 2.55 0 3.55-1.1 3.85-2.6-.92.24-1.85.37-2.8.37-.95 0-1.88-.13-2.9-.37Z" fill="#56ba4b" />
+        <path d="M3.35 5.8c0-1.98 1.5-3.4 3.6-3.4.53 0 1.02.1 1.47.28.45-.18.94-.28 1.47-.28 2.1 0 3.6 1.42 3.6 3.4 0 1.48-.82 2.72-2.1 3.36-.56-.37-1.28-.58-2.12-.58s-1.56.2-2.12.58c-1.28-.64-2.1-1.88-2.1-3.36Z" stroke="#9ad66d" strokeWidth="1.1" />
+      </svg>
+    );
+  }
+
+  if (icon === "huggingface") {
+    return (
+      <svg className="h-5 w-5" viewBox="0 0 16 16" fill="none">
+        <circle cx="8" cy="8" r="5.2" fill="#ffda5a" />
+        <ellipse cx="4.2" cy="9.55" rx="1.35" ry="1.8" fill="#f6b34a" />
+        <ellipse cx="11.8" cy="9.55" rx="1.35" ry="1.8" fill="#f6b34a" />
+        <path d="M5.4 6.9c.22.28.48.42.8.42.32 0 .58-.14.8-.42M9 6.9c.22.28.48.42.8.42.32 0 .58-.14.8-.42" stroke="#5b3d00" strokeWidth=".9" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M5.55 9.1c.5.62 1.34.95 2.45.95s1.95-.33 2.45-.95" stroke="#5b3d00" strokeWidth=".95" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="6.05" cy="8.45" r=".44" fill="#ea7f65" />
+        <circle cx="9.95" cy="8.45" r=".44" fill="#ea7f65" />
+        <path d="M5.45 10.15c-.2.2-.3.44-.3.73 0 .45.28.82.7 1.02M10.55 10.15c.2.2.3.44.3.73 0 .45-.28.82-.7 1.02" stroke="#5b3d00" strokeWidth=".78" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg className="h-5 w-5" viewBox="0 0 16 16" fill="none">
+      <circle cx="8" cy="8" r="6.1" fill="rgba(24,24,27,0.08)" stroke="rgba(24,24,27,0.4)" strokeWidth="1.1" />
+      <path d="M5.25 8.25a2.75 2.75 0 1 1 0-1.2h5.5a2.75 2.75 0 1 1 0 1.2h-5.5Z" fill="#171717" opacity=".82" />
+    </svg>
+  );
+}
+
+function IntegrationCard({
+  item,
+}: {
+  item: (typeof integrationCategories)[number]["items"][number];
+}) {
+  const isSoon = item.action === "Soon";
+
+  return (
+    <div
+      className="group min-h-[96px] rounded-lg px-4 py-3 transition-all duration-200 hover:-translate-y-0.5"
+      style={{
+        background: "rgba(255,255,255,0.03)",
+        border: "1px solid rgba(255,255,255,0.06)",
+        boxShadow: "0 16px 32px -24px rgba(0,0,0,0.45)",
+      }}
+    >
+      <div className="flex items-start gap-3">
+        <div
+          className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl"
+          style={{
+            background:
+              "linear-gradient(135deg, rgba(184,199,217,0.15) 0%, rgba(184,199,217,0.12) 100%)",
+            border: "1px solid rgba(184,199,217,0.15)",
+            boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)",
+          }}
+        >
+          <div
+            className="flex items-center justify-center"
+            style={{ transform: "scale(1.42)", transformOrigin: "center" }}
+          >
+            <IntegrationLogo icon={item.icon} />
+          </div>
+        </div>
+
+        <div className="min-w-0 flex-1">
+          <div className="flex items-center justify-between gap-2">
+            <h3
+              className="truncate text-[13px] font-medium leading-tight"
+              style={{ fontFamily: F, color: "rgba(255,255,255,0.82)" }}
+            >
+              {item.name}
+            </h3>
+            {isSoon && (
+              <span
+                className="rounded-md px-2 py-0.5 text-[10px] font-medium"
+                style={{
+                  fontFamily: F,
+                  color: "rgba(255,255,255,0.28)",
+                  border: "1px solid rgba(255,255,255,0.06)",
+                  background: "rgba(255,255,255,0.02)",
+                }}
+              >
+                Soon
+              </span>
+            )}
+          </div>
+          <p
+            className="mt-1.5 text-[11.5px] leading-[17px]"
+            style={{ fontFamily: F, color: "rgba(255,255,255,0.3)" }}
+          >
+            {item.description}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -755,6 +1332,287 @@ function ScreenDeployment() {
   );
 }
 
+function ScreenIntegrations({ isActive }: { isActive: boolean }) {
+  const totalIntegrations = integrationCategories.reduce(
+    (count, category) => count + category.items.length,
+    0,
+  );
+  const connectableIntegrations = integrationCategories.reduce(
+    (count, category) =>
+      count + category.items.filter((item) => item.action === "Connect").length,
+    0,
+  );
+  const scrollAreaRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = scrollAreaRef.current;
+    if (!el) return;
+
+    if (!isActive) {
+      el.scrollTop = 0;
+      return;
+    }
+
+    const maxScroll = el.scrollHeight - el.clientHeight;
+    if (maxScroll <= 0) return;
+
+    el.scrollTop = 0;
+
+    let frameId = 0;
+    const delayId = window.setTimeout(() => {
+      const startTime = performance.now();
+      const duration = 5200;
+
+      const animate = (time: number) => {
+        const progress = Math.min(1, (time - startTime) / duration);
+        const eased =
+          progress < 0.5
+            ? 2 * progress * progress
+            : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+
+        el.scrollTop = maxScroll * eased;
+
+        if (progress < 1) {
+          frameId = window.requestAnimationFrame(animate);
+        }
+      };
+
+      frameId = window.requestAnimationFrame(animate);
+    }, 700);
+
+    return () => {
+      window.clearTimeout(delayId);
+      if (frameId) window.cancelAnimationFrame(frameId);
+    };
+  }, [isActive]);
+
+  return (
+    <ScreenFrame>
+      <WindowChrome
+        rightContent={
+          <div className="hidden sm:flex items-center gap-1.5">
+            {["General", "Custom"].map((tab, i) => (
+              <button
+                key={tab}
+                className="rounded-md px-3 py-1 text-[12.5px] font-medium transition-all"
+                style={{
+                  fontFamily: F,
+                  color: i === 0 ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.35)",
+                  background: i === 0 ? "rgba(255,255,255,0.08)" : "transparent",
+                  border: i === 0 ? "1px solid rgba(255,255,255,0.08)" : "1px solid transparent",
+                }}
+              >
+                {tab}
+              </button>
+            ))}
+            <button
+              className="rounded-md px-3 py-1 text-[12px] font-medium"
+              style={{
+                fontFamily: F,
+                color: "rgba(255,255,255,0.45)",
+                border: "1px solid rgba(255,255,255,0.08)",
+              }}
+            >
+              All categories
+            </button>
+          </div>
+        }
+      >
+        <div
+          className="ml-3 flex items-center gap-2 text-[11px]"
+          style={{ fontFamily: F }}
+        >
+          <svg
+            className="h-3.5 w-3.5 text-white/25"
+            viewBox="0 0 16 16"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M6 2.5v2a2 2 0 0 0 4 0v-2" />
+            <path d="M8 6.5V10" />
+            <path d="M5.25 12.75h5.5" />
+          </svg>
+          <span className="font-medium text-white/65">app.vibedoctor.dev / integrations</span>
+        </div>
+      </WindowChrome>
+
+      <div
+        className="absolute inset-0 flex"
+        style={{ top: "5.5%" }}
+      >
+        <Sidebar activeTab={3} />
+
+        <div className="flex min-w-0 flex-1 flex-col overflow-hidden">
+          <div
+            className="px-6 py-5"
+            style={{
+              borderBottom: "1px solid rgba(255,255,255,0.04)",
+              background: "rgba(12,16,24,0.5)",
+            }}
+          >
+            <div className="flex items-start justify-between gap-6">
+              <div className="flex items-start gap-3">
+                <div
+                  className="flex h-11 w-11 items-center justify-center rounded-[15px] flex-shrink-0"
+                  style={{
+                    background: "rgba(184,199,217,0.08)",
+                    border: "1px solid rgba(184,199,217,0.14)",
+                  }}
+                >
+                  <svg
+                    className="h-5 w-5"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="rgba(184,199,217,0.72)"
+                    strokeWidth="1.35"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M6 2.5v2a2 2 0 0 0 4 0v-2" />
+                    <path d="M8 6.5V10" />
+                    <path d="M5.25 12.75h5.5" />
+                  </svg>
+                </div>
+
+                <div>
+                  <h2
+                    className="text-[26px] font-semibold tracking-[-0.02em]"
+                    style={{ fontFamily: F, color: "rgba(255,255,255,0.9)" }}
+                  >
+                    Integrations
+                  </h2>
+                  <p
+                    className="mt-1 max-w-[620px] text-[13px] leading-[20px]"
+                    style={{ fontFamily: F, color: "rgba(255,255,255,0.3)" }}
+                  >
+                    Connect your tools and services to supercharge your AI coding
+                    agent.
+                  </p>
+                </div>
+              </div>
+              <div className="hidden lg:flex items-center gap-2 self-start">
+                <div
+                  className="rounded-lg px-2.5 py-1.5 text-[11px] font-medium"
+                  style={{
+                    fontFamily: F,
+                    color: "rgba(184,199,217,0.72)",
+                    background: "rgba(184,199,217,0.08)",
+                    border: "1px solid rgba(184,199,217,0.12)",
+                  }}
+                >
+                  {totalIntegrations} integrations
+                </div>
+                <div
+                  className="rounded-lg px-2.5 py-1.5 text-[11px] font-medium"
+                  style={{
+                    fontFamily: F,
+                    color: "rgba(255,255,255,0.32)",
+                    border: "1px solid rgba(255,255,255,0.06)",
+                  }}
+                >
+                  {connectableIntegrations} connectable
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            className="flex items-center justify-between gap-4 px-6 py-4"
+            style={{
+              borderBottom: "1px solid rgba(255,255,255,0.04)",
+              background: "rgba(10,14,22,0.62)",
+            }}
+          >
+            <div
+              className="flex min-w-0 flex-1 items-center gap-2 rounded-xl px-3 py-2"
+              style={{
+                fontFamily: F,
+                background: "rgba(255,255,255,0.025)",
+                border: "1px solid rgba(255,255,255,0.07)",
+              }}
+            >
+              <svg className="h-3.5 w-3.5 flex-shrink-0 text-white/20" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+              </svg>
+              <span className="truncate text-[12px] text-white/20">Search integrations...</span>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <button
+                className="rounded-lg px-3 py-2 text-[11px] font-medium"
+                style={{
+                  fontFamily: F,
+                  color: "rgba(255,255,255,0.4)",
+                  border: "1px solid rgba(255,255,255,0.06)",
+                  background: "rgba(255,255,255,0.02)",
+                }}
+              >
+                General
+              </button>
+              <button
+                className="rounded-lg px-3 py-2 text-[11px] font-medium hidden lg:block"
+                style={{
+                  fontFamily: F,
+                  color: "rgba(255,255,255,0.22)",
+                  border: "1px solid rgba(255,255,255,0.04)",
+                }}
+              >
+                Custom
+              </button>
+            </div>
+          </div>
+
+          <div
+            ref={scrollAreaRef}
+            className="flex-1 overflow-hidden md:overflow-y-auto px-6 py-4 [&::-webkit-scrollbar]:hidden"
+            style={{ scrollbarWidth: "none", background: "rgba(10,14,22,0.45)" }}
+          >
+            {integrationCategories.map((category) => (
+              <section key={category.name} className="mb-6 last:mb-0">
+                <div className="flex items-start gap-3">
+                  <div
+                    className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-[12px]"
+                    style={{
+                      background: "rgba(255,255,255,0.03)",
+                      border: "1px solid rgba(255,255,255,0.06)",
+                      color: "rgba(255,255,255,0.62)",
+                    }}
+                  >
+                    <IntegrationsSectionIcon icon={category.icon} />
+                  </div>
+                  <div>
+                    <h3
+                      className="text-[15px] font-semibold"
+                      style={{ fontFamily: F, color: "rgba(255,255,255,0.82)" }}
+                    >
+                      {category.name}
+                    </h3>
+                    <p
+                      className="mt-1 text-[12px] leading-[18px]"
+                      style={{ fontFamily: F, color: "rgba(255,255,255,0.28)" }}
+                    >
+                      {category.description}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-3 grid grid-cols-3 gap-3">
+                  {category.items.map((item) => (
+                    <IntegrationCard key={item.name} item={item} />
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
+        </div>
+      </div>
+    </ScreenFrame>
+  );
+}
+
 /* ─────────────────────────────────────────────
    Main showcase with carousel
    ───────────────────────────────────────────── */
@@ -763,7 +1621,8 @@ export function FramerProductShowcase() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [activeSlide, setActiveSlide] = useState(0);
-  const totalSlides = 2;
+  const slideLabels = ["Tasks", "Deployments", "Integrations"] as const;
+  const totalSlides = slideLabels.length;
 
   useEffect(() => {
     const el = containerRef.current;
@@ -783,30 +1642,40 @@ export function FramerProductShowcase() {
     const scrollEl = scrollRef.current;
     if (!scrollEl) return;
     const onH = () => {
-      const { scrollLeft, scrollWidth, clientWidth } = scrollEl;
-      const max = scrollWidth - clientWidth;
-      if (max > 0) setActiveSlide(scrollLeft > max * 0.5 ? 1 : 0);
+      const { scrollLeft, clientWidth } = scrollEl;
+      const slideWidth = clientWidth + 20;
+      const nextSlide = Math.round(scrollLeft / slideWidth);
+      setActiveSlide(Math.max(0, Math.min(totalSlides - 1, nextSlide)));
     };
     scrollEl.addEventListener("scroll", onH, { passive: true });
     return () => scrollEl.removeEventListener("scroll", onH);
-  }, []);
+  }, [totalSlides]);
 
   const scrollToSlide = useCallback((index: number) => {
     const el = scrollRef.current;
     if (!el) return;
-    el.scrollTo({ left: el.clientWidth * index + index * 20, behavior: "smooth" });
+    el.scrollTo({
+      left: el.clientWidth * index + index * 20,
+      behavior: "smooth",
+    });
     setActiveSlide(index);
   }, []);
 
-  const goNext = useCallback(() => scrollToSlide((activeSlide + 1) % totalSlides), [activeSlide, scrollToSlide]);
-  const goPrev = useCallback(() => scrollToSlide((activeSlide - 1 + totalSlides) % totalSlides), [activeSlide, scrollToSlide]);
+  const goNext = useCallback(
+    () => scrollToSlide((activeSlide + 1) % totalSlides),
+    [activeSlide, scrollToSlide, totalSlides],
+  );
+  const goPrev = useCallback(
+    () => scrollToSlide((activeSlide - 1 + totalSlides) % totalSlides),
+    [activeSlide, scrollToSlide, totalSlides],
+  );
 
   useEffect(() => {
     const timer = setInterval(() => {
       scrollToSlide((activeSlide + 1) % totalSlides);
     }, 6000);
     return () => clearInterval(timer);
-  }, [activeSlide, scrollToSlide]);
+  }, [activeSlide, scrollToSlide, totalSlides]);
 
   const scale = 0.88 + scrollProgress * 0.12;
   const opacity = Math.min(1, scrollProgress * 1.8);
@@ -814,7 +1683,11 @@ export function FramerProductShowcase() {
   const translateY = (1 - scrollProgress) * 40;
 
   return (
-    <section className="relative overflow-hidden bg-[#04070d] py-16 sm:py-28" style={{ perspective: "1400px" }}>
+    <section
+      id="integrations"
+      className="relative overflow-hidden bg-[#04070d] py-16 sm:py-28"
+      style={{ perspective: "1400px" }}
+    >
       {/* Ambient glow */}
       <div
         aria-hidden="true"
@@ -886,12 +1759,15 @@ export function FramerProductShowcase() {
               <div className="hidden md:block flex-shrink-0 w-full snap-center">
                 <ScreenDeployment />
               </div>
+              <div className="hidden md:block flex-shrink-0 w-full snap-center">
+                <ScreenIntegrations isActive={activeSlide === 2} />
+              </div>
             </div>
           </div>
 
           {/* Navigation pills — hidden on mobile (single slide) */}
           <div className="hidden md:flex items-center justify-center gap-2 mt-7">
-            {["Tasks", "Deployments"].map((label, i) => (
+            {slideLabels.map((label, i) => (
               <button
                 key={i}
                 onClick={() => scrollToSlide(i)}

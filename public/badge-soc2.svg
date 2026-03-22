@@ -37,7 +37,7 @@
   <text x="60" y="107" text-anchor="middle"
         font-family="'Arial', sans-serif"
         font-weight="600" font-size="9" letter-spacing="2.5"
-        fill="#7aa3d4">TYPE II</text>
+        fill="#7aa3d4">TYPE I</text>
 
   <!-- "IN PROGRESS" status band near bottom of shield -->
   <rect x="20" y="114" width="80" height="18" rx="3"
