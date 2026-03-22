@@ -43,10 +43,10 @@ export default function TermsRoute() {
           <p><strong>Registered Address:</strong> 30 N Gould St Ste N, Sheridan, WY 82801</p>
           <p>
             <strong>Email:</strong>{' '}
-            <a href="mailto:support@vibedoctor.dev">support@vibedoctor.dev</a>
+            <a href="mailto:support@aerol.ai">support@aerol.ai</a>
             <br />
             <strong>Website:</strong>{' '}
-            <a href="https://vibedoctor.dev" className="text-white/70 hover:text-white underline">https://vibedoctor.dev</a>
+            <a href="https://aerol.ai" className="text-white/70 hover:text-white underline">https://aerol.ai</a>
           </p>
 
           <h2>3. Description of Service</h2>
@@ -102,7 +102,7 @@ export default function TermsRoute() {
             <li>Free Plan: Up to 50 monitors with basic features</li>
             <li>Premium Plans: Additional features and monitors available</li>
             <li>Plan details available at{' '}
-              <a href="https://vibedoctor.dev" className="text-white/70 hover:text-white underline">https://vibedoctor.dev</a>
+              <a href="https://aerol.ai" className="text-white/70 hover:text-white underline">https://aerol.ai</a>
             </li>
           </ul>
 
@@ -178,10 +178,10 @@ export default function TermsRoute() {
           </p>
           <p>
             <strong>Email:</strong>{' '}
-            <a href="mailto:legal@vibedoctor.dev">legal@vibedoctor.dev</a>
+            <a href="mailto:legal@aerol.ai">legal@aerol.ai</a>
             <br />
             <strong>Support:</strong>{' '}
-            <a href="mailto:support@vibedoctor.dev">support@vibedoctor.dev</a>
+            <a href="mailto:support@aerol.ai">support@aerol.ai</a>
             <br />
             <strong>Address:</strong> Penify Technologies LLC, 30 N Gould St Ste N, Sheridan, WY 82801
           </p>

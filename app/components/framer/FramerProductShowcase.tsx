@@ -1435,7 +1435,7 @@ function ScreenIntegrations({ isActive }: { isActive: boolean }) {
             <path d="M8 6.5V10" />
             <path d="M5.25 12.75h5.5" />
           </svg>
-          <span className="font-medium text-white/65">app.vibedoctor.dev / integrations</span>
+          <span className="font-medium text-white/65">app.aerol.ai / integrations</span>
         </div>
       </WindowChrome>
 

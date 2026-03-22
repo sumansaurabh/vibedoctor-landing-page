@@ -38,7 +38,7 @@ export default function PrivacyRoute() {
             a website monitoring service. This Privacy Policy explains how we
             collect, use, disclose, and safeguard your information when you use
             our website monitoring Service and website located at{' '}
-            <a href="https://vibedoctor.dev" className="text-white/70 hover:text-white underline">https://vibedoctor.dev</a>.
+            <a href="https://aerol.ai" className="text-white/70 hover:text-white underline">https://aerol.ai</a>.
           </p>
 
           <h2>2. Company Information</h2>
@@ -47,11 +47,11 @@ export default function PrivacyRoute() {
           <p><strong>Registered Address:</strong> 30 N Gould St Ste N, Sheridan, WY 82801</p>
           <p>
             <strong>Email:</strong>{' '}
-            <a href="mailto:support@vibedoctor.dev">support@vibedoctor.dev</a>
+            <a href="mailto:support@aerol.ai">support@aerol.ai</a>
           </p>
           <p>
             <strong>Website:</strong>{' '}
-            <a href="https://vibedoctor.dev" className="text-white/70 hover:text-white underline">https://vibedoctor.dev</a>
+            <a href="https://aerol.ai" className="text-white/70 hover:text-white underline">https://aerol.ai</a>
           </p>
 
           <h2>3. Information We Collect</h2>
@@ -178,7 +178,7 @@ export default function PrivacyRoute() {
             <li>Opt-out: Unsubscribe from marketing communications</li>
           </ul>
           <p>To exercise these rights, contact us at{' '}
-            <a href="mailto:support@vibedoctor.dev">support@vibedoctor.dev</a>.
+            <a href="mailto:support@aerol.ai">support@aerol.ai</a>.
           </p>
 
           <h2>8. Contact Us</h2>
@@ -187,7 +187,7 @@ export default function PrivacyRoute() {
           </p>
           <p>
             <strong>Email:</strong>{' '}
-            <a href="mailto:support@vibedoctor.dev">support@vibedoctor.dev</a>
+            <a href="mailto:support@aerol.ai">support@aerol.ai</a>
             <br />
             <strong>Address:</strong> Penify Technologies LLC, 30 N Gould St
             Ste N, Sheridan, WY 82801

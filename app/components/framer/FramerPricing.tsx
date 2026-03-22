@@ -118,7 +118,7 @@ export function FramerPricing() {
               </ul>
 
               <a
-                href="https://app.vibedoctor.dev"
+                href="https://app.aerol.ai"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`flex w-full items-center justify-center rounded-lg px-4 py-3 text-sm font-semibold transition-colors ${
