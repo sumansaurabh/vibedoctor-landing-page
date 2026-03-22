@@ -1,32 +1,49 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" width="120" height="140">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 150" width="120" height="150">
   <defs>
-    <linearGradient id="soc2Bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#2a1f0a"/>
-      <stop offset="100%" style="stop-color:#1a1305"/>
+    <linearGradient id="soc2Bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a5f"/>
+      <stop offset="100%" style="stop-color:#0f2240"/>
+    </linearGradient>
+    <linearGradient id="soc2Header" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#c8973a"/>
+      <stop offset="100%" style="stop-color:#a87828"/>
     </linearGradient>
   </defs>
 
-  <!-- Badge body -->
-  <rect x="4" y="4" width="112" height="132" rx="10" ry="10" fill="url(#soc2Bg)" stroke="#6b4c10" stroke-width="1.5"/>
+  <!-- Shield shape: flat top, angled sides, pointed bottom -->
+  <path d="M10,8 H110 Q116,8 116,14 V90 Q116,120 60,145 Q4,120 4,90 V14 Q4,8 10,8 Z"
+        fill="url(#soc2Bg)" stroke="#2d5299" stroke-width="1.5"/>
 
-  <!-- Clock / in-progress icon -->
-  <g transform="translate(60, 40)">
-    <circle cx="0" cy="0" r="20" fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.4"/>
-    <!-- Progress arc (about 75%) -->
-    <path d="M 0 -20 A 20 20 0 1 1 -14.1 14.1" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
-    <!-- Clock hands -->
-    <line x1="0" y1="0" x2="0" y2="-12" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
-    <line x1="0" y1="0" x2="9" y2="6" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
-    <circle cx="0" cy="0" r="2" fill="#f59e0b"/>
-  </g>
+  <!-- Gold header band -->
+  <path d="M4,14 Q4,8 10,8 H110 Q116,8 116,14 V38 H4 Z"
+        fill="url(#soc2Header)"/>
 
-  <!-- Divider -->
-  <line x1="20" y1="68" x2="100" y2="68" stroke="#6b4c10" stroke-width="1"/>
+  <!-- "SOC" in header -->
+  <text x="60" y="30" text-anchor="middle"
+        font-family="'Arial Black', 'Arial', sans-serif"
+        font-weight="900" font-size="20" letter-spacing="4"
+        fill="#ffffff">SOC</text>
 
-  <!-- SOC 2 text -->
-  <text x="60" y="92" text-anchor="middle" font-family="'Arial', sans-serif" font-weight="900" font-size="26" letter-spacing="1" fill="#ffffff">SOC 2</text>
+  <!-- Large "2" -->
+  <text x="60" y="82" text-anchor="middle"
+        font-family="'Arial Black', 'Arial', sans-serif"
+        font-weight="900" font-size="46"
+        fill="#ffffff">2</text>
 
-  <!-- IN PROGRESS label -->
-  <rect x="18" y="102" width="84" height="20" rx="4" fill="#3d2a00"/>
-  <text x="60" y="116" text-anchor="middle" font-family="'Arial', sans-serif" font-weight="700" font-size="10" letter-spacing="2" fill="#fcd34d">IN PROGRESS</text>
+  <!-- Thin divider line -->
+  <line x1="24" y1="92" x2="96" y2="92" stroke="#2d5299" stroke-width="1"/>
+
+  <!-- "TYPE II" sub-label (greyed, industry-standard positioning) -->
+  <text x="60" y="107" text-anchor="middle"
+        font-family="'Arial', sans-serif"
+        font-weight="600" font-size="9" letter-spacing="2.5"
+        fill="#7aa3d4">TYPE II</text>
+
+  <!-- "IN PROGRESS" status band near bottom of shield -->
+  <rect x="20" y="114" width="80" height="18" rx="3"
+        fill="#c8973a" opacity="0.25"/>
+  <text x="60" y="127" text-anchor="middle"
+        font-family="'Arial', sans-serif"
+        font-weight="700" font-size="9" letter-spacing="2"
+        fill="#f0c060">IN PROGRESS</text>
 </svg>
