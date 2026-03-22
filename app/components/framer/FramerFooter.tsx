@@ -63,9 +63,39 @@ export function FramerFooter() {
         {/* Divider */}
         <div className="my-10 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
-        <div className="mb-8 text-center text-sm text-white/40 max-w-4xl mx-auto">
-          VibeDoctor is committed to protecting user privacy and handling personal data in accordance with applicable data protection laws including GDPR. Users may request access, correction, or deletion of their stored data by contacting support.
-        </div>
+        {/* Compliance trust strip */}
+        <Link
+          to="/security"
+          className="flex flex-wrap items-center justify-center gap-3 mb-10 group"
+          aria-label="View our security and compliance details"
+        >
+          {[
+            {
+              label: "GDPR Compliant",
+              dot: "bg-green-500",
+            },
+            {
+              label: "NIST Aligned",
+              dot: "bg-blue-500",
+            },
+            {
+              label: "SOC 2 In Progress",
+              dot: "bg-yellow-500",
+            },
+            {
+              label: "256-bit Encryption",
+              dot: "bg-purple-500",
+            },
+          ].map((badge) => (
+            <span
+              key={badge.label}
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-xs text-white/40 group-hover:border-white/20 group-hover:text-white/60 transition-colors"
+            >
+              <span className={`h-1.5 w-1.5 rounded-full ${badge.dot} opacity-70`} />
+              {badge.label}
+            </span>
+          ))}
+        </Link>
 
         {/* Bottom */}
         <div className="text-center">
