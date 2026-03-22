@@ -63,52 +63,30 @@ export function FramerFooter() {
         {/* Divider */}
         <div className="my-10 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
-        {/* Compliance trust strip */}
-        <Link
-          to="/security"
-          className="flex flex-wrap items-center justify-center gap-3 mb-10 group"
-          aria-label="View our security and compliance details"
-        >
-          {/* GDPR Compliant — shield with checkmark */}
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-xs text-white/40 group-hover:border-white/20 group-hover:text-white/60 transition-colors">
-            <svg className="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              <polyline points="9 12 11 14 15 10" />
-            </svg>
-            GDPR Compliant
-          </span>
-
-          {/* NIST Aligned — columns/institution */}
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-xs text-white/40 group-hover:border-white/20 group-hover:text-white/60 transition-colors">
-            <svg className="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <line x1="3" y1="22" x2="21" y2="22" />
-              <line x1="6" y1="18" x2="6" y2="11" />
-              <line x1="10" y1="18" x2="10" y2="11" />
-              <line x1="14" y1="18" x2="14" y2="11" />
-              <line x1="18" y1="18" x2="18" y2="11" />
-              <polygon points="12 2 20 7 4 7" />
-            </svg>
-            NIST Aligned
-          </span>
-
-          {/* SOC 2 In Progress — clock */}
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-xs text-white/40 group-hover:border-white/20 group-hover:text-white/60 transition-colors">
-            <svg className="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="10" />
-              <polyline points="12 6 12 12 16 14" />
-            </svg>
-            SOC 2 In Progress
-          </span>
-
-          {/* 256-bit Encryption — lock */}
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-xs text-white/40 group-hover:border-white/20 group-hover:text-white/60 transition-colors">
-            <svg className="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-            </svg>
-            256-bit Encryption
-          </span>
-        </Link>
+        {/* Compliance badge strip */}
+        <div className="flex flex-wrap items-center justify-center gap-6 mb-10">
+          <Link to="/security" aria-label="GDPR Compliant — view security details">
+            <img
+              src="/badge-gdpr.svg"
+              alt="GDPR Compliant"
+              className="h-20 w-auto opacity-70 hover:opacity-100 transition-opacity"
+            />
+          </Link>
+          <Link to="/security" aria-label="NIST CSF Aligned — view security details">
+            <img
+              src="/badge-nist.svg"
+              alt="NIST CSF Aligned"
+              className="h-20 w-auto opacity-70 hover:opacity-100 transition-opacity"
+            />
+          </Link>
+          <Link to="/security" aria-label="SOC 2 In Progress — view security details">
+            <img
+              src="/badge-soc2.svg"
+              alt="SOC 2 In Progress"
+              className="h-20 w-auto opacity-70 hover:opacity-100 transition-opacity"
+            />
+          </Link>
+        </div>
 
         {/* Bottom */}
         <div className="text-center">
