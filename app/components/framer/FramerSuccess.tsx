@@ -7,7 +7,7 @@ export function FramerSuccess() {
       author: "Kartik Singhal",
       company: "Meta",
       quote:
-        "VibeDoctor completely transformed our prototyping workflow. Being able to ship directly to our own cloud without any intermediate hosting hassle is a game changer.",
+        "Aerol completely transformed our prototyping workflow. Being able to ship directly to our own cloud without any intermediate hosting hassle is a game changer.",
     },
     {
       author: "Farhan Ahmad",

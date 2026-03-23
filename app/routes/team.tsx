@@ -6,8 +6,8 @@ import { FramerTeam } from "~/components/framer/FramerTeam";
 
 export const meta: MetaFunction = () => {
   return getSeoMeta({
-    title: "Team - VibeDoctor",
-    description: "Meet the VibeDoctor founding team behind AI-native shipping to customer-owned cloud environments.",
+    title: "Team - Aerol",
+    description: "Meet the Aerol founding team behind AI-native shipping to customer-owned cloud environments.",
     url: `${ (typeof process !== "undefined" && process.env ? process.env.PUBLIC_URL : undefined) || "http://localhost:5173"}/team`,
   });
 };

@@ -82,12 +82,12 @@ function TasksSidebar() {
       </div>
       <div className="flex-1 overflow-hidden px-2 pt-1.5">
         {[
-          { name: "Improve website clarity and fix...", active: true, repo: "vibedoctor/landing-page" },
-          { name: "Improve landing page clarity a...", active: false, repo: "vibedoctor/landing-page" },
-          { name: "Add gpt-4.4 model to agent-mo...", active: false, repo: "vibedoctor/agent-model" },
-          { name: "Configure gpt-5.6 pricing in confi...", active: false, repo: "vibedoctor/agent-config" },
-          { name: "Add npm run in manifest...", active: false, repo: "vibedoctor/agent-runner" },
-          { name: "Build premium AI SaaS landin...", active: false, repo: "vibedoctor/landing-page" },
+          { name: "Improve website clarity and fix...", active: true, repo: "aerol/landing-page" },
+          { name: "Improve landing page clarity a...", active: false, repo: "aerol/landing-page" },
+          { name: "Add gpt-4.4 model to agent-mo...", active: false, repo: "aerol/agent-model" },
+          { name: "Configure gpt-5.6 pricing in confi...", active: false, repo: "aerol/agent-config" },
+          { name: "Add npm run in manifest...", active: false, repo: "aerol/agent-runner" },
+          { name: "Build premium AI SaaS landin...", active: false, repo: "aerol/landing-page" },
         ].map((task, i) => (
           <div
             key={i}
@@ -1213,7 +1213,7 @@ function ScreenDeployment() {
           </div>
           <div className="flex-1 overflow-hidden md:overflow-y-auto px-3 [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: "none" }}>
             {[
-              { name: "VibeDoctor", desc: "Deploy to our managed infrastructure", price: "", active: false, soon: false, icon: "vibedoctor" as const },
+              { name: "Aerol", desc: "Deploy to our managed infrastructure", price: "", active: false, soon: false, icon: "aerol" as const },
               { name: "Google Cloud Run (BYOC)", desc: "Deploy as a Docker container on GCR", price: "", active: false, soon: false, icon: "gcp" as const },
               { name: "AWS App Runner (BYOC)", desc: "Deploy as a Docker container on AWS", price: "", active: true, soon: false, icon: "aws" as const },
               { name: "Cloudflare Workers (BYOC)", desc: "Edge-first serverless deployment", price: "", active: false, soon: true, icon: "cloudflare" as const },
@@ -1239,7 +1239,7 @@ function ScreenDeployment() {
                     border: target.active ? "1px solid rgba(184,199,217,0.15)" : "1px solid rgba(255,255,255,0.05)",
                   }}
                 >
-                  {target.icon === "vibedoctor" ? (
+                  {target.icon === "aerol" ? (
                     <svg className="h-3.5 w-3.5" viewBox="0 0 1488 1634" fill="currentColor" style={{ color: "rgba(255,255,255,0.85)" }}>
                       <path fillRule="evenodd" clipRule="evenodd" d="M988.937 1559.18C992.104 1562.57 1061.17 1643.79 1066.46 1610.22C1079.84 1525.21 891.517 1111.27 754.437 825.78C625.3 903.296 524.07 996.85 411.583 1097.57C343.874 1158.19 258.062 1233.58 191.995 1301.49C188.041 1305.92 184.081 1310.33 180.114 1314.68C160.301 1336.41 137.83 1360.02 106.059 1362.11C54.4461 1365.51 20.455 1344.49 0.27002 1288.61L0 1248.12C4.465 1222.05 32.6982 1189.92 60.6562 1162.51C264.969 928.56 457.725 566.293 425.423 250.933C419.719 195.232 397.131 128.429 405.57 76.3448L409.279 64.0997C436.52 -6.90835 518.746 -21.2053 575.874 32.7057C609.562 64.4977 671.17 199.981 692.095 245.572C723.987 315.065 767.82 407.618 792.677 477.797C801.457 502.584 814.029 539.749 829.087 585.716C994.904 528.784 1204.1 495.088 1359.76 554.978C1527.82 619.636 1522.65 756.344 1385.35 852.278C1293.4 916.526 1165.08 956.693 1056.52 984.508C1114.5 960.171 1170.11 934.717 1224.79 903.525C1271.89 876.657 1492.53 737.393 1385.12 668.68C1281.77 602.562 1066.76 664.634 964.08 709.333C932.783 722.956 906.489 736.433 881.624 750.361C976.873 1055.98 1101.83 1494.75 1086.31 1602.39C1074.22 1686.25 1001.74 1577.68 988.933 1559.18L988.937 1559.18ZM670.97 654.55C652.753 617.764 638.135 588.663 628.705 570.137C619.445 551.946 610.43 532.991 601.576 513.592C587.326 589.397 564.518 666.471 535.121 742.731C578.52 710.47 623.716 680.528 670.972 654.55H670.97Z" transform="scale(1, -1) translate(0, -1634)" />
                     </svg>
@@ -1435,7 +1435,7 @@ function ScreenIntegrations({ isActive }: { isActive: boolean }) {
             <path d="M8 6.5V10" />
             <path d="M5.25 12.75h5.5" />
           </svg>
-          <span className="font-medium text-white/65">app.vibedoctor.dev / integrations</span>
+          <span className="font-medium text-white/65">app.aerol.dev / integrations</span>
         </div>
       </WindowChrome>
 

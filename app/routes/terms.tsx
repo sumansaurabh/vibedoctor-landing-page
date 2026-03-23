@@ -5,8 +5,8 @@ import { FramerFooter } from "~/components/framer/FramerFooter";
 
 export const meta: MetaFunction = () => {
   return getSeoMeta({
-    title: "Terms of Service - VibeDoctor",
-    description: "Terms of Service for VibeDoctor",
+    title: "Terms of Service - Aerol",
+    description: "Terms of Service for Aerol",
   });
 };
 
@@ -33,7 +33,7 @@ export default function TermsRoute() {
 
           <h2>1. Agreement to Terms</h2>
           <p>
-            By accessing or using VibeDoctor ("Service"), you agree to be bound
+            By accessing or using Aerol ("Service"), you agree to be bound
             by these Terms of Service ("Terms"). If you disagree with any part
             of these Terms, you may not access the Service.
           </p>
@@ -43,10 +43,10 @@ export default function TermsRoute() {
           <p><strong>Registered Address:</strong> 30 N Gould St Ste N, Sheridan, WY 82801</p>
           <p>
             <strong>Email:</strong>{' '}
-            <a href="mailto:support@vibedoctor.dev">support@vibedoctor.dev</a>
+            <a href="mailto:support@aerol.dev">support@aerol.dev</a>
             <br />
             <strong>Website:</strong>{' '}
-            <a href="https://vibedoctor.dev" className="text-white/70 hover:text-white underline">https://vibedoctor.dev</a>
+            <a href="https://aerol.dev" className="text-white/70 hover:text-white underline">https://aerol.dev</a>
           </p>
 
           <h2>3. Description of Service</h2>
@@ -102,7 +102,7 @@ export default function TermsRoute() {
             <li>Free Plan: Up to 50 monitors with basic features</li>
             <li>Premium Plans: Additional features and monitors available</li>
             <li>Plan details available at{' '}
-              <a href="https://vibedoctor.dev" className="text-white/70 hover:text-white underline">https://vibedoctor.dev</a>
+              <a href="https://aerol.dev" className="text-white/70 hover:text-white underline">https://aerol.dev</a>
             </li>
           </ul>
 
@@ -178,16 +178,16 @@ export default function TermsRoute() {
           </p>
           <p>
             <strong>Email:</strong>{' '}
-            <a href="mailto:legal@vibedoctor.dev">legal@vibedoctor.dev</a>
+            <a href="mailto:legal@aerol.dev">legal@aerol.dev</a>
             <br />
             <strong>Support:</strong>{' '}
-            <a href="mailto:support@vibedoctor.dev">support@vibedoctor.dev</a>
+            <a href="mailto:support@aerol.dev">support@aerol.dev</a>
             <br />
             <strong>Address:</strong> Penify Technologies LLC, 30 N Gould St Ste N, Sheridan, WY 82801
           </p>
 
           <p>
-            By using VibeDoctor, you acknowledge that you have read, understood,
+            By using Aerol, you acknowledge that you have read, understood,
             and agree to be bound by these Terms of Service.
           </p>
         </div>

@@ -18,12 +18,12 @@ export function getSeoMeta(config: SEOConfig): MetaDescriptor[] {
     url,
     image = "/og-image.png",
     type = "website",
-    siteName = "VibeDoctor",
+    siteName = "Aerol",
     keywords,
     robots = "index, follow",
   } = config;
 
-  const siteUrl = (typeof process !== "undefined" && process.env ? process.env.PUBLIC_URL : undefined) || "https://vibedoctor.dev";
+  const siteUrl = (typeof process !== "undefined" && process.env ? process.env.PUBLIC_URL : undefined) || "https://aerol.dev";
   const fullImageUrl = image.startsWith("http") ? image : `${siteUrl}${image}`;
 
   const meta: MetaDescriptor[] = [

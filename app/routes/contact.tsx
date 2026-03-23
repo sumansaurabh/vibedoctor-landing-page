@@ -124,13 +124,13 @@ export async function action({ request }: ActionFunctionArgs) {
 }
 
 export const meta: MetaFunction = () => {
-  const siteUrl = (typeof process !== "undefined" && process.env ? process.env.PUBLIC_URL : undefined) || "https://vibedoctor.dev";
+  const siteUrl = (typeof process !== "undefined" && process.env ? process.env.PUBLIC_URL : undefined) || "https://aerol.dev";
   
   return getSeoMeta({
-    title: "Contact Us - VibeDoctor",
-    description: "Reach VibeDoctor for technical support, product questions, or sales discussions. We're here to help you deploy AI apps to customer-owned cloud.",
+    title: "Contact Us - Aerol",
+    description: "Reach Aerol for technical support, product questions, or sales discussions. We're here to help you deploy AI apps to customer-owned cloud.",
     url: `${siteUrl}/contact`,
-    keywords: "contact, support, VibeDoctor, cloud deployment, sales",
+    keywords: "contact, support, Aerol, cloud deployment, sales",
   });
 };
 

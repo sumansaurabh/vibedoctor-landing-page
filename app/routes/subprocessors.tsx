@@ -5,8 +5,8 @@ import { FramerFooter } from "~/components/framer/FramerFooter";
 
 export const meta: MetaFunction = () => {
   return getSeoMeta({
-    title: "Sub-processors - VibeDoctor",
-    description: "List of third-party sub-processors used by VibeDoctor",
+    title: "Sub-processors - Aerol",
+    description: "List of third-party sub-processors used by Aerol",
   });
 };
 
@@ -26,14 +26,14 @@ export default function SubprocessorsRoute() {
       <FramerHeader />
       <main className="pt-[84px] px-6 sm:px-8 lg:px-20 py-12">
         <div className="max-w-4xl mx-auto prose prose-invert lg:prose-lg space-y-6 leading-relaxed">
-          <h1>VibeDoctor Sub-processors</h1>
+          <h1>Aerol Sub-processors</h1>
 
           <p>
-            VibeDoctor uses trusted third-party service providers to operate the platform and deliver functionality. These providers may process limited customer data on our behalf in order to provide the VibeDoctor service.
+            Aerol uses trusted third-party service providers to operate the platform and deliver functionality. These providers may process limited customer data on our behalf in order to provide the Aerol service.
           </p>
 
           <p>
-            Each sub-processor is contractually obligated to protect customer data and process it only for the purposes of providing the VibeDoctor service.
+            Each sub-processor is contractually obligated to protect customer data and process it only for the purposes of providing the Aerol service.
           </p>
 
           <div className="overflow-x-auto my-8">
@@ -103,7 +103,7 @@ export default function SubprocessorsRoute() {
           <h2>Third-Party Integrations</h2>
 
           <p>
-            VibeDoctor may integrate with third-party services that users connect to their workflows. These integrations are authorized by the user and are used only to perform requested actions.
+            Aerol may integrate with third-party services that users connect to their workflows. These integrations are authorized by the user and are used only to perform requested actions.
           </p>
 
           <div className="overflow-x-auto my-8">
@@ -136,7 +136,7 @@ export default function SubprocessorsRoute() {
           </div>
 
           <p>
-            VibeDoctor only shares the minimum data necessary with these providers to perform requested functionality.
+            Aerol only shares the minimum data necessary with these providers to perform requested functionality.
           </p>
 
           <p className="text-sm text-white/60 mt-8">
