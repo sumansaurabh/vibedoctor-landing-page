@@ -37,7 +37,7 @@ export function FramerHeader() {
 
         {/* CTA Button */}
         <a
-          href="https://app.aerol.dev"
+          href="https://app.aerol.ai"
           className="group relative flex items-center gap-2 rounded-lg border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-medium text-white/80 backdrop-blur-sm transition-all hover:border-white/20 hover:text-white hover:bg-white/[0.06]"
         >
           <svg className="h-3.5 w-3.5 opacity-80" viewBox="0 0 16.5 16.5" fill="currentColor">

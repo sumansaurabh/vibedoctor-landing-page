@@ -99,7 +99,7 @@ export function FramerHero() {
 
             {/* Two-step CTA */}
              <a
-              href="https://app.aerol.dev"
+              href="https://app.aerol.ai"
               target="_blank"
               rel="noopener noreferrer"
               className="relative inline-flex min-h-[56px] items-center justify-center rounded-lg px-7 py-3.5 no-underline"

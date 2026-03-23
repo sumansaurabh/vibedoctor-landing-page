@@ -50,7 +50,7 @@ export const env = {
 
   // Contact email API
   EMAIL_API_URL:
-    getEnv("EMAIL_API_URL") || "https://app.aerol.dev/api/email/send",
+    getEnv("EMAIL_API_URL") || "https://app.aerol.ai/api/email/send",
 
   // Add your API keys and secrets here
   // Example:
