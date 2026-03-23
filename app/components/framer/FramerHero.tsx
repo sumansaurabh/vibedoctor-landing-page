@@ -146,7 +146,7 @@ export function FramerHero() {
 
           <div className="hidden lg:block w-full max-w-[520px] self-center lg:ml-auto lg:max-w-[700px] lg:self-auto">
             <img
-              src="/aerol.gif"
+              src="/vibedoctor.gif"
               alt="Aerol workflow preview"
               className="h-auto w-full object-cover -translate-y-28 -translate-x-20"
             />

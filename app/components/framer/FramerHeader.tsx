@@ -8,7 +8,7 @@ export function FramerHeader() {
         <Link to="/" className="flex-shrink-0">
           <div className="flex aspect-square h-10 w-10 flex-shrink-0 items-center justify-center rounded-full p-1.5" style={{ backgroundColor: "#B4B9C3" }}>
             <img
-              src="/aerol-logo.svg"
+              src="/vibedoctor-logo.svg"
               alt="Logo"
               className="max-h-full max-w-full object-contain"
             />
