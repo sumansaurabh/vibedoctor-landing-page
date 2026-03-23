@@ -22,7 +22,7 @@ export function FramerFooter() {
             {[
               { label: "Features", href: "/#services" },
               { label: "Integrations", href: "/#integrations" },
-              { label: "Docs", href: "https://docs.aerol.dev/" },
+              { label: "Docs", href: "https://docs.aerol.ai/" },
               { label: "Team", href: "/team" },
               { label: "Contact", href: "/contact" },
               { label: "Terms", href: "/terms" },
@@ -49,7 +49,7 @@ export function FramerFooter() {
             <a href="https://discord.gg/kb2cXHuC" target="_blank" rel="noopener noreferrer" className="text-white/30 transition-colors hover:text-white/60" aria-label="Discord">
               <IconBrandDiscord className="h-4 w-4" />
             </a>
-            <a href="mailto:support@aerol.dev" className="text-white/30 transition-colors hover:text-white/60">
+            <a href="mailto:support@aerol.ai" className="text-white/30 transition-colors hover:text-white/60">
               <Mail className="h-4 w-4" />
             </a>
             {/* <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-white/30 transition-colors hover:text-white/60">

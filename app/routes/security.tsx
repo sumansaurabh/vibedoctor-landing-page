@@ -240,10 +240,10 @@ export default function SecurityRoute() {
                 <p className="text-white/60">
                   Email:{" "}
                   <a
-                    href="mailto:security@aerol.dev"
+                    href="mailto:security@aerol.ai"
                     className="text-blue-400 hover:text-blue-300 underline"
                   >
-                    security@aerol.dev
+                    security@aerol.ai
                   </a>
                 </p>
               </div>

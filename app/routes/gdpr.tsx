@@ -134,10 +134,10 @@ export default function GDPRRoute() {
           <p>
             <strong>Email:</strong>{" "}
             <a
-              href="mailto:privacy@aerol.dev"
+              href="mailto:privacy@aerol.ai"
               className="text-blue-400 hover:text-blue-300"
             >
-              privacy@aerol.dev
+              privacy@aerol.ai
             </a>
             <br />
             <strong>Address:</strong> Penify Technologies LLC, 30 N Gould St,

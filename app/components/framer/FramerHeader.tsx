@@ -20,7 +20,7 @@ export function FramerHeader() {
           {[
             { label: "Features", href: "/#services" },
             { label: "Integrations", href: "/#integrations" },
-            { label: "Docs", href: "https://docs.aerol.dev/" },
+            { label: "Docs", href: "https://docs.aerol.ai/" },
             { label: "Team", href: "/team" },
             { label: "Contact", href: "/contact" },
             { label: "Book a Demo", href: "https://calendly.com/sumansaurabh-1/anek" },

@@ -124,7 +124,7 @@ export async function action({ request }: ActionFunctionArgs) {
 }
 
 export const meta: MetaFunction = () => {
-  const siteUrl = (typeof process !== "undefined" && process.env ? process.env.PUBLIC_URL : undefined) || "https://aerol.dev";
+  const siteUrl = (typeof process !== "undefined" && process.env ? process.env.PUBLIC_URL : undefined) || "https://aerol.ai";
   
   return getSeoMeta({
     title: "Contact Us - Aerol",
