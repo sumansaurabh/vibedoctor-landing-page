@@ -99,7 +99,7 @@ export function FramerHero() {
 
             {/* Two-step CTA */}
              <a
-              href="https://app.vibedoctor.dev"
+              href="https://app.aerol.dev"
               target="_blank"
               rel="noopener noreferrer"
               className="relative inline-flex min-h-[56px] items-center justify-center rounded-lg px-7 py-3.5 no-underline"
@@ -146,8 +146,8 @@ export function FramerHero() {
 
           <div className="hidden lg:block w-full max-w-[520px] self-center lg:ml-auto lg:max-w-[700px] lg:self-auto">
             <img
-              src="/vibedoctor.gif"
-              alt="VibeDoctor workflow preview"
+              src="/aerol.gif"
+              alt="Aerol workflow preview"
               className="h-auto w-full object-cover -translate-y-28 -translate-x-20"
             />
           </div>

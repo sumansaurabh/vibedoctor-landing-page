@@ -10,12 +10,12 @@ import { FramerFooter } from "~/components/framer/FramerFooter";
 import { FramerProductShowcase } from "~/components/framer/FramerProductShowcase";
 
 export const meta: MetaFunction = () => {
-  const siteUrl = (typeof process !== "undefined" && process.env ? process.env.PUBLIC_URL : undefined) || "https://vibedoctor.dev";
+  const siteUrl = (typeof process !== "undefined" && process.env ? process.env.PUBLIC_URL : undefined) || "https://aerol.dev";
   
   return getSeoMeta({
-    title: "VibeDoctor - Ship AI Apps to Customer-Owned Cloud",
+    title: "Aerol - Ship AI Apps to Customer-Owned Cloud",
     description:
-      "VibeDoctor helps teams ship AI-built apps to customer-owned cloud faster and safer. Deploy with confidence using our enterprise-grade platform.",
+      "Aerol helps teams ship AI-built apps to customer-owned cloud faster and safer. Deploy with confidence using our enterprise-grade platform.",
     url: siteUrl,
     keywords: "AI deployment, cloud deployment, customer cloud, BYOC, bring your own cloud, enterprise AI, cloud migration",
   });

@@ -5,9 +5,9 @@ import { FramerFooter } from "~/components/framer/FramerFooter";
 
 export const meta: MetaFunction = () => {
   return getSeoMeta({
-    title: "Security & Compliance - VibeDoctor",
+    title: "Security & Compliance - Aerol",
     description:
-      "VibeDoctor security practices, compliance frameworks, and vulnerability disclosure policy. GDPR compliant, NIST-aligned, SOC 2 ready.",
+      "Aerol security practices, compliance frameworks, and vulnerability disclosure policy. GDPR compliant, NIST-aligned, SOC 2 ready.",
   });
 };
 
@@ -123,7 +123,7 @@ export default function SecurityRoute() {
               Security &amp; Compliance
             </h1>
             <p className="text-lg text-white/60 max-w-2xl mx-auto">
-              VibeDoctor is built with security at its core. We maintain
+              Aerol is built with security at its core. We maintain
               comprehensive security policies aligned with industry standards to
               protect your code and data.
             </p>
@@ -231,7 +231,7 @@ export default function SecurityRoute() {
             <h2 className="text-2xl font-semibold">Vulnerability Disclosure</h2>
             <div className="border border-white/10 rounded-xl p-6 bg-white/[0.02] space-y-4">
               <p className="text-white/60">
-                VibeDoctor takes security seriously. If you believe you have
+                Aerol takes security seriously. If you believe you have
                 discovered a security vulnerability, please report it
                 responsibly.
               </p>
@@ -240,10 +240,10 @@ export default function SecurityRoute() {
                 <p className="text-white/60">
                   Email:{" "}
                   <a
-                    href="mailto:security@vibedoctor.dev"
+                    href="mailto:security@aerol.dev"
                     className="text-blue-400 hover:text-blue-300 underline"
                   >
-                    security@vibedoctor.dev
+                    security@aerol.dev
                   </a>
                 </p>
               </div>
@@ -271,7 +271,7 @@ export default function SecurityRoute() {
             <h2 className="text-2xl font-semibold">Data Handling</h2>
             <div className="border border-white/10 rounded-xl p-6 bg-white/[0.02] space-y-4">
               <p className="text-white/60">
-                VibeDoctor processes developer source code and repository
+                Aerol processes developer source code and repository
                 metadata to provide AI-powered code analysis and documentation.
                 We follow strict data handling procedures:
               </p>

@@ -5,9 +5,9 @@ import { FramerFooter } from "~/components/framer/FramerFooter";
 
 export const meta: MetaFunction = () => {
   return getSeoMeta({
-    title: "GDPR Compliance - VibeDoctor",
+    title: "GDPR Compliance - Aerol",
     description:
-      "How VibeDoctor complies with the General Data Protection Regulation (GDPR). Data subject rights, processing basis, and data protection measures.",
+      "How Aerol complies with the General Data Protection Regulation (GDPR). Data subject rights, processing basis, and data protection measures.",
   });
 };
 
@@ -30,7 +30,7 @@ export default function GDPRRoute() {
           <h1>GDPR Compliance</h1>
 
           <p>
-            Penify Technologies LLC (dba VibeDoctor) is committed to protecting
+            Penify Technologies LLC (dba Aerol) is committed to protecting
             user privacy and handling personal data in accordance with the
             General Data Protection Regulation (GDPR) and other applicable data
             protection laws.
@@ -80,7 +80,7 @@ export default function GDPRRoute() {
 
           <h2>Data We Collect</h2>
           <p>
-            VibeDoctor collects and processes the following categories of
+            Aerol collects and processes the following categories of
             personal data: account information (name, email address, profile
             data from OAuth providers), usage data (feature usage, interaction
             logs), and source code data (temporarily processed for analysis, not
@@ -134,10 +134,10 @@ export default function GDPRRoute() {
           <p>
             <strong>Email:</strong>{" "}
             <a
-              href="mailto:privacy@vibedoctor.dev"
+              href="mailto:privacy@aerol.dev"
               className="text-blue-400 hover:text-blue-300"
             >
-              privacy@vibedoctor.dev
+              privacy@aerol.dev
             </a>
             <br />
             <strong>Address:</strong> Penify Technologies LLC, 30 N Gould St,

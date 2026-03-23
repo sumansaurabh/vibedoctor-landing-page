@@ -87,7 +87,7 @@ export function FramerFounder() {
             className="w-full text-[26px] font-normal leading-[1.4] tracking-[-0.03em] text-[rgba(184,199,217,0.5)] sm:text-[32px]"
             style={{ fontFamily: interFamily }}
           >
-            VibeDoctor closes these gaps.
+            Aerol closes these gaps.
           </h3>
           {/* <div className="flex flex-wrap items-center justify-center gap-4">
             <div
@@ -104,7 +104,7 @@ export function FramerFounder() {
               className="text-[16px] leading-[1.6] tracking-[-0.02em] text-[rgba(213,219,230,0.6)]"
               style={{ fontFamily: interFamily }}
             >
-              Suman Saurabh, Co-founder, VibeDoctor
+              Suman Saurabh, Co-founder, Aerol
             </p>
           </div> */}
         </div>
