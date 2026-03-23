@@ -11,8 +11,8 @@ export function FramerFooter() {
           {/* Logo */}
           <Link to="/" className="flex-shrink-0">
             <img
-              src="/vibedoctor-complete.svg"
-              alt="Logo"
+              src="/aerol.svg"
+              alt="Aerol"
               className="h-8 w-auto"
             />
           </Link>
