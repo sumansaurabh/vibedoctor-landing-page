@@ -8,7 +8,7 @@ export const meta: MetaFunction = () => {
   return getSeoMeta({
     title: "Team - Aerol",
     description: "Meet the Aerol founding team behind AI-native shipping to customer-owned cloud environments.",
-    url: `${ (typeof process !== "undefined" && process.env ? process.env.PUBLIC_URL : undefined) || "http://localhost:5173"}/team`,
+    url: `${(typeof process !== "undefined" && process.env ? process.env.PUBLIC_URL : undefined) || "https://aerol.ai"}/team`,
   });
 };
 

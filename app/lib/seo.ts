@@ -16,7 +16,7 @@ export function getSeoMeta(config: SEOConfig): MetaDescriptor[] {
     title,
     description,
     url,
-    image = "/og-image.png",
+    image = "/og-image.jpg",
     type = "website",
     siteName = "Aerol",
     keywords,
@@ -50,6 +50,14 @@ export function getSeoMeta(config: SEOConfig): MetaDescriptor[] {
 
   if (url) {
     meta.push({ property: "og:url", content: url });
+    meta.push({ name: "twitter:url", content: url });
+    
+    try {
+      const urlObj = new URL(url);
+      meta.push({ name: "twitter:domain", content: urlObj.hostname });
+    } catch (e) {
+      // Ignore invalid URLs
+    }
   }
 
   // Twitter
