@@ -4,15 +4,15 @@
 
 **NEVER use `npm`, `npx`, `yarn`, or `pnpm`.** Always use `bun` for everything:
 
-- `bun install` — install dependencies
-- `bun add <pkg>` / `bun add -d <pkg>` — add packages
-- `bun remove <pkg>` — remove packages
-- `bun run dev` — start dev server
-- `bun run build` — production build
-- `bun run typecheck` — type checking (NOT `npx tsc`)
-- `bun run lint` — linting
-- `bun run test` — testing
-- `bunx <tool>` — run CLI tools (instead of `npx`)
+- `bun install` - install dependencies
+- `bun add <pkg>` / `bun add -d <pkg>` - add packages
+- `bun remove <pkg>` - remove packages
+- `bun run dev` - start dev server
+- `bun run build` - production build
+- `bun run typecheck` - type checking (NOT `npx tsc`)
+- `bun run lint` - linting
+- `bun run test` - testing
+- `bunx <tool>` - run CLI tools (instead of `npx`)
 
 ## Framework
 

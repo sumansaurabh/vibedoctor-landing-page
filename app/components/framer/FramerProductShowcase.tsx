@@ -69,7 +69,7 @@ function Sidebar({ activeTab }: { activeTab: number }) {
       {activeTab === 1 && <DeploymentsSidebar />}
       {activeTab === 3 && <IntegrationsSidebar />}
 
-      {/* Bottom user — frosted */}
+      {/* Bottom user - frosted */}
       <div
         className="mt-auto flex items-center gap-2.5 px-4 py-3"
         style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}
@@ -672,7 +672,7 @@ function ScreenCodeEditor() {
       <div className="flex absolute inset-0" style={{ top: "5.5%" }}>
         <Sidebar activeTab={0} />
 
-        {/* Code editor — hidden on mobile */}
+        {/* Code editor - hidden on mobile */}
         <div className="hidden md:flex flex-1 flex-col min-w-0">
           {/* File tabs */}
           <div
@@ -797,7 +797,7 @@ function ScreenCodeEditor() {
               <span className="text-[11px] text-white/20 uppercase tracking-wider" style={{ fontFamily: F }}>Terminal</span>
             </div>
             <div className="px-3 py-1.5 text-[11.5px] leading-[17px] text-white/25 space-y-[2px] overflow-hidden" style={{ fontFamily: MONO }}>
-              <div><span className="text-green-400/50">✓</span> Repository analyzed — Remix + Node.js detected</div>
+              <div><span className="text-green-400/50">✓</span> Repository analyzed - Remix + Node.js detected</div>
               <div><span className="text-green-400/50">✓</span> Redis dependency found in lib/session.ts</div>
               <div><span className="text-green-400/50">✓</span> Dockerfile generated (multi-stage, 89MB final)</div>
               <div><span className="text-white/10">10:42:20</span> Pushing image to ECR: 924xxxxxx.dkr.ecr.us-east-1...</div>
@@ -806,7 +806,7 @@ function ScreenCodeEditor() {
           </div>
         </div>
 
-        {/* Right: Chat panel — full width on mobile, sidebar on desktop */}
+        {/* Right: Chat panel - full width on mobile, sidebar on desktop */}
         <div
           className="flex w-full md:w-[29%] flex-shrink-0 flex-col"
           style={{
@@ -1554,7 +1554,7 @@ export function FramerProductShowcase() {
             </div>
           </div>
 
-          {/* Navigation pills — hidden on mobile (single slide) */}
+          {/* Navigation pills - hidden on mobile (single slide) */}
           <div className="hidden md:flex items-center justify-center gap-2 mt-7">
             {slideLabels.map((label, i) => (
               <button

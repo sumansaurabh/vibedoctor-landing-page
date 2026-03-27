@@ -66,21 +66,21 @@ export function FramerFooter() {
 
         {/* Compliance badge strip */}
         <div className="flex flex-wrap items-center justify-center gap-6 mb-10">
-          <Link to="/security" aria-label="GDPR Compliant — view security details">
+          <Link to="/security" aria-label="GDPR Compliant - view security details">
             <img
               src="/badge-gdpr.svg"
               alt="GDPR Compliant"
               className="h-20 w-auto opacity-70 hover:opacity-100 transition-opacity"
             />
           </Link>
-          <Link to="/security" aria-label="NIST CSF Aligned — view security details">
+          <Link to="/security" aria-label="NIST CSF Aligned - view security details">
             <img
               src="/badge-nist.svg"
               alt="NIST CSF Aligned"
               className="h-20 w-auto opacity-70 hover:opacity-100 transition-opacity"
             />
           </Link>
-          <Link to="/security" aria-label="SOC 2 In Progress — view security details">
+          <Link to="/security" aria-label="SOC 2 In Progress - view security details">
             <img
               src="/badge-soc2.svg"
               alt="SOC 2 In Progress"

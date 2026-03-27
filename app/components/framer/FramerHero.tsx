@@ -66,7 +66,7 @@ export function FramerHero() {
       />
 
       <div className="relative z-[5] mx-auto flex w-full flex-1 max-w-7xl flex-col px-6 pt-32 sm:pt-40">
-        {/* Headline — vertically centered in available space */}
+        {/* Headline - vertically centered in available space */}
         <div className="flex flex-1 flex-col items-center justify-center gap-6 text-center">
           <h1
             className="w-full text-[60px] font-medium leading-[0.98] tracking-[-0.02em] text-transparent sm:text-[75px] xl:text-[95px]"
@@ -189,7 +189,7 @@ export function FramerHero() {
           </div>
         </div>
 
-        {/* Scroll arrow — pinned to the bottom */}
+        {/* Scroll arrow - pinned to the bottom */}
         <div className="flex flex-col items-center gap-4 pb-10">
           <a
             href="#founder-note"
