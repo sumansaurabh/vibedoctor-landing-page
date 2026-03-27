@@ -7,7 +7,7 @@ export function FramerHero() {
 
   return (
     <section
-      className="relative overflow-hidden bg-[#04070d] py-20"
+      className="relative flex min-h-screen flex-col overflow-hidden bg-[#04070d]"
       id="hero"
     >
       <div
@@ -65,40 +65,38 @@ export function FramerHero() {
         }}
       />
 
-      <div className="relative z-[5] flex w-full max-w-none flex-col gap-12 px-3 pb-5 pt-40 sm:px-6 lg:px-10 2xl:px-14">
-        <div className="flex w-full flex-col items-start gap-10 text-left lg:flex-row lg:items-center lg:justify-between lg:gap-8">
-          {/* Left content to shift Provisioning text 'ml-*'*/}
-          <div className="flex w-full max-w-[680px] flex-col items-start gap-6 lg:ml-40">
-            <h1
-              className="max-w-[936px] text-[44px] font-medium leading-[0.98] tracking-[-0.02em] text-transparent sm:text-[60px] xl:text-[70px]"
-              style={{
-                fontFamily: ibmPlexFamily,
-                backgroundImage:
-                  "radial-gradient(99% 86% at 50% 50%, rgb(213, 219, 230) 28.387387387387385%, rgb(4, 7, 13) 100%)",
-                WebkitBackgroundClip: "text",
-                backgroundClip: "text",
-              }}
+      <div className="relative z-[5] mx-auto flex w-full flex-1 max-w-7xl flex-col px-6 pt-32 sm:pt-40">
+        {/* Headline — vertically centered in available space */}
+        <div className="flex flex-1 flex-col items-center justify-center gap-6 text-center">
+          <h1
+            className="w-full text-[60px] font-medium leading-[0.98] tracking-[-0.02em] text-transparent sm:text-[75px] xl:text-[95px]"
+            style={{
+              fontFamily: ibmPlexFamily,
+              backgroundImage:
+                "radial-gradient(99% 86% at 50% 50%, rgb(213, 219, 230) 28.387387387387385%, rgb(4, 7, 13) 100%)",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+            }}
+          >
+            AI that acts like your DevOps{" "}
+            <br />
+            <span
+              className="font-normal italic text-[38px] sm:text-[48px] xl:text-[56px]"
+              style={{ fontFamily: ibmPlexFamily }}
             >
-              Code from Anywhere{" "}
-              <br></br>
-              <span
-                className="font-normal italic text-[32px] sm:text-[42px] xl:text-[50px]"
-                style={{ fontFamily: ibmPlexFamily }}
-              >
-              Deploy in your Own Cloud.
+              Deploys, Monitor and Heals your Infrastructure
             </span>
-            </h1>
+          </h1>
 
-            <p
-              className="max-w-[680px] mt-6 text-lg font-normal leading-[1.6] tracking-[-0.02em] text-[rgba(255,255,255,0.6)]"
-              style={{ fontFamily: '"Inter", sans-serif' }}
-            >
-              Our Agentic OS ensures you have zero-configuration deployments across any cloud provider, including Google Cloud, AWS, Azure, VPS, and Kubernetes. 
-              <p><br></br> No vendor lock-in, just your code in your cloud.</p>
-            </p>
+          <p
+            className="max-w-[680px] mt-6 text-lg font-normal leading-[1.6] tracking-[-0.02em] text-[rgba(255,255,255,0.6)]"
+            style={{ fontFamily: '"Inter", sans-serif' }}
+          >
+            Zero-config AI DevOps agent available 24×7, created by founders with deep experience scaling infrastructure at Microsoft, Meta, and InMobi.
+          </p>
 
-            {/* Two-step CTA */}
-             <a
+          <div className="mt-4">
+            <a
               href="https://app.aerol.ai"
               target="_blank"
               rel="noopener noreferrer"
@@ -123,7 +121,7 @@ export function FramerHero() {
                   className="text-base font-semibold tracking-[-0.01em] text-white"
                   style={{ fontFamily: '"Inter", sans-serif', lineHeight: "1.2em" }}
                 >
-                  Sign In
+                  Talk to Us
                 </span>
                 <svg
                   className="h-[23px] w-[22px] text-white"
@@ -141,32 +139,73 @@ export function FramerHero() {
                 </svg>
               </span>
             </a>
-          
           </div>
 
-          <div className="hidden lg:block w-full max-w-[520px] self-center lg:ml-auto lg:max-w-[700px] lg:self-auto">
-            <img
-              src="/vibedoctor.gif"
-              alt="Aerol workflow preview"
-              className="h-auto w-full object-cover -translate-y-28 -translate-x-20"
-            />
+        </div>
+
+        {/* Trusted by */}
+        <div className="flex flex-col items-center gap-3 pb-6">
+          <p
+            className="text-xs font-medium uppercase tracking-[0.15em] text-[rgba(255,255,255,0.3)]"
+            style={{ fontFamily: '"Inter", sans-serif' }}
+          >
+            Trusted by
+          </p>
+          <div className="flex items-center gap-8 sm:gap-12">
+            {[
+              { name: "BareUptime", logo: "/bareuptime.svg", isTextLogo: true, height: 22 },
+              { name: "GoodStartIndia", logo: "/goodstartindia.png", isTextLogo: true, height: 22 },
+              { name: "Penify", logo: "/penify2.svg", isTextLogo: true, height: 32 },
+            ].map((company) => (
+              <div
+                key={company.name}
+                className="flex items-center gap-2 text-[rgba(255,255,255,0.4)]"
+              >
+                {company.isTextLogo ? (
+                  <img
+                    src={company.logo}
+                    alt={company.name}
+                    className="object-contain"
+                    style={{ height: company.height }}
+                  />
+                ) : (
+                  <>
+                    <img
+                      src={company.logo}
+                      alt={company.name}
+                      className="rounded-md object-contain"
+                      style={{ height: company.height, width: company.width }}
+                    />
+                    <span
+                      className="hidden text-sm font-medium sm:inline"
+                      style={{ fontFamily: '"Inter", sans-serif' }}
+                    >
+                      {company.name}
+                    </span>
+                  </>
+                )}
+              </div>
+            ))}
           </div>
         </div>
 
-        <a
-          href="#founder-note"
-          className="mx-auto mt-2 inline-flex items-center justify-center rounded-[36px] p-[7px] text-[rgba(184,199,217,0.5)] transition-transform hover:translate-y-0.5"
-          aria-label="Scroll to founder note"
-        >
-          <svg
-            className="h-[25px] w-[25px]"
-            viewBox="0 0 256 256"
-            fill="currentColor"
-            aria-hidden="true"
+        {/* Scroll arrow — pinned to the bottom */}
+        <div className="flex flex-col items-center gap-4 pb-10">
+          <a
+            href="#founder-note"
+            className="inline-flex items-center justify-center rounded-[36px] p-[7px] text-[rgba(184,199,217,0.5)] transition-transform hover:translate-y-0.5"
+            aria-label="Scroll to founder note"
           >
-            <path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z" />
-          </svg>
-        </a>
+            <svg
+              className="h-[25px] w-[25px]"
+              viewBox="0 0 256 256"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z" />
+            </svg>
+          </a>
+        </div>
       </div>
     </section>
   );

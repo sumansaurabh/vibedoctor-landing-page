@@ -36,9 +36,10 @@ export default function Index() {
     <div className="min-h-screen w-full bg-[#04070d] text-white antialiased">
       <FramerHeader />
       <FramerHero />
+      <FramerBenefits />
       <FramerProductShowcase />
       <FramerFounder />
-      <FramerBenefits />
+      
       {/*This service is only suitable if we go global provision*/}
       <FramerServices />
       <FramerSuccess />

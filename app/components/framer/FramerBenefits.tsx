@@ -1,6 +1,44 @@
+import {
+  GitHubIcon,
+  OpenAIIcon,
+  AnthropicIcon,
+  GoogleCloudIcon,
+  AWSIcon,
+  AzureIcon,
+  DockerIcon,
+  KubernetesIcon,
+  PostgreSQLIcon,
+  RedisIcon,
+  SupabaseIcon,
+  FigmaIcon,
+  SlackIcon,
+  SentryIcon,
+  CloudflareIcon,
+  LinearIcon,
+} from "~/components/icons";
+
 export function FramerBenefits() {
   const interFamily = '"Inter", "Inter Placeholder", sans-serif';
   const serifFamily = '"Instrument Serif", "Instrument Serif Placeholder", serif';
+
+  const stacks: { name: string; icon: React.ReactNode }[] = [
+    { name: "GitHub", icon: <GitHubIcon className="h-6 w-6" /> },
+    { name: "OpenAI", icon: <OpenAIIcon className="h-6 w-6" /> },
+    { name: "Anthropic", icon: <AnthropicIcon className="h-6 w-6" /> },
+    { name: "Google Cloud", icon: <GoogleCloudIcon className="h-6 w-6" /> },
+    { name: "AWS", icon: <AWSIcon className="h-6 w-6" /> },
+    { name: "Azure", icon: <AzureIcon className="h-6 w-6" /> },
+    { name: "Docker", icon: <DockerIcon className="h-6 w-6" /> },
+    { name: "Kubernetes", icon: <KubernetesIcon className="h-6 w-6" /> },
+    { name: "PostgreSQL", icon: <PostgreSQLIcon className="h-6 w-6" /> },
+    { name: "Redis", icon: <RedisIcon className="h-6 w-6" /> },
+    { name: "Supabase", icon: <SupabaseIcon className="h-6 w-6" /> },
+    { name: "Figma", icon: <FigmaIcon className="h-6 w-6" /> },
+    { name: "Slack", icon: <SlackIcon className="h-6 w-6" /> },
+    { name: "Sentry", icon: <SentryIcon className="h-6 w-6" /> },
+    { name: "Cloudflare", icon: <CloudflareIcon className="h-6 w-6" /> },
+    { name: "Linear", icon: <LinearIcon className="h-6 w-6" /> },
+  ];
 
   return (
     <section
@@ -62,23 +100,17 @@ export function FramerBenefits() {
         </div>
 
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-8">
-          {[
-            "GitHub",
-            "OpenAI",
-            "Anthropic",
-            "Google Cloud",
-            "AWS",
-            "Azure",
-            "Kubernetes",
-            "PostgreSQL",
-          ].map((name) => (
+          {stacks.map(({ name, icon }) => (
             <div
               key={name}
-              className="group relative flex min-h-[80px] flex-col items-center justify-center gap-2 overflow-hidden rounded-[16px] border border-[rgba(216,231,242,0.07)] bg-white/[0.02] px-3 py-4 transition-all duration-300 hover:border-cyan-300/25 hover:bg-white/[0.04]"
+              className="group relative flex min-h-[80px] flex-col items-center justify-center gap-2.5 overflow-hidden rounded-[16px] border border-[rgba(216,231,242,0.07)] bg-white/[0.02] px-3 py-4 transition-all duration-300 hover:border-cyan-300/25 hover:bg-white/[0.04]"
             >
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(65%_80%_at_78%_10%,rgba(103,232,249,0.1)_0%,rgba(4,7,13,0)_75%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <div className="relative z-[1] text-[rgba(213,219,230,0.55)] transition-colors duration-300 group-hover:text-cyan-200/80">
+                {icon}
+              </div>
               <span
-                className="relative z-[1] text-center text-[12px] font-medium uppercase tracking-[0.08em] text-[rgba(213,219,230,0.72)] transition-colors duration-300 group-hover:text-cyan-100"
+                className="relative z-[1] text-center text-[11px] font-medium uppercase tracking-[0.08em] text-[rgba(213,219,230,0.72)] transition-colors duration-300 group-hover:text-cyan-100"
                 style={{ fontFamily: interFamily }}
               >
                 {name}
