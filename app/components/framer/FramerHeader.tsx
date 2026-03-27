@@ -39,12 +39,8 @@ export function FramerHeader() {
         {/* Center Nav - Pill shaped */}
         <nav className="hidden md:flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.03] px-2 py-1.5 backdrop-blur-md">
           {[
-            { label: "Features", href: "/#services" },
+            { label: "Features", href: "/#features" },
             { label: "Integrations", href: "/integrations" },
-            { label: "Docs", href: "https://docs.aerol.ai/" },
-            { label: "Team", href: "/team" },
-            { label: "Contact", href: "/contact" },
-            { label: "Book a Demo", href: "https://calendly.com/sumansaurabh-1/anek" },
           ].map((item) => (
             <Link
               key={item.label}
@@ -97,6 +93,23 @@ export function FramerHeader() {
               </div>
             )}
           </div>
+
+          {[
+            { label: "Docs", href: "https://docs.aerol.ai/" },
+            { label: "Team", href: "/team" },
+            { label: "Contact", href: "/contact" },
+            { label: "Book a Demo", href: "https://calendly.com/sumansaurabh-1/anek" },
+          ].map((item) => (
+            <Link
+              key={item.label}
+              to={item.href}
+              target={item.href.startsWith("http") ? "_blank" : undefined}
+              rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+              className="px-4 py-1.5 text-sm font-medium text-white/60 transition-colors hover:text-white rounded-full hover:bg-white/[0.06]"
+            >
+              {item.label}
+            </Link>
+          ))}
         </nav>
 
         {/* CTA Button */}

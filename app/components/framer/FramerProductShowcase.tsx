@@ -1473,7 +1473,7 @@ export function FramerProductShowcase() {
 
   return (
     <section
-      id="integrations"
+      id="features"
       className="relative overflow-hidden bg-[#04070d] py-16 sm:py-28"
       style={{ perspective: "1400px" }}
     >
