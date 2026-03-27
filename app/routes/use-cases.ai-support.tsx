@@ -12,7 +12,7 @@ const SECTIONS = [
     label: "CURATOR",
     title: "Builds a Living Map of Your Product, Docs, and Customer History",
     description:
-      "Continuously indexes product docs, KB articles, past resolutions, and customer account context into the Knowledge Context Graph (KCG). Unlike static KB articles, the KCG updates in real-time — grounding every agent with current knowledge.",
+      "Continuously indexes product docs, KB articles, past resolutions, and customer account context into the Knowledge Context Graph (KCG). Unlike static KB articles, the KCG updates in real-time - grounding every agent with current knowledge.",
     bullets: [
       "Auto-indexes product docs, KB articles, and release notes",
       "Proactively seeks human input for knowledge gaps",
@@ -36,7 +36,7 @@ const SECTIONS = [
     label: "HYPOTHESIZER",
     title: "Diagnoses Customer Issues with Evidence-Backed Analysis",
     description:
-      "Queries product logs, account data, configuration history, and your knowledge base — grounded by the KCG — to develop and rank root cause theories. Every finding is evidence-backed, with resolution steps drafted for human review.",
+      "Queries product logs, account data, configuration history, and your knowledge base - grounded by the KCG - to develop and rank root cause theories. Every finding is evidence-backed, with resolution steps drafted for human review.",
     bullets: [
       "Reasons across logs, account data, and configuration",
       "Correlates product changes and deploys with reported symptoms",
@@ -48,7 +48,7 @@ const SECTIONS = [
     label: "COORDINATOR",
     title: "Orchestrates Escalations Between Support and Engineering",
     description:
-      "Bridges AI investigation and human decision-making. Packages full diagnostic context — repro steps, logs, and diagnosis — and routes to the right engineering team. No more ping-pong or lost context.",
+      "Bridges AI investigation and human decision-making. Packages full diagnostic context - repro steps, logs, and diagnosis - and routes to the right engineering team. No more ping-pong or lost context.",
     bullets: [
       "Native Slack, Microsoft Teams, and Zoom integration",
       "Auto-packaged escalations with full diagnostic context",
@@ -60,7 +60,7 @@ const SECTIONS = [
     label: "ANALYZER",
     title: "Turns Every Resolved Ticket into Organizational Knowledge",
     description:
-      "Captures the full resolution path after every ticket — root cause, steps taken, and customer outcome. Proposes KB articles, doc updates, and product improvement opportunities while surfacing recurring issue patterns.",
+      "Captures the full resolution path after every ticket - root cause, steps taken, and customer outcome. Proposes KB articles, doc updates, and product improvement opportunities while surfacing recurring issue patterns.",
     bullets: [
       "Auto-drafted KB articles from resolved tickets",
       "Root cause classification and recurring issue detection",
@@ -84,7 +84,7 @@ const SECTIONS = [
     label: "TRACER",
     title: "Audit Trails and Organizational Knowledge from Support Decisions",
     description:
-      "Captures every resolution path, decision fork, and customer outcome as permanent traces. Unlike conversations buried in ticket archives, these traces are continuously referenced — so your next similar issue resolves faster.",
+      "Captures every resolution path, decision fork, and customer outcome as permanent traces. Unlike conversations buried in ticket archives, these traces are continuously referenced - so your next similar issue resolves faster.",
     bullets: [
       "Records every decision point and resolution outcome",
       "Agents reference historical patterns for faster resolution",
@@ -136,7 +136,7 @@ export const meta: MetaFunction = () => {
   return getSeoMeta({
     title: "AI Support Engineering - Aerol",
     description:
-      "AI agents that triage customer tickets, investigate the root cause, coordinate escalations to engineering, and draft verified resolutions — all under human supervision.",
+      "AI agents that triage customer tickets, investigate the root cause, coordinate escalations to engineering, and draft verified resolutions - all under human supervision.",
     url: `${siteUrl}/use-cases/ai-support`,
     keywords:
       "AI support engineering, automated support triage, customer issue diagnosis, support escalation, KB automation, support agents, engineering support",
@@ -203,7 +203,7 @@ export default function AISupportRoute() {
               style={{ fontFamily: inter }}
             >
               AI agents that triage customer tickets, investigate the root cause, coordinate
-              escalations to engineering, and draft verified resolutions — all under human
+              escalations to engineering, and draft verified resolutions - all under human
               supervision.
             </p>
 
@@ -377,7 +377,7 @@ export default function AISupportRoute() {
               style={{ fontFamily: inter }}
             >
               Aerol integrates with your helpdesk, ticketing systems, and communication
-              platforms — no rip-and-replace required.
+              platforms - no rip-and-replace required.
             </p>
             <a
               href="/integrations"

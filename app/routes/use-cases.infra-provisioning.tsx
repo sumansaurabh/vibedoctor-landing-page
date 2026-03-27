@@ -12,7 +12,7 @@ export const meta: MetaFunction = () => {
   return getSeoMeta({
     title: "Automatic Infra Provisioning - Aerol",
     description:
-      "Aerol automatically provisions and configures cloud infrastructure using AI — zero manual setup, zero config drift.",
+      "Aerol automatically provisions and configures cloud infrastructure using AI - zero manual setup, zero config drift.",
     url: `${siteUrl}/use-cases/infra-provisioning`,
     keywords:
       "automatic infrastructure provisioning, AI infra, cloud provisioning, DevOps automation, zero-config deployment, Terraform, Kubernetes",
@@ -37,7 +37,7 @@ const CAPABILITIES = [
     label: "DISCOVERY",
     title: "Automatically Maps Your Infrastructure Requirements",
     description:
-      "Aerol reads your application code and configuration to understand exactly what infrastructure it needs — compute, networking, databases, queues — without any manual specification.",
+      "Aerol reads your application code and configuration to understand exactly what infrastructure it needs - compute, networking, databases, queues - without any manual specification.",
     bullets: [
       "Analyzes application dependencies and runtime requirements",
       "Detects resource constraints and scaling patterns",
@@ -59,7 +59,7 @@ const CAPABILITIES = [
     label: "OPTIMIZER",
     title: "Right-sizes Resources for Cost and Performance",
     description:
-      "Continuously monitors utilization and automatically adjusts instance types, storage classes, and scaling parameters — so you pay for what you use and nothing more.",
+      "Continuously monitors utilization and automatically adjusts instance types, storage classes, and scaling parameters - so you pay for what you use and nothing more.",
     bullets: [
       "Real-time cost anomaly detection and alerting",
       "Automated right-sizing recommendations with one-click apply",
@@ -129,7 +129,7 @@ export default function InfraProvisioningRoute() {
               style={{ fontFamily: inter }}
             >
               From code commit to fully provisioned cloud infrastructure in minutes. Aerol's AI
-              reads your application intent and handles every resource, every time — with zero
+              reads your application intent and handles every resource, every time - with zero
               manual configuration.
             </p>
 
@@ -195,7 +195,7 @@ export default function InfraProvisioningRoute() {
                 style={{ fontFamily: inter }}
               >
                 Aerol's provisioning agents interpret what your application needs and
-                automatically build the infrastructure to match — so your team stops managing
+                automatically build the infrastructure to match - so your team stops managing
                 cloud configs and starts shipping features.
               </p>
             </div>
@@ -272,7 +272,7 @@ export default function InfraProvisioningRoute() {
               style={{ fontFamily: inter }}
             >
               See how Aerol reads your application intent and builds production-ready
-              infrastructure — automatically.
+              infrastructure - automatically.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <a

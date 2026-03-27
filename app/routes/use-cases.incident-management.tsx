@@ -12,7 +12,7 @@ export const meta: MetaFunction = () => {
   return getSeoMeta({
     title: "AI-Native Incident Management - Aerol",
     description:
-      "AI SRE, on-call scheduling, and Slack/Teams-native incident response — unified in one agentic platform. Aerol investigates before you even open your laptop.",
+      "AI SRE, on-call scheduling, and Slack/Teams-native incident response - unified in one agentic platform. Aerol investigates before you even open your laptop.",
     url: `${siteUrl}/use-cases/incident-management`,
     keywords:
       "agentic incident management, AI incident response, on-call scheduling, Slack incident management, automated triage, production incidents, MTTD MTTR reduction",
@@ -37,10 +37,10 @@ const SECTIONS = [
     label: "AI ALERT TRIAGE",
     title: "Investigation Starts Before You Open Your Laptop",
     description:
-      "When an alert fires, Aerol doesn't just page and wait. It immediately investigates — collecting telemetry, correlating against active incidents, and determining signal vs. noise. By the time you look, initial hypotheses are already ready.",
+      "When an alert fires, Aerol doesn't just page and wait. It immediately investigates - collecting telemetry, correlating against active incidents, and determining signal vs. noise. By the time you look, initial hypotheses are already ready.",
     bullets: [
       "Autonomous investigation within seconds of alert firing",
-      "Deduplicates against active incidents — no duplicate pages",
+      "Deduplicates against active incidents - no duplicate pages",
       "Severity classification by blast radius and business impact",
     ],
     placeholder: "Alert Triage Console",
@@ -49,17 +49,17 @@ const SECTIONS = [
     label: "ON-CALL MANAGEMENT",
     title: "Intelligent On-Call Scheduling with AI-Aware Escalation",
     description:
-      "Built-in on-call scheduling with rotations, overrides, and multi-tier escalation — no separate PagerDuty or OpsGenie required. Unlike legacy tools, escalation is AI-aware: it uses investigation context to determine who to page and what they need to know.",
+      "Built-in on-call scheduling with rotations, overrides, and multi-tier escalation - no separate PagerDuty or OpsGenie required. Unlike legacy tools, escalation is AI-aware: it uses investigation context to determine who to page and what they need to know.",
     bullets: [
       "Flexible rotations with overrides and shift swaps",
       "Multi-tier escalation with configurable timeouts",
-      "AI-aware paging — right responder based on investigation context",
+      "AI-aware paging - right responder based on investigation context",
     ],
     placeholder: "On-Call Schedule & Escalation",
   },
   {
     label: "SLACK & TEAMS NATIVE",
-    title: "Declare, Coordinate, and Resolve — Without Leaving Slack or Teams",
+    title: "Declare, Coordinate, and Resolve - Without Leaving Slack or Teams",
     description:
       "Incidents are declared, managed, and resolved directly in Slack or Teams. Aerol creates dedicated channels, invites responders, posts AI findings, and updates stakeholders in real-time. Your team works where they already work.",
     bullets: [
@@ -73,11 +73,11 @@ const SECTIONS = [
     label: "AI ROOT CAUSE HYPOTHESES",
     title: "Autonomous Investigation Runs in Parallel with Human Response",
     description:
-      "While your team coordinates, Aerol investigates in the background — querying logs, metrics, traces, and codebase to develop root cause hypotheses. Findings post to the incident channel in real-time as a continuously updating brief.",
+      "While your team coordinates, Aerol investigates in the background - querying logs, metrics, traces, and codebase to develop root cause hypotheses. Findings post to the incident channel in real-time as a continuously updating brief.",
     bullets: [
       "Reasons across infrastructure and application layers",
       "Correlates code changes, deploys, and config diffs",
-      "Adversarially verified — no hypothesis without evidence",
+      "Adversarially verified - no hypothesis without evidence",
     ],
     placeholder: "Root Cause Hypothesis Feed",
   },
@@ -85,10 +85,10 @@ const SECTIONS = [
     label: "AUTO-MITIGATION",
     title: "AI-Recommended Mitigation with Human-in-the-Loop Execution",
     description:
-      "Aerol doesn't just identify what went wrong — it recommends how to fix it fast. The AI generates mitigating fixes with ready-to-execute code, scripts, and kubectl commands tailored to your environment. A human reviews and approves before execution.",
+      "Aerol doesn't just identify what went wrong - it recommends how to fix it fast. The AI generates mitigating fixes with ready-to-execute code, scripts, and kubectl commands tailored to your environment. A human reviews and approves before execution.",
     bullets: [
       "AI-generated mitigation scripts, code patches, and rollback commands",
-      "Human-in-the-loop review and approval before any execution — no autonomous changes to production",
+      "Human-in-the-loop review and approval before any execution - no autonomous changes to production",
       "Mitigation plans informed by root cause evidence and prior resolution patterns",
     ],
     placeholder: "Mitigation Approval Panel",
@@ -97,11 +97,11 @@ const SECTIONS = [
     label: "RUNBOOK AUTOMATION",
     title: "Runbooks That Execute and Evolve Automatically",
     description:
-      "Static runbooks go stale the day they're written. Aerol automatically generates and updates agent runbooks based on actual incident resolutions and prior agent actions. When a known pattern is detected, agents execute the relevant runbook — and after every incident, runbooks are refined with what actually worked.",
+      "Static runbooks go stale the day they're written. Aerol automatically generates and updates agent runbooks based on actual incident resolutions and prior agent actions. When a known pattern is detected, agents execute the relevant runbook - and after every incident, runbooks are refined with what actually worked.",
     bullets: [
       "Auto-generated runbooks from real incident resolutions",
       "Automated execution for known failure patterns with human approval gates",
-      "Continuous refinement — runbooks evolve after every incident",
+      "Continuous refinement - runbooks evolve after every incident",
     ],
     placeholder: "Runbook Library",
   },
@@ -109,11 +109,11 @@ const SECTIONS = [
     label: "AUTOMATED POSTMORTEMS",
     title: "Institutional Memory Through Decision Traces",
     description:
-      "No more hours writing up what happened. Aerol generates postmortems from actual investigation data and channel activity — with accurate timelines, confirmed root cause, and actionable preventive fixes.",
+      "No more hours writing up what happened. Aerol generates postmortems from actual investigation data and channel activity - with accurate timelines, confirmed root cause, and actionable preventive fixes.",
     bullets: [
       "Auto-generated timeline from investigation and channel activity",
       "5-why root cause analysis and contributing factor classification",
-      "Preventive fix proposals — patches, monitoring improvements, arch changes",
+      "Preventive fix proposals - patches, monitoring improvements, arch changes",
     ],
     placeholder: "Postmortem Report",
   },
@@ -121,12 +121,12 @@ const SECTIONS = [
     label: "INFRASTRUCTURE CONTEXT GRAPH",
     title: "Your System's Living Knowledge Base",
     description:
-      "An always-current graph that continuously connects your infrastructure, code, tools, and team knowledge in real-time. The ICG self-learns from every human decision and successful agent action — so every incident makes the next one faster.",
+      "An always-current graph that continuously connects your infrastructure, code, tools, and team knowledge in real-time. The ICG self-learns from every human decision and successful agent action - so every incident makes the next one faster.",
     bullets: [
       "Decision traces that record 'why' for every decision fork and resolution",
       "Custom AI skills auto-generated for your specific stack and failure patterns",
       "Live service catalog with mapped ownership and dependency graph",
-      "Tribal knowledge captured permanently — not trapped in chat logs or senior engineers' heads",
+      "Tribal knowledge captured permanently - not trapped in chat logs or senior engineers' heads",
     ],
     placeholder: "Infrastructure Context Graph",
   },
@@ -215,7 +215,7 @@ export default function IncidentManagementRoute() {
               className="mx-auto mt-6 max-w-[700px] text-[17px] leading-[1.65] tracking-[-0.01em] text-white/55"
               style={{ fontFamily: inter }}
             >
-              AI SRE, on-call scheduling, and Slack/Teams-native incident response — unified
+              AI SRE, on-call scheduling, and Slack/Teams-native incident response - unified
               in one agentic platform. Aerol investigates before you even open your laptop,
               coordinates the right responders, and records decision traces so the next incident
               resolves faster.
@@ -284,7 +284,7 @@ export default function IncidentManagementRoute() {
               >
                 Legacy tools page you, then step aside. Aerol investigates autonomously,
                 coordinates response in Slack and Teams, and captures institutional knowledge
-                from every incident — replacing the patchwork of PagerDuty, FireHydrant, and
+                from every incident - replacing the patchwork of PagerDuty, FireHydrant, and
                 manual runbooks.
               </p>
             </div>
@@ -392,7 +392,7 @@ export default function IncidentManagementRoute() {
               style={{ fontFamily: inter }}
             >
               Aerol integrates with the monitoring tools, alert managers, and communication
-              platforms you already use — no rip-and-replace required.
+              platforms you already use - no rip-and-replace required.
             </p>
             <a
               href="/integrations"

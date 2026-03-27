@@ -12,7 +12,7 @@ export const meta: MetaFunction = () => {
   return getSeoMeta({
     title: "AI SRE - Aerol",
     description:
-      "AI agents that automate alert investigations, orchestrate incident response, and compound institutional knowledge — purpose-built for enterprise SRE teams.",
+      "AI agents that automate alert investigations, orchestrate incident response, and compound institutional knowledge - purpose-built for enterprise SRE teams.",
     url: `${siteUrl}/use-cases/ai-sre`,
     keywords:
       "AI SRE, site reliability engineering, incident response automation, alert management, root cause analysis, AI agents, DevOps automation",

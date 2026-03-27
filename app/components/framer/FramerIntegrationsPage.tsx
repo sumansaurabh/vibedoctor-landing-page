@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link } from "@remix-run/react";
 
 type Category =
@@ -30,7 +30,7 @@ const INTEGRATIONS: Integration[] = [
     name: "Amazon Web Services",
     category: "Infrastructure",
     description:
-      "Query CloudWatch logs and metrics, inspect EC2 instances, ECS services, and EKS clusters during investigations. Secure OIDC federation — no static credentials.",
+      "Query CloudWatch logs and metrics, inspect EC2 instances, ECS services, and EKS clusters during investigations. Secure OIDC federation - no static credentials.",
     iconUrl: "https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/aws.svg",
   },
   {
@@ -273,7 +273,7 @@ const INTEGRATIONS: Integration[] = [
     name: "ReadMe.com Docs",
     category: "Documentation",
     description:
-      "Search your ReadMe.com documentation — both public and password-protected — to find relevant context fast.",
+      "Search your ReadMe.com documentation - both public and password-protected - to find relevant context fast.",
     iconUrl: "https://cdn.simpleicons.org/readme/018EF5",
   },
   {
@@ -357,23 +357,35 @@ const CATEGORIES: Category[] = [
 ];
 
 const CATEGORY_COLORS: Record<Exclude<Category, "All">, string> = {
-  Infrastructure: "bg-blue-500/10 text-blue-400 border-blue-500/20",
-  Observability: "bg-purple-500/10 text-purple-400 border-purple-500/20",
-  "Data Store": "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
-  "Code Repository": "bg-orange-500/10 text-orange-400 border-orange-500/20",
-  "CI/CD": "bg-yellow-500/10 text-yellow-400 border-yellow-500/20",
-  Chat: "bg-pink-500/10 text-pink-400 border-pink-500/20",
-  Documentation: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",
-  "Incident Management": "bg-red-500/10 text-red-400 border-red-500/20",
-  "Issue Tracking": "bg-indigo-500/10 text-indigo-400 border-indigo-500/20",
-  Communication: "bg-teal-500/10 text-teal-400 border-teal-500/20",
-  "Customer Support": "bg-violet-500/10 text-violet-400 border-violet-500/20",
-  ITSM: "bg-rose-500/10 text-rose-400 border-rose-500/20",
-  Security: "bg-lime-500/10 text-lime-400 border-lime-500/20",
+  Infrastructure: "bg-[#1e3a5f]/40 text-[#6db3f2] border-[#2a5a8f]/50",
+  Observability: "bg-[#3d2463]/40 text-[#b68eed] border-[#5a3a8f]/50",
+  "Data Store": "bg-[#1a4a2e]/40 text-[#5ec98a] border-[#2a6b42]/50",
+  "Code Repository": "bg-[#5a3218]/40 text-[#e8a060] border-[#7a4a28]/50",
+  "CI/CD": "bg-[#4a3a10]/40 text-[#d4b44a] border-[#6a5420]/50",
+  Chat: "bg-[#5a1a3a]/40 text-[#e87aaa] border-[#7a2a52]/50",
+  Documentation: "bg-[#1a4a52]/40 text-[#5ac8d8] border-[#2a6a72]/50",
+  "Incident Management": "bg-[#5a1a1a]/40 text-[#e87a7a] border-[#7a2a2a]/50",
+  "Issue Tracking": "bg-[#2a2a5a]/40 text-[#8a8ae8] border-[#3a3a7a]/50",
+  Communication: "bg-[#1a4a3a]/40 text-[#5ac8a8] border-[#2a6a52]/50",
+  "Customer Support": "bg-[#3a1a5a]/40 text-[#a87ae8] border-[#522a7a]/50",
+  ITSM: "bg-[#5a1a2a]/40 text-[#e87a9a] border-[#7a2a3a]/50",
+  Security: "bg-[#2a4a1a]/40 text-[#8ac85a] border-[#3a6a2a]/50",
 };
 
 export function FramerIntegrationsPage() {
   const [activeCategory, setActiveCategory] = useState<Category>("All");
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setDropdownOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const filtered =
     activeCategory === "All"
@@ -478,41 +490,64 @@ export function FramerIntegrationsPage() {
         </div>
       </section>
 
-      {/* ── Category filter ── */}
-      <section className="sticky top-[69px] z-30 border-b border-white/[0.06] bg-[#04070d]/90 backdrop-blur-xl">
-        <div className="mx-auto max-w-[1200px] px-6">
-          <div className="flex items-center gap-1 overflow-x-auto py-3 scrollbar-hide">
-            {CATEGORIES.map((cat) => {
-              const isActive = cat === activeCategory;
-              return (
-                <button
-                  key={cat}
-                  onClick={() => setActiveCategory(cat)}
-                  className={`flex-shrink-0 rounded-full px-4 py-1.5 text-[13px] font-medium transition-all duration-200 ${
-                    isActive
-                      ? "bg-white/10 text-white"
-                      : "text-[rgba(213,219,230,0.45)] hover:text-white hover:bg-white/[0.04]"
-                  }`}
-                  style={{ fontFamily: interFamily }}
-                >
-                  {cat}
-                  {cat !== "All" && (
-                    <span className="ml-1.5 text-[11px] opacity-50">
-                      {INTEGRATIONS.filter((i) => i.category === cat).length}
-                    </span>
-                  )}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* ── Integrations grid ── */}
       <section className="mx-auto max-w-[1200px] px-6 py-12">
-        <p className="mb-8 text-[13px] text-[rgba(213,219,230,0.35)]" style={{ fontFamily: interFamily }}>
-          {activeCategory === "All" ? "All Integrations" : activeCategory} ({filtered.length})
-        </p>
+        <div className="mb-8 flex items-center justify-between">
+          <p className="text-[13px] text-[rgba(213,219,230,0.35)]" style={{ fontFamily: interFamily }}>
+            {activeCategory === "All" ? "All Integrations" : activeCategory} ({filtered.length})
+          </p>
+
+          {/* Category dropdown */}
+          <div className="relative" ref={dropdownRef}>
+            <button
+              onClick={() => setDropdownOpen((prev) => !prev)}
+              className="flex items-center gap-2 rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-[13px] font-medium text-[rgba(213,219,230,0.8)] transition-all hover:border-white/[0.15] hover:bg-white/[0.06]"
+              style={{ fontFamily: interFamily }}
+            >
+              {activeCategory}
+              <svg
+                className={`h-4 w-4 opacity-50 transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`}
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M4 6l4 4 4-4" />
+              </svg>
+            </button>
+
+            {dropdownOpen && (
+              <div
+                className="absolute right-0 top-full z-40 mt-2 w-56 overflow-hidden rounded-xl border border-white/[0.08] bg-[#0c1018] py-1 shadow-2xl"
+              >
+                {CATEGORIES.map((cat) => {
+                  const isActive = cat === activeCategory;
+                  const count = cat === "All" ? INTEGRATIONS.length : INTEGRATIONS.filter((i) => i.category === cat).length;
+                  return (
+                    <button
+                      key={cat}
+                      onClick={() => {
+                        setActiveCategory(cat);
+                        setDropdownOpen(false);
+                      }}
+                      className={`flex w-full items-center justify-between px-4 py-2 text-left text-[13px] transition-colors ${
+                        isActive
+                          ? "bg-white/[0.08] text-white"
+                          : "text-[rgba(213,219,230,0.55)] hover:bg-white/[0.04] hover:text-white"
+                      }`}
+                      style={{ fontFamily: interFamily }}
+                    >
+                      <span>{cat}</span>
+                      <span className="text-[11px] opacity-40">{count}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+        </div>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((integration) => (

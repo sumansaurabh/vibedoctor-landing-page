@@ -6,7 +6,7 @@ const AGENTS = [
     label: "CURATOR",
     title: "Builds a Living Map of Your Entire Infrastructure",
     description:
-      "Continuously maps your cloud resources, application topology, and team knowledge into the Infrastructure Context Graph (ICG). Unlike static runbooks, the ICG updates in real-time — grounding every downstream agent with accurate, current context.",
+      "Continuously maps your cloud resources, application topology, and team knowledge into the Infrastructure Context Graph (ICG). Unlike static runbooks, the ICG updates in real-time - grounding every downstream agent with accurate, current context.",
     bullets: [
       "Auto-discovers cloud topology and service dependencies",
       "Proactively seeks human input to close knowledge gaps",
@@ -18,7 +18,7 @@ const AGENTS = [
     label: "TRIAGER",
     title: "Separates Signal from Noise in Seconds",
     description:
-      "First responder when an alert fires. Collects telemetry, correlates against active investigations, and determines whether this is a novel failure or a duplicate. No more alert fatigue — or waking engineers for nothing.",
+      "First responder when an alert fires. Collects telemetry, correlates against active investigations, and determines whether this is a novel failure or a duplicate. No more alert fatigue - or waking engineers for nothing.",
     bullets: [
       "Real-time ingestion from any monitoring source",
       "Deduplicates against active and recent investigations",
@@ -30,7 +30,7 @@ const AGENTS = [
     label: "HYPOTHESIZER",
     title: "Develops Evidence-Backed Root Cause Hypotheses",
     description:
-      "Queries logs, metrics, traces, deployment history, and cloud configs — all grounded by the ICG — to develop and rank root cause theories. Every hypothesis is backed by evidence, not guesswork, with mitigating fixes proposed for human review.",
+      "Queries logs, metrics, traces, deployment history, and cloud configs - all grounded by the ICG - to develop and rank root cause theories. Every hypothesis is backed by evidence, not guesswork, with mitigating fixes proposed for human review.",
     bullets: [
       "Reasons across infrastructure and application layers",
       "Correlates code changes, deploys, and config diffs",
@@ -42,11 +42,11 @@ const AGENTS = [
     label: "COORDINATOR",
     title: "Orchestrates Incident Response Across Your Team",
     description:
-      "Bridges AI investigation and human decision-making. Routes findings to the right on-call engineer via Slack or Teams with full context — so they act immediately instead of starting from scratch.",
+      "Bridges AI investigation and human decision-making. Routes findings to the right on-call engineer via Slack or Teams with full context - so they act immediately instead of starting from scratch.",
     bullets: [
       "Native Slack and Microsoft Teams integration",
       "Automated incident declaration and severity assignment",
-      "On-call aware — pages the right person, not everyone",
+      "On-call aware - pages the right person, not everyone",
     ],
     placeholder: "Incident Coordination Panel",
   },
@@ -54,11 +54,11 @@ const AGENTS = [
     label: "ANALYZER",
     title: "Turns Every Incident into a Preventive Fix",
     description:
-      "Runs deep postmortems after resolution — capturing root cause, timeline, blast radius, and contributing factors. Proposes actionable preventive fixes so the same failure never repeats.",
+      "Runs deep postmortems after resolution - capturing root cause, timeline, blast radius, and contributing factors. Proposes actionable preventive fixes so the same failure never repeats.",
     bullets: [
       "Auto-generated postmortems with accurate timelines",
       "Root cause and contributing factor classification",
-      "Preventive fix proposals — patches, alert tuning, arch changes",
+      "Preventive fix proposals - patches, alert tuning, arch changes",
     ],
     placeholder: "Postmortem Report",
   },
@@ -78,7 +78,7 @@ const AGENTS = [
     label: "TRACER",
     title: "Institutional Memory Through Decision Traces",
     description:
-      "Captures every decision path, rejected hypothesis, and confirmed fix as permanent traces in the ICG. Unlike postmortems filed and forgotten, these traces are continuously queried by agents — so your next incident starts smarter.",
+      "Captures every decision path, rejected hypothesis, and confirmed fix as permanent traces in the ICG. Unlike postmortems filed and forgotten, these traces are continuously queried by agents - so your next incident starts smarter.",
     bullets: [
       "Records every fork, decision, and outcome",
       "Agents draw on historical traces for faster resolution",
@@ -181,7 +181,7 @@ export function UseCaseAISRE() {
             style={{ fontFamily: inter }}
           >
             AI agents that automate alert investigations, orchestrate incident response, and
-            compound institutional knowledge — purpose-built for enterprise infrastructure teams.
+            compound institutional knowledge - purpose-built for enterprise infrastructure teams.
           </p>
 
           {/* CTAs */}
@@ -370,7 +370,7 @@ export function UseCaseAISRE() {
             style={{ fontFamily: inter }}
           >
             Aerol AI integrates with the monitoring tools, alert managers, and communication
-            platforms you already use — no rip-and-replace required.
+            platforms you already use - no rip-and-replace required.
           </p>
 
           <a

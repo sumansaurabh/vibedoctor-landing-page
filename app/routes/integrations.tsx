@@ -13,7 +13,7 @@ export const meta: MetaFunction = () => {
   return getSeoMeta({
     title: "Integrations - Aerol",
     description:
-      "Aerol integrates with 42+ tools across infrastructure, observability, code repositories, CI/CD, chat, documentation, and more — all in one place.",
+      "Aerol integrates with 42+ tools across infrastructure, observability, code repositories, CI/CD, chat, documentation, and more - all in one place.",
     url: `${siteUrl}/integrations`,
     keywords:
       "integrations, AWS, Datadog, Kubernetes, Slack, PagerDuty, GitHub, observability, infrastructure, DevOps, incident management",
