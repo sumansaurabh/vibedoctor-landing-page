@@ -84,7 +84,7 @@ export function FramerHero() {
               className="font-normal italic text-[38px] sm:text-[48px] xl:text-[56px]"
               style={{ fontFamily: ibmPlexFamily }}
             >
-              Deploys, Monitor and Heals your Infrastructure
+              Deploys, Monitors, and Heals your Infrastructure
             </span>
           </h1>
 
