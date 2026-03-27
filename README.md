@@ -11,7 +11,7 @@ A full-stack web application built with Remix, React, TypeScript, and shadcn/ui.
 ### Installation
 
 ```sh
-# Install dependencies
+# Install dependenciesal
 npm install
 
 # Start development server

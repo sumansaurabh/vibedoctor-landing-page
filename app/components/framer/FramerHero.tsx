@@ -97,7 +97,7 @@ export function FramerHero() {
 
           <div className="mt-4">
             <a
-              href="https://app.aerol.ai"
+              href="https://calendly.com/sumansaurabh-1/anek"
               target="_blank"
               rel="noopener noreferrer"
               className="relative inline-flex min-h-[56px] items-center justify-center rounded-lg px-7 py-3.5 no-underline"

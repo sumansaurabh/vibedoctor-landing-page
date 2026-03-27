@@ -49,6 +49,8 @@ export function FramerHeader() {
             <Link
               key={item.label}
               to={item.href}
+              target={item.href.startsWith("http") ? "_blank" : undefined}
+              rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
               className="px-4 py-1.5 text-sm font-medium text-white/60 transition-colors hover:text-white rounded-full hover:bg-white/[0.06]"
             >
               {item.label}
