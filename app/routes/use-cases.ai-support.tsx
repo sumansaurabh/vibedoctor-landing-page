@@ -19,6 +19,7 @@ const SECTIONS = [
       "Retains resolution patterns from every past ticket",
     ],
     placeholder: "Knowledge Context Graph",
+    image: '/curator.png',
   },
   {
     label: "TRIAGER",
@@ -31,6 +32,7 @@ const SECTIONS = [
       "Priority classification by customer tier and business impact",
     ],
     placeholder: "Ticket Triage Dashboard",
+    image: '/tiagger.png'
   },
   {
     label: "HYPOTHESIZER",
@@ -43,6 +45,7 @@ const SECTIONS = [
       "Draws on resolution patterns from similar past tickets",
     ],
     placeholder: "Root Cause Diagnosis View",
+    image: '/hypothesizer.png'
   },
   {
     label: "COORDINATOR",
@@ -55,6 +58,7 @@ const SECTIONS = [
       "Routes to the right engineering team by product area",
     ],
     placeholder: "Escalation Coordination Panel",
+    image: '/memory.png'
   },
   {
     label: "ANALYZER",
@@ -67,6 +71,7 @@ const SECTIONS = [
       "Product improvement recommendations from ticket trends",
     ],
     placeholder: "Knowledge Base Auto-Draft",
+    image: "/mitigat.png"
   },
   {
     label: "VERIFIER",
@@ -79,6 +84,8 @@ const SECTIONS = [
       "Confidence scoring gates low-certainty responses",
     ],
     placeholder: "Response Verification Gate",
+    image: "/verification.png"
+
   },
   {
     label: "TRACER",
@@ -91,6 +98,7 @@ const SECTIONS = [
       "Reasoning documentation for audits and compliance",
     ],
     placeholder: "Decision Trace History",
+    image: '/runbook.png'
   },
 ];
 
@@ -322,9 +330,19 @@ export default function AISupportRoute() {
                     </ul>
                   </div>
 
-                  {/* Image placeholder */}
+                  {/* Image / placeholder */}
                   <div className="flex-1 lg:max-w-[520px]">
-                    <ImagePlaceholder label={section.placeholder} />
+                    {section.image ? (
+                      <div className="relative overflow-hidden rounded-2xl border border-white/[0.08]">
+                        <img
+                          src={section.image}
+                          alt={section.placeholder}
+                          className="w-full h-auto"
+                        />
+                      </div>
+                    ) : (
+                      <ImagePlaceholder label={section.placeholder} />
+                    )}
                   </div>
                 </div>
               ))}

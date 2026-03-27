@@ -13,6 +13,7 @@ const AGENTS = [
       "Retains decision traces from every past investigation",
     ],
     placeholder: "Infrastructure Context Graph",
+    image: "/curator.png",
   },
   {
     label: "TRIAGER",
@@ -25,6 +26,7 @@ const AGENTS = [
       "Severity classification by blast radius and business impact",
     ],
     placeholder: "Alert Triage Dashboard",
+    image: "/tiagger.png",
   },
   {
     label: "HYPOTHESIZER",
@@ -37,6 +39,7 @@ const AGENTS = [
       "Draws on decision traces from similar past incidents",
     ],
     placeholder: "Root Cause Analysis View",
+    image: "/hypothesis.png",
   },
   {
     label: "COORDINATOR",
@@ -49,6 +52,7 @@ const AGENTS = [
       "On-call aware - pages the right person, not everyone",
     ],
     placeholder: "Incident Coordination Panel",
+    image: "/coordinator.png",
   },
   {
     label: "ANALYZER",
@@ -61,6 +65,7 @@ const AGENTS = [
       "Preventive fix proposals - patches, alert tuning, arch changes",
     ],
     placeholder: "Postmortem Report",
+    image: "/analyzer.png",
   },
   {
     label: "VERIFIER",
@@ -73,6 +78,7 @@ const AGENTS = [
       "Confidence scoring gates low-certainty recommendations",
     ],
     placeholder: "Verification Gate",
+    image: "/verification.png",
   },
   {
     label: "TRACER",
@@ -85,6 +91,7 @@ const AGENTS = [
       "Reasoning documentation for engineers and auditors",
     ],
     placeholder: "Decision Trace History",
+    image: "/runbook.png",
   },
 ];
 
@@ -312,7 +319,17 @@ export function UseCaseAISRE() {
 
                 {/* Image placeholder */}
                 <div className="flex-1 lg:max-w-[520px]">
-                  <ImagePlaceholder label={agent.placeholder} />
+                  {agent.image ? (
+                    <div className="relative overflow-hidden rounded-2xl border border-white/[0.08]">
+                      <img
+                        src={agent.image}
+                        alt={agent.placeholder}
+                        className="w-full h-auto"
+                      />
+                    </div>
+                  ) : (
+                    <ImagePlaceholder label={agent.placeholder} />
+                  )}
                 </div>
               </div>
             ))}

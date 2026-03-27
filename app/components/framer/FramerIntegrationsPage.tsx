@@ -110,7 +110,7 @@ const INTEGRATIONS: Integration[] = [
     category: "Incident Management",
     description:
       "Coordinate incident response, track status pages, and automate runbook steps during active incidents.",
-    iconUrl: "https://cdn.simpleicons.org/firehydrant/FF3333",
+    iconUrl: "https://firehydrant.com/favicon.svg",
     iconBg: true,
   },
   {
@@ -156,7 +156,7 @@ const INTEGRATIONS: Integration[] = [
     category: "Observability",
     description:
       "Trace requests across services and explore high-cardinality data to isolate the source of issues.",
-    iconUrl: "https://cdn.simpleicons.org/honeycomb/F5A623",
+    iconUrl: "https://www.honeycomb.io/favicon.ico",
     iconBg: true,
   },
   {
@@ -236,7 +236,7 @@ const INTEGRATIONS: Integration[] = [
     category: "Incident Management",
     description:
       "Manage alerts, check on-call schedules, and coordinate incident response from a single pane of glass.",
-    iconUrl: "https://cdn.simpleicons.org/opsgenie/172B4D",
+    iconUrl: "https://cdn.simpleicons.org/opsgenie/4A9FFF",
     iconBg: true,
   },
   {
@@ -266,7 +266,7 @@ const INTEGRATIONS: Integration[] = [
     category: "Customer Support",
     description:
       "Automatically investigate new customer support tickets and post findings back to your Pylon conversations.",
-    iconUrl: "https://cdn.simpleicons.org/pylon/6C63FF",
+    iconUrl: "https://app.usepylon.com/favicon.svg",
     iconBg: true,
   },
   {
@@ -281,7 +281,7 @@ const INTEGRATIONS: Integration[] = [
     category: "Observability",
     description:
       "Surface error trends, stack traces, and release health data to quickly identify regressions during incidents.",
-    iconUrl: "https://cdn.simpleicons.org/sentry/362D59",
+    iconUrl: "https://cdn.simpleicons.org/sentry/A78BFA",
     iconBg: true,
   },
   {
@@ -289,7 +289,7 @@ const INTEGRATIONS: Integration[] = [
     category: "ITSM",
     description:
       "Create and update ITSM tickets automatically, keeping change management in sync with investigations.",
-    iconUrl: "https://cdn.simpleicons.org/servicenow/62D84E",
+    iconUrl: "https://www.vectorlogo.zone/logos/servicenow/servicenow-icon.svg",
   },
   {
     name: "Slack",
@@ -311,14 +311,14 @@ const INTEGRATIONS: Integration[] = [
     category: "Security",
     description:
       "Review code quality reports and security findings to identify vulnerabilities related to an incident.",
-    iconUrl: "https://cdn.simpleicons.org/sonarqube/4E9BCD",
+    iconUrl: "https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/sonarqube.svg",
   },
   {
     name: "Temporal",
     category: "Infrastructure",
     description:
       "Inspect workflow executions, query task queue health, and debug stuck workflows to resolve orchestration issues.",
-    iconUrl: "https://cdn.simpleicons.org/temporal/000000",
+    iconUrl: "https://temporal.io/favicon.ico",
     iconBg: true,
   },
   {

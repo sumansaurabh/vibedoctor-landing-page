@@ -2,8 +2,8 @@ import { Link } from "@remix-run/react";
 import { useState, useRef, useEffect } from "react";
 
 const USE_CASES = [
+  { label: "Auto Heal Infra", href: "/use-cases/ai-sre" },
   { label: "Automatic Infra Provisioning", href: "/use-cases/infra-provisioning" },
-  { label: "AI SRE", href: "/use-cases/ai-sre" },
   { label: "Agentic Incident Management", href: "/use-cases/incident-management" },
   { label: "AI Support Engineering", href: "/use-cases/ai-support" },
 ];
@@ -80,21 +80,17 @@ export function FramerHeader() {
 
             {useCasesOpen && (
               <div className="absolute top-[calc(100%+10px)] left-1/2 -translate-x-1/2 w-[230px] rounded-2xl border border-white/10 bg-[#04070d]/95 backdrop-blur-xl py-2 shadow-2xl shadow-black/60 z-[60]">
-                <div className="px-4 pb-1.5 pt-1">
-                  <span className="text-[10px] font-medium uppercase tracking-[0.12em] text-white/30">
-                    Use Cases
-                  </span>
-                </div>
-                {USE_CASES.map((item) => (
-                  <Link
-                    key={item.href}
-                    to={item.href}
-                    onClick={() => setUseCasesOpen(false)}
-                    className="flex items-center gap-2.5 px-4 py-2.5 mx-1 rounded-xl text-sm text-white/60 hover:text-white hover:bg-white/[0.06] transition-colors"
-                  >
-                    <span className="h-1 w-1 rounded-full bg-cyan-400/50 flex-shrink-0" />
-                    {item.label}
-                  </Link>
+                {USE_CASES.map((item, i) => (
+                  <div key={item.href}>
+                    {i > 0 && <div className="mx-4 h-px bg-white/[0.06]" />}
+                    <Link
+                      to={item.href}
+                      onClick={() => setUseCasesOpen(false)}
+                      className="flex items-center px-4 py-2.5 mx-1 rounded-xl text-sm text-white/55 hover:text-white hover:bg-white/[0.05] transition-colors"
+                    >
+                      {item.label}
+                    </Link>
+                  </div>
                 ))}
               </div>
             )}

@@ -44,6 +44,7 @@ const SECTIONS = [
       "Severity classification by blast radius and business impact",
     ],
     placeholder: "Alert Triage Console",
+    image: "/tiagger.png",
   },
   {
     label: "ON-CALL MANAGEMENT",
@@ -56,6 +57,7 @@ const SECTIONS = [
       "AI-aware paging - right responder based on investigation context",
     ],
     placeholder: "On-Call Schedule & Escalation",
+    image: "/ON-CALL.png",
   },
   {
     label: "SLACK & TEAMS NATIVE",
@@ -68,6 +70,7 @@ const SECTIONS = [
       "Slash commands for severity, roles, and status updates",
     ],
     placeholder: "Slack Incident Channel",
+    image: "/slack.png"
   },
   {
     label: "AI ROOT CAUSE HYPOTHESES",
@@ -80,6 +83,7 @@ const SECTIONS = [
       "Adversarially verified - no hypothesis without evidence",
     ],
     placeholder: "Root Cause Hypothesis Feed",
+    image: "/iruns.png"
   },
   {
     label: "AUTO-MITIGATION",
@@ -92,6 +96,7 @@ const SECTIONS = [
       "Mitigation plans informed by root cause evidence and prior resolution patterns",
     ],
     placeholder: "Mitigation Approval Panel",
+    image: "/mitigat.png"
   },
   {
     label: "RUNBOOK AUTOMATION",
@@ -104,6 +109,7 @@ const SECTIONS = [
       "Continuous refinement - runbooks evolve after every incident",
     ],
     placeholder: "Runbook Library",
+    image: "/runbook.png"
   },
   {
     label: "AUTOMATED POSTMORTEMS",
@@ -116,6 +122,7 @@ const SECTIONS = [
       "Preventive fix proposals - patches, monitoring improvements, arch changes",
     ],
     placeholder: "Postmortem Report",
+    image: "/memory.png"
   },
   {
     label: "INFRASTRUCTURE CONTEXT GRAPH",
@@ -129,6 +136,7 @@ const SECTIONS = [
       "Tribal knowledge captured permanently - not trapped in chat logs or senior engineers' heads",
     ],
     placeholder: "Infrastructure Context Graph",
+    image: "/curator.png"
   },
 ];
 
@@ -339,7 +347,17 @@ export default function IncidentManagementRoute() {
 
                   {/* Image placeholder */}
                   <div className="flex-1 lg:max-w-[520px]">
-                    <ImagePlaceholder label={section.placeholder} />
+                    {section.image ? (
+                      <div className="relative overflow-hidden rounded-2xl border border-white/[0.08]">
+                        <img
+                          src={section.image}
+                          alt={section.placeholder}
+                          className="w-full h-auto"
+                        />
+                      </div>
+                    ) : (
+                      <ImagePlaceholder label={section.placeholder} />
+                    )}
                   </div>
                 </div>
               ))}
