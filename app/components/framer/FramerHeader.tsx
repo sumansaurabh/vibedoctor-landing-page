@@ -8,6 +8,9 @@ const USE_CASES = [
   { label: "AI Support Engineering", href: "/use-cases/ai-support" },
 ];
 
+/**
+ * Renders the header component for the Framer application.
+ */
 export function FramerHeader() {
   const [useCasesOpen, setUseCasesOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
