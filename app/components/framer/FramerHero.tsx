@@ -1,6 +1,9 @@
 import { IconBrandDiscord, IconBrandBitbucket } from "@tabler/icons-react";
 import { Mail, Github, Gitlab, Code, Terminal, TextCursor } from "lucide-react";
 
+/**
+ * Renders the hero section of the application.
+ */
 export function FramerHero() {
   const ibmPlexFamily = '"IBM Plex Sans Condensed"';
   const interFamily = '"Inter", sans-serif';
