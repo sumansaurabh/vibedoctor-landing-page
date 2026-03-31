@@ -32,6 +32,9 @@ export const links: LinksFunction = () => [
 
 // Removed - meta tags now handled by individual routes using remix-seo
 
+/**
+ * Renders the layout of the application, including meta tags and optional Amplitude scripts.
+ */
 export function Layout({ children }: { children: React.ReactNode }) {
   const enableAmplitude = import.meta.env.VITE_ENABLE_AMPLITUDE !== "false";
   const amplitudeApiKey =
