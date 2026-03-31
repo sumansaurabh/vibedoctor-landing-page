@@ -23,6 +23,9 @@ type PipelineNodeData = {
 
 type PipelineFlowNode = Node<PipelineNodeData, "pipelineNode">;
 
+/**
+ * Renders a pipeline node with handles and styled content based on the provided data.
+ */
 function PipelineNode({ data }: NodeProps<PipelineFlowNode>) {
   const baseCard =
     "relative overflow-hidden rounded-xl border backdrop-blur-sm transition-all duration-500";
@@ -152,6 +155,18 @@ function edgeFor(
   };
 }
 
+/**
+ * Creates an edge object for a connector with specified properties.
+ *
+ * This function determines the active state of the edge based on the provided `activeStep` and the `activationByEdge` mapping. It sets the stroke color and style based on whether the edge is active or not. The edge object includes properties such as `id`, `source`, `target`, and optional handles, along with styling attributes for visual representation.
+ *
+ * @param id - The unique identifier for the edge.
+ * @param source - The source node identifier for the edge.
+ * @param target - The target node identifier for the edge.
+ * @param activeStep - The current step to determine if the edge is active.
+ * @param sourceHandle - Optional handle identifier for the source.
+ * @param targetHandle - Optional handle identifier for the target.
+ */
 function connectorEdgeFor(
   id: string,
   source: string,
@@ -195,6 +210,13 @@ function connectorEdgeFor(
   };
 }
 
+/**
+ * Renders the Framer Services component that visualizes a pipeline for OTP verification.
+ *
+ * This component manages the active step of the pipeline based on the user's scroll position.
+ * It utilizes the `useInView` hook to determine visibility and updates the active step at regular intervals.
+ * The nodes and edges of the pipeline are memoized for performance, and the component also handles mobile-specific steps.
+ */
 export function FramerServices() {
   const interFamily = '"Inter", "Inter Placeholder", sans-serif';
   const serifFamily =
